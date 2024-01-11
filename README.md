@@ -1,3 +1,5 @@
+![RFCAN](https://github.com/Sinamahani/rfcan/blob/main/logo.png "RFCAN_LOGO")
+
 # RFCAN
 RFCAN is a workflow for streamlining the receiver function analysis using:
 
