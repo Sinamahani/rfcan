@@ -39,8 +39,7 @@ class HKCan():
         rfstream2.filter('bandpass', freqmin=0.02, freqmax=0.35, corners=2, zerophase=True)
         self.hkstack = HkStack(rfstream1, rfstream2)
         self.vp = vp
-        self.hkstack.vp = self.vp
-        self.hkstack.stack()
+        self.hkstack.stack(vp=vp)
         self.hkstack.weights = self.weights
         self.hkstack.average()
         self.hkstack.plot()
