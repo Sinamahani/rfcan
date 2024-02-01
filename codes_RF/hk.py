@@ -23,7 +23,7 @@ class HKCan():
             self.rf_paths = self.rf_paths[0:3]
     
         
-    def hk(self, vp = 6.0, save_fig=True):
+    def hk(self, vp = 6.5, save_fig=True):
         self.save_fig = save_fig
         rf_all = obspy.Stream()
         for i in range(len(self.filtered_paths)):
@@ -39,8 +39,7 @@ class HKCan():
         rfstream2.filter('bandpass', freqmin=0.02, freqmax=0.35, corners=2, zerophase=True)
         self.hkstack = HkStack(rfstream1, rfstream2)
         self.vp = vp
-        self.hkstack.vp = self.vp
-        self.hkstack.stack()
+        self.hkstack.stack(vp = self.vp)
         self.hkstack.weights = self.weights
         self.hkstack.average()
         self.hkstack.plot()
