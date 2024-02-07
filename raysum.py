@@ -81,19 +81,49 @@ class geom_:
     def __init__(self, baz, slow):
         self.baz = baz
         self.slow = slow
+
+def misfit_func(x, geom, obs, model):
+    model.thickn[0] = x[0]
+    model.vp[0] = x[1]
+    model.vs[0] = x[2]
+    model.rho[0] = x[3]
+    model.vp[1] = x[4]
+    model.vs[1] = x[5]
+    model.rho[1] = x[6]
+    pred, _, _, _ = predict(geom, model)
+    misfit = norm(pred - obs)
+    print(f"{x} -- misfit: {misfit}")
+    return misfit
     
 
 
-
+# reading real data by station code
 obs, baz, slow, time = read_all_data("CRLN")
 
 
 #initiate model and geom
-model = model_(num_layers=2)
+model = model_(num_layers=3)
 geom = geom_(baz, slow)
 pred, results, geom, model = predict(geom, model)
 
+#misfit function
+misfit = misfit_func([30000, 6000, 3500, 2900, 7000, 3700, 3100], geom, obs, model)
+
+bounds = [(25000, 40000), (5000, 8000), (3000, 6000), (2000, 4000), (5500, 8000), (3500, 6000), (2000, 4000)]
+
+result = dual_annealing(misfit_func, bounds, args=(geom, obs, model), maxiter=15, seed=42)
+
+print(result)
+#plotting the results
 fig, axs = plt.subplots(nrows=2, ncols =1, figsize=(10, 5))
+model.thickn[0] = result.x[0]
+model.vp[0] = result.x[1]
+model.vs[0] = result.x[2]
+model.rho[0] = result.x[3]
+model.vp[1] = result.x[4]
+model.vs[1] = result.x[5]
+model.rho[1] = result.x[6]
+pred, _, _, _ = predict(geom, model)
 axs[0,].imshow(pred, aspect='auto')
 axs[1].imshow(obs, aspect='auto')
 plt.show()
