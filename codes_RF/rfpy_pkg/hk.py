@@ -90,7 +90,7 @@ class HkStack(object):
 
     """
 
-    def __init__(self, rfV1, rfV2=None, strike=None, dip=None, vp=6.0):
+    def __init__(self, rfV1, rfV2=None, strike=None, dip=None, vp=6.5):
 
         # Load example data if initializing empty object
         if rfV1 == 'demo' or rfV1 == 'Demo':

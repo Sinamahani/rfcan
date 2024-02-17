@@ -23,7 +23,7 @@ class HKCan():
             self.rf_paths = self.rf_paths[0:3]
     
         
-    def hk(self, vp = 6.0, save_fig=True):
+    def hk(self, vp = 6.5, save_fig=True):
         self.save_fig = save_fig
         rf_all = obspy.Stream()
         for i in range(len(self.filtered_paths)):
