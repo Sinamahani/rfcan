@@ -1,0 +1,7 @@
+Number of RFs: 9
+Training Information:
+ {'layers': 2, 'fun': 0.976, 'num_iter': 15, 'num_func_eval': 1688}
+Updated Model:
+    index  thickn   rho    vp    vs  dip  strike  plunge  trend  ani
+0      0   28928  2920  5129  3729    0       0       0      0    0
+1      1       0  2217  8319  3788    0       0       0      0    0

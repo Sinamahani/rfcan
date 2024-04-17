@@ -1,0 +1,9 @@
+#2-layer
+thickness, vp, vs, rho, dip, strike, flag, trend, plunge, ani, thickness_low, vp_low, vs_low, rho_low, dip_low, strike_low, flag_low, trend_low, plunge_low, ani_low, thickness_high, vp_high, vs_high, rho_high, dip_high, strike_high, flag_high, trend_high, plunge_high, ani_high
+20_000, 6_000, 3_500, 2_500, 0, 0, 0, 0, 0, 0, 0, 5_500, 3_200, 1_000, 0, 0, 0, 0, 0, 0, 40_000, 7_500, 6_500, 3_800, 3_500, 0, 0, 0, 0, 0, 0
+0     , 6_500, 3_800, 2_700, 0, 0, 0, 0, 0, 0, 0, 6_000, 3_500, 2_500, 0, 0, 0, 0, 0, 0, 0, 7_000, 6_500, 3_800, 2_700, 10, 360, 0, 0, 0, 0
+#3-layer
+thickness, vp, vs, rho, dip, strike, flag, trend, plunge, ani, thickness_low, vp_low, vs_low, rho_low, dip_low, strike_low, flag_low, trend_low, plunge_low, ani_low, thickness_high, vp_high, vs_high, rho_high, dip_high, strike_high, flag_high, trend_high, plunge_high, ani_high
+15_000, 5800, 3_400, 2_400, 0, 0, 0, 0, 0, 0, 0, 5_300, 3_100, 0, 0, 0, 0, 0, 0, 0, 25_000, 6_300, 3_700, 2_600, 0, 0, 0, 0, 0, 0, 0
+15_000 , 6_300, 3_700, 2_600, 0, 0, 0, 0, 0, 0, 0, 5_800, 3_400, 2_400, 0, 0, 0, 0, 0, 0, 0, 6_800, 4_000, 2_800, 10, 360, 0, 0, 0, 0, 0
+0     , 6_800, 4_000, 2_800, 0, 0, 0, 0, 0, 0, 0, 6_300, 3_700, 2_600, 0, 0, 0, 0, 0, 0, 0, 7_300, 4_300, 3_000, 10, 360, 0, 0, 0, 0, 0
