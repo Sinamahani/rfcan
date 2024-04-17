@@ -17,39 +17,34 @@ taup = TauPyModel(model="iasp91")
 class PREP:
     # preparing data for downloading
     @staticmethod
-    def inv_report(ineventory, verbose=True):
-        list = []
-        for network in ineventory:
-            for station in network:
-                if verbose:
-                    print(f"{network.code}.{station.code} | Lat: {station.latitude} | Long: {station.longitude} | Elevation: {station.elevation}")
-                list.append(f"{network.code}.{station.code} | Lat: {station.latitude} | Long: {station.longitude} | Elevation: {station.elevation}")
-                for channel in station:
-                    if verbose:
-                        print(f"--- {channel.code} | Sample Rate: {channel.sample_rate} | Start Time: {channel.start_date} | End Time: {channel.end_date}")
-                    list.append(f"--- {channel.code} | Sample Rate: {channel.sample_rate} | Start Time: {channel.start_date} | End Time: {channel.end_date}")
-        with open("REPORTS/stations.txt", "w") as f:
-            for item in list:
-                f.write("%s\n" % item)
-        print("Report saved to REPORTS/stations.txt")
-        ineventory.write("REPORTS/stations.xml", format="STATIONXML")
+    def inv_report(ineventory):
+        try:
+            old_inv_file = obspy.read_inventory("REPORTS/stations.xml")
+            ineventory += old_inv_file
+        except:
+            pass
+        
+        net_list = []
+        new_inv = obspy.Inventory()
+        for net in ineventory:
+            if net.code not in net_list:
+                net_list.append(net.code)                    
+                sta_list = []
+                new_net = obspy.Inventory(networks=[])
+                for sta in net:
+                    if sta.code not in sta_list:
+                        sta_list.append(sta.code)
+                        new_net += net.select(station=sta.code)
+                new_inv += new_net
+
+        new_inv.write("REPORTS/stations.xml", format="STATIONXML")
 
 
     @staticmethod
-    def cat_report(cat, verbose=True):
-        list = []
-        for event in cat:
-            if verbose:
-                print(f"{event.origins[0].time} | Lat: {event.origins[0].latitude} | Long: {event.origins[0].longitude} | Depth: {event.origins[0].depth} | Mag: {event.magnitudes[0].mag}")
-            list.append(f"{event.origins[0].time} | Lat: {event.origins[0].latitude} | Long: {event.origins[0].longitude} | Depth: {event.origins[0].depth} | Mag: {event.magnitudes[0].mag}")
-        with open("REPORTS/events.txt", "w") as f:
-            for item in list:
-                f.write("%s\n" % item)
-        cat.write("REPORTS/events.xml", format="QUAKEML")
-        for event in cat:
+    def cat_report(catalog):
+        for event in catalog:
             event.write(f"DATA/EVENTS/{event.resource_id.id.split('=')[-1]}.xml", format="QUAKEML")
-        print("Report saved to REPORTS/events.txt")
-
+        
 
     @staticmethod
     def taup_info(stala, stalo, evla, evlo, evdp, verbose=True, percision=2):
@@ -69,55 +64,103 @@ class PREP:
         # for progress status    
         counter = 0
         num_stas = sum(map(lambda net: sum(map(lambda sta: 1, net)), inv))
-            
-        num_wfs = 0 # counter for all waveforms
-        all_wfs_list = [["file_name", "downloaded", "rf_created", "event_id", "ev_time", "ev_lat", "ev_long", "ev_depth", "ev_mag", "net_code", "sta_code", "sta_lat", "sta_long", "sta_elev", "tt", "distance_in_deg", "inc", "tk_angle", "slow"]]
+        
+        try:
+            all_wfs_df = pd.read_csv("DATA/waveforms_list.csv")
+        except:
+            all_wfs_df = pd.DataFrame(columns=["file_name", "downloaded", "rf_created", "event_id", "ev_time", "ev_lat", "ev_long", "ev_depth", "ev_mag", "net_code", "sta_code", "sta_lat", "sta_long", "sta_elev", "tt", "distance_in_deg", "inc", "tk_angle", "slow"])
 
+        num_wfs = 0 # counter for all waveforms
         # Main job; loop through all stations
         for net in inv:
             for sta in net:
+                sta_df = pd.DataFrame([{"code": sta.code, "latitude": sta.latitude, "longitude": sta.longitude, "elevation": sta.elevation,
+                                       "start_date": sta.start_date, "end_date": sta.end_date}])
                 if not sta.end_date:
-                    sta.end_date = UTCDateTime.now()
-                dur = sta.end_date - sta.start_date
-                sta_working_year = int(dur/3600/24//365) #approximate years
-
-                sta_lat = sta.latitude
-                sta_long = sta.longitude
-                sta_elev = sta.elevation
-
-                if sta_working_year > year:
-                    start_data = sta.end_date - year*365*24*3600
-                else:
-                    start_data = sta.start_date
-                sliced_cat = cat.filter(f"time >= {start_data}",f"time <= {sta.end_date}")
+                    sta_df.end_date = UTCDateTime.now()
+                sta_df["working_year"] = (UTCDateTime(sta_df.end_date.values[0]) - UTCDateTime(sta_df.start_date.values[0])) // (3600 * 24 * 365)  # Approximate years of working
+                sta_df["start_date"] = sta_df.apply(lambda row: row["end_date"] - year * 365 * 24 * 3600 if row["working_year"] > year else row["start_date"], axis=1)
+                sliced_cat = cat.filter(f"time >= {sta_df.iloc[0]['start_date']}", f"time <= {sta_df.iloc[0]['end_date']}")
                 if verbose:
-                    print(f"{sta.code} | {sta_working_year} | {len(sliced_cat)}")
-                num_wfs += len(sliced_cat)
-                # Loop through all events
-                for event in sliced_cat:
-                    # adding try-except to avoid errors when calculating travel time
-                    try:
-                        ev_lat = event.origins[0].latitude
-                        ev_long = event.origins[0].longitude
-                        ev_time = event.origins[0].time
-                        ev_id = event.resource_id.id.split("=")[-1]
-                        ev_mag = event.magnitudes[0].mag
-                        ev_depth = event.origins[0].depth/1000 #km
-                        tt, distance_in_deg, inc, tk_angle, slow = PREP.taup_info(sta_lat, sta_long, ev_lat, ev_long, ev_depth, verbose=False, percision=3)
-                        file_name = f"{net.code}_{sta.code}_{ev_time.year}_{ev_time.month}_{ev_time.day}_{ev_time.hour}_{ev_time.minute}_{ev_time.second}"
-                        all_wfs_list.append([file_name, "False", "False", ev_id, ev_time, ev_lat, ev_long, ev_depth, ev_mag, net.code, sta.code, sta_lat, sta_long, sta_elev, tt, distance_in_deg, inc, tk_angle, slow])
-                    except:
-                        # in case of error, skip the event
-                        num_wfs -= 1
-                counter += 1
-                print(f"Progress: {round(counter/num_stas*100, 2)}%", end="\r")
+                    print(f"{sta.code} | {sta_df.iloc[0]['working_year']} | {len(sliced_cat)}")
 
+                # Loop through all events
+                for i, event in enumerate(sliced_cat):
+                    try:
+                        event_info = pd.Series({
+                        "ev_lat": event.origins[0].latitude,
+                        "ev_long": event.origins[0].longitude,
+                        "ev_time": event.origins[0].time,
+                        "ev_id": event.resource_id.id.split("=")[-1],
+                        "ev_mag": event.magnitudes[0].mag,
+                        "ev_depth": event.origins[0].depth / 1000,  # km
+                        })
+                        
+                        tt, distance_in_deg, inc, tk_angle, slow = PREP.taup_info(
+                            sta_df.iloc[0]["latitude"],
+                            sta_df.iloc[0]["longitude"],
+                            event_info["ev_lat"],
+                            event_info["ev_long"],
+                            event_info["ev_depth"],
+                            verbose=False,
+                            percision=3
+                        )
+
+                        file_name = f"{net.code}_{sta.code}_{event_info['ev_time'].year}_{event_info['ev_time'].month}_{event_info['ev_time'].day}_{event_info['ev_time'].hour}_{event_info['ev_time'].minute}_{event_info['ev_time'].second}"
+                        if i == 0:
+                            all_wfs_df.file_name = file_name
+                            all_wfs_df.downloaded = "False"
+                            all_wfs_df.rf_created = "False"
+                            all_wfs_df.event_id = event_info["ev_id"]
+                            all_wfs_df.ev_time = event_info["ev_time"]
+                            all_wfs_df.ev_lat = event_info["ev_lat"]
+                            all_wfs_df.ev_long = event_info["ev_long"]
+                            all_wfs_df.ev_depth = event_info["ev_depth"]
+                            all_wfs_df.ev_mag = event_info["ev_mag"]
+                            all_wfs_df.net_code = net.code
+                            all_wfs_df.sta_code = sta_df.iloc[0]["code"]
+                            all_wfs_df.sta_lat = sta_df.iloc[0]["latitude"]
+                            all_wfs_df.sta_long = sta_df.iloc[0]["longitude"]
+                            all_wfs_df.sta_elev = sta_df.iloc[0]["elevation"]
+                            all_wfs_df.tt = tt
+                            all_wfs_df.distance_in_deg = distance_in_deg
+                            all_wfs_df.inc = inc
+                            all_wfs_df.tk_angle = tk_angle
+                            all_wfs_df.slow = slow
+                        else:
+                            all_wfs_df = pd.concat([all_wfs_df, pd.DataFrame({
+                                "file_name": [file_name],
+                                "downloaded": ["False"],
+                                "rf_created": ["False"],
+                                "event_id": [event_info["ev_id"]],
+                                "ev_time": [event_info["ev_time"]],
+                                "ev_lat": [event_info["ev_lat"]],
+                                "ev_long": [event_info["ev_long"]],
+                                "ev_depth": [event_info["ev_depth"]],
+                                "ev_mag": [event_info["ev_mag"]],
+                                "net_code": [net.code],
+                                "sta_code": [sta_df.iloc[0]["code"]],
+                                "sta_lat": [sta_df.iloc[0]["latitude"]],
+                                "sta_long": [sta_df.iloc[0]["longitude"]],
+                                "sta_elev": [sta_df.iloc[0]["elevation"]],
+                                "tt": [tt],
+                                "distance_in_deg": [distance_in_deg],
+                                "inc": [inc],
+                                "tk_angle": [tk_angle],
+                                "slow": [slow]
+                                })], ignore_index=True)
+                        num_wfs += 1
+                        counter += 1
+                    except IndexError:
+                        print(f"IndexError: The event is too close or too far from the station so that P-wave is not first arrival.\n {sta.code} | {event_info['ev_time']}\n The event is skipped.\n\
+                              {' '*35}")
+                        # print(f"Progress: {round(counter/num_stas*100, 2)}%", end="\r")
+
+        all_wfs_df.drop_duplicates(subset=["file_name"], inplace=True)
         print(f"{'='*25}\nTotal number of waveforms: {num_wfs}\n{'='*25}")
         # saving the list of all waveforms
-        with open("DATA/waveforms_list.csv", "w") as f:
-            for item in all_wfs_list:
-                f.write(f"{item[0]},{item[1]},{item[2]},{item[3]},{item[4]},{item[5]},{item[6]},{item[7]},{item[8]},{item[9]},{item[10]},{item[11]},{item[12]},{item[13]},{item[14]},{item[15]},{item[16]},{item[17]}\n")
-
+        all_wfs_df.to_csv("DATA/waveforms_list.csv", index=False)
+        all_wfs_df.to_csv("REPORTS/waveforms_list_BACKUP.csv", index=False)
 
     @staticmethod
     def create_directories():
@@ -144,11 +187,11 @@ class PREP:
         client = Client("IRIS")
         catalog = client.get_events(starttime=UTCDateTime(f"{events[0]}-01-01"), endtime=UTCDateTime(f"{events[1]}-01-01"), latitude=sum(box[0:2])/2, longitude=sum(box[2:4])/2,
                                     minradius=radius[0], maxradius=radius[1], minmagnitude=mag[0], maxmagnitude=mag[1])
-        PREP.cat_report(catalog, verbose=verbose) #saving the reports for later use
+        PREP.cat_report(catalog) #saving the reports for later use
         #download stations
         inventory = client.get_stations(network = "*", channel = "BH?,HH?", minlatitude=box[0], maxlatitude=box[1], minlongitude=box[2], maxlongitude=box[3],
                                         starttime=UTCDateTime(f"{events[0]}-01-01"), endtime=UTCDateTime(f"{events[1]}-01-01"), level="channel")
-        PREP.inv_report(inventory, verbose=verbose) #saving the reports for later use
+        PREP.inv_report(inventory) #saving the reports for later use
         # make a list of all waveforms needed to be downloaded
         PREP.mk_list(catalog, inventory, year, verbose=verbose)
 

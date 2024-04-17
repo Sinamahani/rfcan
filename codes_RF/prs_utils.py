@@ -101,15 +101,15 @@ def plot_har_dec(X, time, **kwargs):
     # Custom x-axis labels
     fontsize = 6
     ax[0].set_xlabel("Constant", color='black')
-    ax[0].set_title(f"% Range~ {np.round(np.max(A)-np.min(A), 2)}", fontsize=fontsize)
+    ax[0].set_title(f"Range~ {np.round(np.max(A)-np.min(A), 2)}", fontsize=fontsize)
     ax[1].set_xlabel("Cos($\phi$)\nE-W", color='black')
-    ax[1].set_title(f"% Range~ {np.round(np.max(B)-np.min(B), 2)}", fontsize=fontsize)
+    ax[1].set_title(f"Range~ {np.round(np.max(B)-np.min(B), 2)}", fontsize=fontsize)
     ax[2].set_xlabel("Sin($\phi$)\nN-S", color='black')
-    ax[2].set_title(f"% Range~ {np.round(np.max(C)-np.min(C), 2)}", fontsize=fontsize)
+    ax[2].set_title(f"Range~ {np.round(np.max(C)-np.min(C), 2)}", fontsize=fontsize)
     ax[3].set_xlabel("Cos(2$\phi$)\nE-W", color='black')
-    ax[3].set_title(f"% Range~ {np.round(np.max(D)-np.min(D), 2)}", fontsize=fontsize)
+    ax[3].set_title(f"Range~ {np.round(np.max(D)-np.min(D), 2)}", fontsize=fontsize)
     ax[4].set_xlabel("Sin(2$\phi$)\nN-S", color='black')
-    ax[4].set_title(f"% Range~ {np.round(np.max(E)-np.min(E), 2)}", fontsize=fontsize)
+    ax[4].set_title(f"Range~ {np.round(np.max(E)-np.min(E), 2)}", fontsize=fontsize)
     plt.tight_layout()
     plt.show()
 
