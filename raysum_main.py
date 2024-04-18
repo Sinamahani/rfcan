@@ -15,6 +15,27 @@ import ast
 argv = sys.argv
 
 # Functions
+def plot_rfr_and_rft(pred_stacked, obser_stacked, text=""):
+    #plotting rfr and rft beside each other for comparison of the predicted and real data
+
+    fig, ax = plt.subplots(1, 2, figsize=(15, 3))
+    time = np.linspace(-0.1*426, 0.1*426, int(0.5*pred_stacked.shape[0]))#[0:215]
+    ax[0].plot(time, pred_stacked[:426], label="Predicted", linestyle="--", color="red")
+    ax[0].plot(time, obser_stacked[:426], label="Real", color="black")
+    ax[0].legend()
+    ax[0].set_xlabel("Time (s)")
+    ax[0].set_ylabel("Amplitude")
+    ax[0].set_title("RFR")
+    ax[1].plot(time, pred_stacked[426:], label="Predicted", linestyle="--", color="red")
+    ax[1].plot(time, obser_stacked[426:], label="Real", color="black")
+    ax[1].legend()
+    ax[1].set_title("RFT")
+    ax[1].set_xlabel("Time (s)")
+    fig.suptitle(text)
+    fig.tight_layout()
+    return fig
+
+
 def read_layers(layers=3, **kwargs):
     try:
         models = pd.read_csv("inv/initial/all_layers.csv")
@@ -66,6 +87,12 @@ def pyraysum_func(baz, slow, thickn, rho, vp, vs, dip, strike, plunge, trend, an
 
 def cost_func(x, model, geom, obser_rf, layers):
     global updated_model
+    model["dip"] = model["dip"].astype(float)
+    model["strike"] = model["strike"].astype(float)
+    model["plunge"] = model["plunge"].astype(float)
+    model["trend"] = model["trend"].astype(float)
+    model["ani"] = model["ani"].astype(float)
+
     if layers == 2:               # 2-layer model
         model.loc[0, "thickn"] = int(x[0])
         model.loc[1, "thickn"] = 0
@@ -172,7 +199,8 @@ def cost_func(x, model, geom, obser_rf, layers):
     error = norm(mat_rfr, 'fro') + eps_thickn * np.abs(np.sum(model["thickn"]) - 35_500)
     pred_stacked = stack_rfs(pred_data)
     obser_stacked = stack_rfs(obser_data)
-    error = norm(pred_stacked - obser_stacked, 2) #+ eps_thickn * np.abs(np.sum(model["thickn"]) - 40_000)
+    # error = norm(pred_stacked - obser_stacked, 2) #+ eps_thickn * np.abs(np.sum(model["thickn"]) - 40_000)
+    error = 1.0 - np.corrcoef(pred_stacked, obser_stacked)[0][1]
     return error
         
 def reading_rfs(keyword):
@@ -193,11 +221,12 @@ def reading_rfs(keyword):
     for index, row in filtered_files.iterrows():
         wave_path = os.path.join(path, row['file_name']+".pkl")
         st = op.read(wave_path)
-        RFR = st.select(channel="RFR")[0].filter('bandpass', freqmin=0.05, freqmax=0.5, corners=4, zerophase=True).normalize().data
-        # RFT = st.select(channel="RFT")[0].filter('bandpass', freqmin=0.05, freqmax=0.25, corners=4, zerophase=True).normalize().data
+        # RFR = st.select(channel="RFR")[0].filter('bandpass', freqmin=0.05, freqmax=0.5, corners=4, zerophase=True).normalize().data
+        RFT = st.select(channel="RFT")[0].filter('bandpass', freqmin=0.05, freqmax=0.25, corners=4, zerophase=True).normalize().data
         baz.append(st[0].stats.baz)
         slow.append(st[0].stats.slow)
-        obser_data[idx, :] = RFR
+        # obser_data[idx, :] = RFR
+        obser_data[idx, :] = RFT
         idx += 1
     return obser_data, baz, slow
 
@@ -212,11 +241,14 @@ def predict(geom, model):
                                      model["strike"], model["plunge"], model["trend"], model["ani"], 3*426, 0.2)
     pred_data = np.zeros((len(result), 3*426))   
     for idx, i in enumerate(result):
-        RFR = i[1][0]
-        RFR.data = signal.decimate(RFR.data, 1)
-        RFR = RFR.filter('bandpass', freqmin=0.05, freqmax=0.5, corners=4, zerophase=True).normalize().data
-        # RFT = i[1][1].filter('bandpass', freqmin=0.05, freqmax=0.5, corners=2, zerophase=True).normalize().data
-        pred_data[idx, :] = RFR
+        # RFR = i[1][0]
+        # RFR.data = signal.decimate(RFR.data, 1)
+        # RFR = RFR.filter('bandpass', freqmin=0.05, freqmax=0.5, corners=4, zerophase=True).normalize().data
+        # pred_data[idx, :] = RFR
+
+        RFT = i[1][1].filter('bandpass', freqmin=0.05, freqmax=0.25, corners=4, zerophase=True).normalize().data
+        RFT = i[1][1].filter('bandpass', freqmin=0.05, freqmax=0.5, corners=2, zerophase=True).normalize().data
+        pred_data[idx, :] = RFT
         #reducing the length of the data to 426
     pred_data = pred_data[:, 426:2*426]
     return pred_data, model
@@ -234,7 +266,7 @@ def print_and_save(scipy_result, station, layers, obser_data):
 def do_inversion(cost_func, bounds, initial_model, geom, obser_data, layers, method="dual_ann", verbose=False):
     thickn_lc = np.zeros(len(bounds))
     thickn_lc[0:layers-1] = 1
-    lc1 = LinearConstraint([thickn_lc], 30_000, 45_000)     # linear constraint 3 - thickness
+    lc1 = LinearConstraint([thickn_lc], 33_000, 45_000)     # linear constraint 3 - thickness
     if method in ["dual_ann", "dual_annealing", "dual"]:
         results = dual_annealing(cost_func,                         # cost function func(x, *args)
                          bounds,                            # list of (min, max) pairs for each element in x
