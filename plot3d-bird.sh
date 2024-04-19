@@ -1,0 +1,2 @@
+PROJECTNAME="Plot3D of RF models"
+echo $PROJECTNAME
