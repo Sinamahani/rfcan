@@ -1,4 +1,4 @@
-PROJECTNAME="Plot3D is running ..."
+PROJECTNAME="Plot3D is running ...\n Plot3D is part of RFCAN project.\n Developed by: Sina Sabermahani, GIT (sina.sabermahani@gmail.com)\n last update 2024\n ===================="
 echo $PROJECTNAME
 
 function reading_all_files() {
@@ -67,7 +67,7 @@ function cp_model_files() {
                 echo $lat, $lon
                 lat=$(printf "%.2f\n" "$lat")
                 lon=$(printf "%.2f\n" "$lon")
-                cp $model inv/plot3d/bird-view/$station-$layers-$lat-$lon.csv
+                cp $model inv/plot3d/bird-view/$station%$layers%$lat%$lon.csv
             done
             done
         done
