@@ -1,26 +1,13 @@
-function station_list_lat_lon() {
-    # Extract the station list with lat and lon and save it to a file
-    EX='(NR>1) {print $11, $12, $13}'
-    FL='DATA/waveforms_list_org.csv'  # File location
-    awk -F, "$EX" $FL | sort | uniq -c > inv/plot3d/station_list_lat_lon.tmp1
-    awk -F" " '{print $2, $3, $4}' inv/plot3d/station_list_lat_lon.tmp1 > inv/plot3d/station_list_lat_lon.csv
-    rm inv/plot3d/station_list_lat_lon.tmp
-} 
- 
-function cp_model_files() {
-    # Copy the model files to a new directory
-    mkdir -p inv/plot3d/bird-view
-    awk -F "," '{print $1, $2}' inv/plot3d/optimum_num_layers.csv | while read station layers; do
-        echo $station, $layers
-        echo "------------------"
-        find "inv/results/$station/flatmoho" -name "$station_*_$layers*_model.csv" | while IFS= read -r model; do
-            echo $model
-            awk -v station_tmp=$station -F" " '$1==station_tmp {print $2,$3}' inv/plot3d/station_list_lat_lon.csv | while read lat lon; do
-                echo $lat, $lon
-                cp $model inv/plot3d/bird-view/$station-$layers-$lat-$lon.csv
-            done
-            done
-        done
-}
+PROJECTNAME="Plot3D is running ..."
+echo $PROJECTNAME
 
+source plot3d-bird.sh
+# call the functions
+mkdir -p inv/plot3d/bird-view
+reading_all_files   #reading all layers informtion for each station and extact the error values
+station_list_lat_lon
+graph_picker    #plot the graph for each station and save the graphs and extract the x value
+read_tmp_files >> inv/plot3d/optimum_num_layers.csv  # read all tmp files and get the x value
+awk -F ',' '{print $1,",", int($2)}' inv/plot3d/optimum_num_layers.csv > inv/plot3d/optimum_num_layers.csv
+# rm inv/plot3d/bird-view/*.csv
 cp_model_files
