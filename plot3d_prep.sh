@@ -16,3 +16,6 @@ rm inv/plot3d/bird-view/*.csv
 station_list_lat_lon
 cp_model_files $model
 mkdir inv/plot3d/$model | mv inv/plot3d/bird-view inv/plot3d/$model
+python3 codes_RF/plot3dprep.py
+echo "Your files are ready for 3d plot"
+echo "Warning: if you do not see column depth in your csv files in inv/plot3d/$model/bird-view, please run python3 codes_RF/plot3dprep.py again"

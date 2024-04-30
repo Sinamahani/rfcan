@@ -1,3 +1,3 @@
-index,thickn,rho,vp,vs,dip,strike,plunge,trend,ani
-0,44328,2220,7596,4444,0,0,0,0,0
-1,0,2272,7837,5643,0,0,0,0,0
+thickn,rho,vp,vs,dip,strike,plunge,trend,ani,depth
+44328,2220,7596,4444,0,0,0,0,0,44328
+0,2272,7837,5643,0,0,0,0,0,44328
