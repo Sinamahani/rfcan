@@ -11,46 +11,73 @@ import asyncio
 import numpy as np
 
 async def add_depth_column(file_name):
+    # As we already do not have the depth column, we need to add
+    # it by summing the thickness of the layers.
     df = pd.read_csv(file_name)
-    df.drop("index", axis=1, inplace=True)
+    if "index" in df.columns:
+        df.drop("index", axis=1, inplace=True)
     df["depth"] = df["thickn"].cumsum()
-    return df
-
-async def process_file(file_name):
-    df = await add_depth_column(file_name)
     df.to_csv(file_name, index=False)
 
-async def add_depth_column_to_all_files(file_list):
-    tasks = [process_file(file_name) for file_name in file_list]
+async def add_depth_col_to_all_files(file_list):
+    tasks = [add_depth_column(file_name) for file_name in file_list]
     await asyncio.gather(*tasks)
-        
+    
+async def model_expansion(file_name, max_depth=50000, **kwargs):
+    """
+    This function is used to expand the model to the desired depth
+    by adding depths and the output of this function is a csv file
+    which is overwritten on the input file.
+    """
+    #kwargs: depth_interval
+    depth_interval = kwargs.get("depth_interval", 2000)
+    # phase1: reading file and preparing the dataframe
+    file = pd.read_csv(file_name)
+    if "thickn" in file.columns:
+        file.drop(file.columns[0], axis=1, inplace=True)
+    file.iloc[-1,-1] = max_depth
+    # phase2: adding the depth column
+    depth_points = np.arange(0, max_depth, depth_interval)
+    # new_mat = np.zeros((len(depth_points), 9))
+    new_mat = np.full((len(depth_points), 9), np.nan)
+    new_mat[:,-1] = depth_points
+    new_df = pd.DataFrame(new_mat, columns=file.columns)
+    new_df = pd.concat([new_df, file], ignore_index=True).sort_values(by='depth')
+    new_df.bfill(inplace=True)
+    new_df.to_csv(file_name.split("%short.csv")[0]+"%expanded.csv", index=False)
+    
+async def model_expansion_all_files(file_list, **kwargs):
+    tasks = [model_expansion(file_name, **kwargs) for file_name in file_list]
+    await asyncio.gather(*tasks)
+    
+def collecting_all_stations_data(file_list: list) -> None:
+    if not isinstance(file_list, list):
+        raise ValueError("file_list should be a list.")
+    
+    complete_file = pd.DataFrame(columns=["sta","lat", "lon", "depth", "vp", "vs", "rho", "ani","model_layers"])
+    # lat, lon, depth, vp, vs, rho, ani
+    for single_file in file_list:
+        # df = pd.DataFrame(columns=["sta","lat", "lon", "depth", "vp", "vs", "rho", "ani"])
+        file_name = single_file.split("/")[-1].split(".csv")[0].split("%")
+        df = pd.read_csv(single_file)
+        df["sta"] = file_name[0]
+        df["lat"] = file_name[2]
+        df["lon"] = file_name[3]
+        df["model_layers"] = file_name[1]
+        complete_file = pd.concat([complete_file, df], ignore_index=True)
+    complete_file.to_csv("inv/plot3d/complete_file.csv", index=False)
+    
+    
 
 if __name__ == "__main__":
-    file_list = os.listdir("inv/plot3d/flatmoho/bird-view/")
-    file_list = [f"inv/plot3d/flatmoho/bird-view/{f}" for f in file_list if f.endswith(".csv")]
-#    asyncio.run(add_depth_column_to_all_files(file_list))
+    WORKDIR = "inv/plot3d/flatmoho/bird-view/"
+    file_list = os.listdir(WORKDIR)
+    file_list_short = [f"{WORKDIR}{f}" for f in file_list if f.endswith("short.csv")]
+    file_list_expanded = [f"{WORKDIR}{f}" for f in file_list if f.endswith("expanded.csv")]
+    print("size of the short files: ", len(file_list_short))
+    print("size of the expanded files: ", len(file_list_expanded))
+    # asyncio.run(add_depth_col_to_all_files(file_list_short))
+    asyncio.run(model_expansion_all_files(file_list_short, depth_interval=2000))
+    collecting_all_stations_data(file_list_expanded)
 
-
-    def make_file_for_plot(file_name: str, depth_points: int=80, **kwargs) -> None:
-        if not isinstance(depth_points, int):
-            raise ValueError("depth_points should be an integer.")
-        if not isinstance(file_name, str):
-            raise ValueError("file_name should be a string.")
-        max_depth = kwargs.get("max_depth", depth_points)
-        
-        # lat, lon, depth, vp, vs, rho, ani
-        df = pd.DataFrame(columns=["lat", "lon", "depth", "vp", "vs", "rho", "ani"])
-        file_name_list = file_name.split("/")[-1].split(".csv")[0].split("%")
-        sta_code = file_name_list[0]
-        layers = file_name_list[1]
-        lat = file_name_list[2]
-        lon = file_name_list[3]
-        depth = np.linspace(0, max_depth, depth_points)
-        for i in depth:
-            df = df.append({"lat": lat, "lon": lon, "depth": i, "vp": 0, "vs": 0, "rho": 0, "ani": 0}, ignore_index=True)
-        print(df.head(10))
-            
-        
-    make_file_for_plot(file_list[0], 80)
-    
     

@@ -67,7 +67,7 @@ function cp_model_files() {
                 echo $lat, $lon
                 lat=$(printf "%.2f\n" "$lat")
                 lon=$(printf "%.2f\n" "$lon")
-                cp $model inv/plot3d/bird-view/$station%$layers%$lat%$lon.csv
+                cp $model inv/plot3d/bird-view/$station%$layers%$lat%$lon%short.csv
             done
             done
         done
