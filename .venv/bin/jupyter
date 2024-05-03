@@ -1,4 +1,4 @@
-#!/home/sina/rfcan/.venv/bin/python
+#!/Users/sina/Desktop/RFCAN/rfcan/.venv/bin/python
 # -*- coding: utf-8 -*-
 import re
 import sys
