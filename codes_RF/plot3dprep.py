@@ -76,7 +76,7 @@ if __name__ == "__main__":
     file_list_expanded = [f"{WORKDIR}{f}" for f in file_list if f.endswith("expanded.csv")]
     print("size of the short files: ", len(file_list_short))
     print("size of the expanded files: ", len(file_list_expanded))
-    # asyncio.run(add_depth_col_to_all_files(file_list_short))
+    asyncio.run(add_depth_col_to_all_files(file_list_short))
     asyncio.run(model_expansion_all_files(file_list_short, depth_interval=2000))
     collecting_all_stations_data(file_list_expanded)
 
