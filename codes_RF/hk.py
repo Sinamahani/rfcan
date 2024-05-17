@@ -58,7 +58,6 @@ class HKCan():
         self.hkstack.weights = self.weights
         if auto_optimization:
             self.optimize_weights()
-
         self.hkstack.average()
         if plot_on:
             self.hkstack.plot()
@@ -71,11 +70,12 @@ class HKCan():
         print("-"*60)
         print("-"*60)
 
+
     def optimize_weights(self, ref_h0 = 37, ref_k0 = 1.76):
         err = []
-        w1 = np.arange(1, 100, 4)
-        w2 = np.arange(1, 100, 4)
-        w3 = np.arange(1, 100, 4)
+        w1 = np.arange(1, 100, 5)
+        w2 = np.arange(1, 100, 5)
+        w3 = np.arange(1, -100, -5)
         for i in w1:
             for j in w2:
                 for k in w3:
