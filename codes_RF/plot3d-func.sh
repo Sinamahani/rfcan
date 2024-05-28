@@ -5,8 +5,8 @@ function reading_all_files() {
     ls inv/results | while read station;
     do 
     echo 'layer,fun' > inv/plot3d/bird-view/$station.csv;
-    for i in {2..7};
-            do awk -F',' 'NR > 1 {print $2,$3}' inv/results/$station/flatmoho/*_$i*result.csv | sed 's/ /,/g' >> inv/plot3d/bird-view/$station.csv;
+    for i in {2..5};
+            do awk -F',' 'NR > 1 {print $1,$2}' inv/results/$station/*_$i*result.csv | sed 's/ /,/g' >> inv/plot3d/bird-view/$station.csv;
         done;
     done
 }

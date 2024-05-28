@@ -66,11 +66,33 @@ def collecting_all_stations_data(file_list: list) -> None:
         df["model_layers"] = file_name[1]
         complete_file = pd.concat([complete_file, df], ignore_index=True)
     complete_file.to_csv("inv/plot3d/complete_file.csv", index=False)
+
+def extract_moho_depth_and_velocity(file_list: list) -> None:
+    """
+    This function is used to extract the moho depth and the velocity of the moho
+    from the csv files. The output is a csv file.
+    """
+    if not isinstance(file_list, list):
+        raise ValueError("file_list should be a list.")
     
+    moho_dep_and_vel = pd.DataFrame(columns=["sta", "lat", "lon", "moho_depth", "moho_vp", "moho_vs", "moho_rho"])
+    count = 1
+    for single_file in file_list:
+
+        file_name = single_file.split("/")[-1].split(".csv")[0].split("%")
+        df = pd.read_csv(single_file)
+        moho_info = df[df.index == max(df.index)]
+        moho_dep_and_vel.loc[count] = [file_name[0], file_name[2], file_name[3], moho_info['depth'].values[0],
+                                       moho_info['vp'].values[0], moho_info['vs'].values[0], moho_info['rho'].values[0]]
+        count += 1
+    
+    moho_dep_and_vel.to_csv("inv/plot3d/moho_depth_and_vel.csv", index=False)
+
+
     
 
 if __name__ == "__main__":
-    WORKDIR = "inv/plot3d/flatmoho/bird-view/"
+    WORKDIR = "inv/plot3d/flatmoho/"
     file_list = os.listdir(WORKDIR)
     file_list_short = [f"{WORKDIR}{f}" for f in file_list if f.endswith("short.csv")]
     file_list_expanded = [f"{WORKDIR}{f}" for f in file_list if f.endswith("expanded.csv")]
@@ -79,5 +101,4 @@ if __name__ == "__main__":
     asyncio.run(add_depth_col_to_all_files(file_list_short))
     asyncio.run(model_expansion_all_files(file_list_short, depth_interval=2000))
     collecting_all_stations_data(file_list_expanded)
-
-    
+    extract_moho_depth_and_velocity(file_list_short)
