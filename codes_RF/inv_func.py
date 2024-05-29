@@ -3,11 +3,9 @@ import numpy as np
 import os
 import obspy as op
 import pandas as pd
-from numpy.linalg import norm
-from scipy.optimize import dual_annealing, shgo, differential_evolution, basinhopping
-from scipy import signal
+from scipy.optimize import dual_annealing, shgo, differential_evolution
 import matplotlib.pyplot as plt
-from scipy.optimize import LinearConstraint, Bounds
+from scipy.optimize import LinearConstraint
 import ast
 
 def read_layers(layers=2, **kwargs) -> pd.DataFrame:
@@ -74,9 +72,8 @@ def reading_rfs(keyword: str, t_snr_treshold=0) -> list:
         if cal_snr_for_transverse(RFT) > t_snr_treshold:
             baz.append(st[0].stats.baz)
             slow.append(st[0].stats.slow)
-            max_val = max(np.max(np.abs(RFR)), np.max(np.abs(RFT)))
-            RFR = RFR/max_val
-            RFT = RFT/max_val
+            RFR = RFR / np.max(np.abs(RFR))
+            RFT = RFT / np.max(np.abs(RFT))
             obser[idx, :426] = RFR
             obser[idx, 426:] = RFT
             idx += 1
@@ -104,9 +101,8 @@ def predict(geom, model):
     for idx, i in enumerate(result):
         RFR = i[1][0].filter('bandpass', freqmin=0.05, freqmax=0.3, corners=2, zerophase=True).data
         RFT = i[1][1].filter('bandpass', freqmin=0.05, freqmax=0.3, corners=2, zerophase=True).data
-        max_val = max(np.max(np.abs(RFR)), np.max(np.abs(RFT)))
-        pred_r[idx, :] = RFR/max_val
-        pred_t[idx, :] = RFT/max_val
+        pred_r[idx, :] = RFR / np.max(np.abs(RFR))
+        pred_t[idx, :] = RFT / np.max(np.abs(RFT))
     pred_r = pred_r[:, 426:2*426]
     pred_t = pred_t[:, 426:2*426]
     pred[:, :426], pred[:, 426:] = pred_r, pred_t
@@ -241,7 +237,7 @@ def cost_func(x, model, geom, obser_rf, layers, norm_method, t_contrib=0.5):
     # error = np.sum(huber_loss)
 
     # least square loss
-    loss = (rfr_diff**2 + rft_diff**2)
+    loss = ((1-t_contrib) * rfr_diff**2 + t_contrib * rft_diff**2)
     error = np.mean(loss)
 
     # --- loss
@@ -308,7 +304,8 @@ def print_and_save(scipy_result, station, layers):
     dict_result = {"layers": layers,
                    "fun": round(scipy_result.fun, 3),
                    "num_iter": scipy_result.nit,
-                   "num_func_eval": scipy_result.nfev}
+                   "num_func_eval": scipy_result.nfev
+                   }
     print(dict_result)
     df = pd.DataFrame(dict_result, index=[0])
     df.to_csv(f"inv/results/{station}/{station}_layers_{layers}_result.csv", index=False)
