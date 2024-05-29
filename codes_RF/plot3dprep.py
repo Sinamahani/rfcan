@@ -92,8 +92,10 @@ def extract_moho_depth_and_velocity(file_list: list) -> None:
     
 
 if __name__ == "__main__":
-    WORKDIR = "inv/plot3d/flatmoho/"
+    model_type=input("Enter the file name: ")
+    WORKDIR = f"inv/plot3d/{model_type}/bird-view"
     file_list = os.listdir(WORKDIR)
+    print(file_list)
     file_list_short = [f"{WORKDIR}{f}" for f in file_list if f.endswith("short.csv")]
     file_list_expanded = [f"{WORKDIR}{f}" for f in file_list if f.endswith("expanded.csv")]
     print("size of the short files: ", len(file_list_short))

@@ -1,2 +1,2 @@
 layers,fun,num_iter,num_func_eval
-5,0.025,10,3024
+5,0.005,10,6223
