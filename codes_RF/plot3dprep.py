@@ -55,7 +55,8 @@ def collecting_all_stations_data(file_list: list) -> None:
         raise ValueError("file_list should be a list.")
     
     complete_file = pd.DataFrame(columns=["sta","lat", "lon", "depth", "vp", "vs", "rho", "ani","model_layers"])
-    # lat, lon, depth, vp, vs, rho, ani
+    # lat, lon, depth, vp, vs, rho, ani, model_layers
+    row_no = 0
     for single_file in file_list:
         # df = pd.DataFrame(columns=["sta","lat", "lon", "depth", "vp", "vs", "rho", "ani"])
         file_name = single_file.split("/")[-1].split(".csv")[0].split("%")
@@ -92,10 +93,8 @@ def extract_moho_depth_and_velocity(file_list: list) -> None:
     
 
 if __name__ == "__main__":
-    model_type=input("Enter the file name: ")
-    WORKDIR = f"inv/plot3d/{model_type}/bird-view"
+    WORKDIR = f"inv/plot3d/data/"
     file_list = os.listdir(WORKDIR)
-    print(file_list)
     file_list_short = [f"{WORKDIR}{f}" for f in file_list if f.endswith("short.csv")]
     file_list_expanded = [f"{WORKDIR}{f}" for f in file_list if f.endswith("expanded.csv")]
     print("size of the short files: ", len(file_list_short))

@@ -87,13 +87,13 @@ if len(obser_data) > 4:
 
         # # Plotting waveforms
         for wave_num in range(len(pred_data)):
-        data_pred, _ = predict(geom, updated_model)
-        slow_baz = f" Slow= {slow[wave_num]:.2f}     Baz= {baz[wave_num]:.2f} "
-        fig = plot_rfr_and_rft(data_pred[wave_num,:], obser_data[wave_num,:], text=slow_baz)
-        # check if the directory exists
-        if not os.path.exists(f"inv/results/{station}/wfs/"):
-                os.mkdir(f"inv/results/{station}/wfs/")
-        fig.savefig(f"inv/results/{station}/wfs/{station}_layers_{layers}_wave_{wave_num}.png")
-        plt.close()
+                data_pred, _ = predict(geom, updated_model)
+                slow_baz = f" Slow= {slow[wave_num]:.2f}     Baz= {baz[wave_num]:.2f} "
+                fig = plot_rfr_and_rft(data_pred[wave_num,:], obser_data[wave_num,:], text=slow_baz)
+                # check if the directory exists
+                if not os.path.exists(f"inv/results/{station}/wfs/"):
+                        os.mkdir(f"inv/results/{station}/wfs/")
+                fig.savefig(f"inv/results/{station}/wfs/{station}_layers_{layers}_wave_{wave_num}.png")
+                plt.close()
 else:
-        print("The number of RFs is less than 5. The inversion is not meaningful.")
+        print(sys.argv[2], " : The number of RFs is less than 5. The inversion is not meaningful.")
