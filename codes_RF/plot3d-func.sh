@@ -4,15 +4,15 @@ echo $PROJECTNAME
 function reading_all_files() {
     ls inv/results | while read station;
     do 
-    echo 'layer,fun' > inv/plot3d/bird-view/$station.csv;
+    echo 'layer,fun' > inv/plot3d/data/$station.csv;
     for i in {2..5};
-            do awk -F',' 'NR > 1 {print $1,$2}' inv/results/$station/*_$i*result.csv | sed 's/ /,/g' >> inv/plot3d/bird-view/$station.csv;
+            do awk -F',' 'NR > 1 {print $1,$2}' inv/results/$station/*_$i*result.csv | sed 's/ /,/g' >> inv/plot3d/data/$station.csv;
         done;
     done
 }
 
 function graph_picker() {
-    find inv/plot3d/bird-view -name "*.csv" | while IFS= read -r station; do
+    find inv/plot3d/data -name "*.csv" | while IFS= read -r station; do
         echo $station
         gnuplot -persist <<- EOF
             set title "Plot for $station"
@@ -38,10 +38,10 @@ done
 }
 
 function read_tmp_files() {
-    find inv/plot3d/bird-view -name "*csv.tmp" | while IFS= read -r station; do
+    find inv/plot3d/data -name "*csv.tmp" | while IFS= read -r station; do
         x=$(cat $station)
         #extarct the station name
-        station_code=$(echo $station | sed -e 's/inv\/plot3d\/bird-view\///' -e 's/\.csv\.tmp$//')
+        station_code=$(echo $station | sed -e 's/inv\/plot3d\/data\///' -e 's/\.csv\.tmp$//')
         echo $station_code, $x
     done
 }
@@ -55,19 +55,20 @@ function station_list_lat_lon() {
     rm inv/plot3d/station_list_lat_lon.tmp
 } 
  
-function cp_model_files() {
+function cp_model_files {
     # Copy the model files to a new directory
-    # mkdir -p inv/plot3d/bird-view
+    # mkdir -p inv/plot3d/data
+    echo "Copying model files ..."
     awk -F "," '{print $1, $2}' inv/plot3d/optimum_num_layers.csv | while read station layers; do
         echo $station, $layers
         echo "------------------"
-        find "inv/results/$station/$1" -name "$station_*_$layers*_model.csv" | while IFS= read -r model; do
+        find "inv/results/$station" -name "$station_*_$layers*_model.csv" | while IFS= read -r model; do
             echo $model
             awk -v station_tmp=$station -F" " '$1==station_tmp {print $2,$3}' inv/plot3d/station_list_lat_lon.csv | while read lat lon; do
                 echo $lat, $lon
                 lat=$(printf "%.2f\n" "$lat")
                 lon=$(printf "%.2f\n" "$lon")
-                cp $model inv/plot3d/$1/bird-view/$station%$layers%$lat%$lon%short.csv
+                cp $model inv/plot3d/data/$station%$layers%$lat%$lon%short.csv
             done
             done
         done
