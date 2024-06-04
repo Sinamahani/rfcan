@@ -1,0 +1,17 @@
+dlopen(/opt/miniconda3/envs/pg/lib/python3.11/site-packages/pgcore/_pygimli_.so, 0x0002): Library not loaded: @rpath/libcholmod.3.dylib
+  Referenced from: <D05C48BA-33ED-3C63-8331-F97D57235C73> /opt/miniconda3/envs/pg/lib/libgimli.dylib
+  Reason: tried: '/opt/miniconda3/envs/pg/lib/libcholmod.3.dylib' (no such file), '/opt/miniconda3/envs/pg/lib/../lib64/libcholmod.3.dylib' (no such file), '/opt/miniconda3/envs/pg/lib/python3.11/site-packages/pgcore/../../../libcholmod.3.dylib' (no such file), '/opt/miniconda3/envs/pg/lib/python3.11/site-packages/pgcore/../../../../lib64/libcholmod.3.dylib' (no such file), '/opt/miniconda3/envs/pg/lib/python3.11/site-packages/pgcore/../../../libcholmod.3.dylib' (no such file), '/opt/miniconda3/envs/pg/lib/python3.11/site-packages/pgcore/../../../../lib64/libcholmod.3.dylib' (no such file), '/opt/miniconda3/envs/pg/bin/../lib/libcholmod.3.dylib' (no such file), '/opt/miniconda3/envs/pg/bin/../lib/libcholmod.3.dylib' (no such file)
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/pg/lib/python3.11/site-packages/pygimli/core/core.py", line 11, in <module>
+    from . import _pygimli_  # if it works: as pgcore, replace all _pygimli_
+    ^^^^^^^^^^^^^^^^^^^^^^^
+ImportError: cannot import name '_pygimli_' from partially initialized module 'pygimli.core' (most likely due to a circular import) (/opt/miniconda3/envs/pg/lib/python3.11/site-packages/pygimli/core/__init__.py)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/opt/miniconda3/envs/pg/lib/python3.11/site-packages/pgcore/__init__.py", line 20, in <module>
+    from ._pygimli_ import *
+ImportError: dlopen(/opt/miniconda3/envs/pg/lib/python3.11/site-packages/pgcore/_pygimli_.so, 0x0002): Library not loaded: @rpath/libcholmod.3.dylib
+  Referenced from: <D05C48BA-33ED-3C63-8331-F97D57235C73> /opt/miniconda3/envs/pg/lib/libgimli.dylib
+  Reason: tried: '/opt/miniconda3/envs/pg/lib/libcholmod.3.dylib' (no such file), '/opt/miniconda3/envs/pg/lib/../lib64/libcholmod.3.dylib' (no such file), '/opt/miniconda3/envs/pg/lib/python3.11/site-packages/pgcore/../../../libcholmod.3.dylib' (no such file), '/opt/miniconda3/envs/pg/lib/python3.11/site-packages/pgcore/../../../../lib64/libcholmod.3.dylib' (no such file), '/opt/miniconda3/envs/pg/lib/python3.11/site-packages/pgcore/../../../libcholmod.3.dylib' (no such file), '/opt/miniconda3/envs/pg/lib/python3.11/site-packages/pgcore/../../../../lib64/libcholmod.3.dylib' (no such file), '/opt/miniconda3/envs/pg/bin/../lib/libcholmod.3.dylib' (no such file), '/opt/miniconda3/envs/pg/bin/../lib/libcholmod.3.dylib' (no such file)
