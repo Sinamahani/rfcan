@@ -18,12 +18,17 @@ argv = sys.argv
 #controller
 layers = int(argv[1])
 station = argv[2]
-obser_data, baz, slow= reading_rfs(station, t_snr_treshold=3.0)
-if len(obser_data) > 4:
-
-        print(f"{'='*30}\nStation: {station}\nNumber of Layers: {layers}\nNumber of RFs: {len(obser_data)}\nThe program is running...")
-        geom = {"baz": baz,
-                "slow": slow}
+obser_data, baz, slow= reading_rfs(station, t_snr_treshold=0.0)
+print(f"{'='*30}\nStation: {station}\nNumber of Layers: {layers}\nNumber of RFs: {len(obser_data)}\nThe program is running...")
+geom = {"baz": baz,
+        "slow": slow}
+print("Original number of RFs: ", len(obser_data))
+# grid stacking
+obser_data, baz, slow = stacking_obser_data(obser_data, baz, slow, baz_increment=45, slow_increment=0.03)
+geom = {"baz": baz,
+        "slow": slow}
+print("Stacked number of RFs: ", len(obser_data))
+if len(obser_data) > 3:
         initial_model, bounds = read_layers(layers=layers, range_percentage=0.35)
         # print("Initial Model")
         # print(initial_model)
@@ -96,4 +101,4 @@ if len(obser_data) > 4:
                 fig.savefig(f"inv/results/{station}/wfs/{station}_layers_{layers}_wave_{wave_num}.png")
                 plt.close()
 else:
-        print(sys.argv[2], " : The number of RFs is less than 5. The inversion is not meaningful.")
+        print(sys.argv[2], " : The number of RFs is less than 4. The inversion is not meaningful.")

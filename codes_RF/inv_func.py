@@ -328,3 +328,24 @@ def plot_rfr_and_rft(pred_stacked, obser_stacked, text=""):
     fig.suptitle(text)
     fig.tight_layout()
     return fig   
+
+def stacking_obser_data(obser, baz, slow, **kwargs):
+    # stacking rfs based on the back azimuth and slowness grided by 45 and 0.03
+    baz_increment = kwargs.get("baz_increment", 45)
+    slow_increment = kwargs.get("slow_increment", 0.03)
+    baz_bands = np.arange(0, 360, baz_increment)
+    slow_bands = np.arange(0.04, 0.09, slow_increment)
+    new_obser = []
+    new_baz = []
+    new_slow = []
+    for bz in baz_bands:
+        for sl in slow_bands:
+            idx = np.where((np.array(baz) > bz) & (np.array(baz) < bz+baz_increment) & (np.array(slow) > sl) & (np.array(slow) < sl+slow_increment))
+            if len(idx[0]) > 1:
+                sum_obser = np.sum(obser[idx], axis=0)
+                sum_obser[:426] = sum_obser[:426] / np.max(np.abs(sum_obser[:426]))
+                sum_obser[426:] = sum_obser[426:] / np.max(np.abs(sum_obser[426:]))
+                new_obser.append(sum_obser)
+                new_baz.append(bz+baz_increment/2)
+                new_slow.append(sl+slow_increment/2)
+    return np.array(new_obser), new_baz, new_slow
