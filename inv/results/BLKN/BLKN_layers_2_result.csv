@@ -1,2 +1,2 @@
-layers,fun,num_iter,num_func_eval
-2,0.005,10,2555
+layers,fun,num_iter,num_func_eval,num_waves
+2,14.253,10,2555,10
