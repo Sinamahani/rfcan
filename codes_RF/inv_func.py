@@ -280,14 +280,14 @@ def do_inversion(cost_func, bounds: dict, initial_model: dict, geom: dict, obser
         results = dual_annealing(cost_func,                         # cost function func(x, *args)
                          bounds,                            # list of (min, max) pairs for each element in x
                          args=(initial_model, geom, obser_data, layers, norm_method, tr_contrib),
-                         maxiter=10,
+                         maxiter=15,
                          seed=42, 
                          )
     elif method in ["diff_evol","differential_evolution","diff"]:
         results = differential_evolution(cost_func,                         # cost function func(x, *args)
                          bounds,                            # list of (min, max) pairs for each element in x
                          args=(initial_model, geom, obser_data, layers, norm_method, tr_contrib),
-                         maxiter=10,
+                         maxiter=15,
                          constraints=[lc1],
                          disp=verbose
                          )
