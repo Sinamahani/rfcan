@@ -1,5 +1,0 @@
-data size: 16.00
-error: 0.40
-number of iterations: 10.00
-number of function evaluation: 3487.00
-processing time: 381.20
