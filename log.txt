@@ -1,17 +1,1778 @@
-dlopen(/opt/miniconda3/envs/pg/lib/python3.11/site-packages/pgcore/_pygimli_.so, 0x0002): Library not loaded: @rpath/libcholmod.3.dylib
-  Referenced from: <D05C48BA-33ED-3C63-8331-F97D57235C73> /opt/miniconda3/envs/pg/lib/libgimli.dylib
-  Reason: tried: '/opt/miniconda3/envs/pg/lib/libcholmod.3.dylib' (no such file), '/opt/miniconda3/envs/pg/lib/../lib64/libcholmod.3.dylib' (no such file), '/opt/miniconda3/envs/pg/lib/python3.11/site-packages/pgcore/../../../libcholmod.3.dylib' (no such file), '/opt/miniconda3/envs/pg/lib/python3.11/site-packages/pgcore/../../../../lib64/libcholmod.3.dylib' (no such file), '/opt/miniconda3/envs/pg/lib/python3.11/site-packages/pgcore/../../../libcholmod.3.dylib' (no such file), '/opt/miniconda3/envs/pg/lib/python3.11/site-packages/pgcore/../../../../lib64/libcholmod.3.dylib' (no such file), '/opt/miniconda3/envs/pg/bin/../lib/libcholmod.3.dylib' (no such file), '/opt/miniconda3/envs/pg/bin/../lib/libcholmod.3.dylib' (no such file)
-Traceback (most recent call last):
-  File "/opt/miniconda3/envs/pg/lib/python3.11/site-packages/pygimli/core/core.py", line 11, in <module>
-    from . import _pygimli_  # if it works: as pgcore, replace all _pygimli_
-    ^^^^^^^^^^^^^^^^^^^^^^^
-ImportError: cannot import name '_pygimli_' from partially initialized module 'pygimli.core' (most likely due to a circular import) (/opt/miniconda3/envs/pg/lib/python3.11/site-packages/pygimli/core/__init__.py)
-
-During handling of the above exception, another exception occurred:
-
-Traceback (most recent call last):
-  File "/opt/miniconda3/envs/pg/lib/python3.11/site-packages/pgcore/__init__.py", line 20, in <module>
-    from ._pygimli_ import *
-ImportError: dlopen(/opt/miniconda3/envs/pg/lib/python3.11/site-packages/pgcore/_pygimli_.so, 0x0002): Library not loaded: @rpath/libcholmod.3.dylib
-  Referenced from: <D05C48BA-33ED-3C63-8331-F97D57235C73> /opt/miniconda3/envs/pg/lib/libgimli.dylib
-  Reason: tried: '/opt/miniconda3/envs/pg/lib/libcholmod.3.dylib' (no such file), '/opt/miniconda3/envs/pg/lib/../lib64/libcholmod.3.dylib' (no such file), '/opt/miniconda3/envs/pg/lib/python3.11/site-packages/pgcore/../../../libcholmod.3.dylib' (no such file), '/opt/miniconda3/envs/pg/lib/python3.11/site-packages/pgcore/../../../../lib64/libcholmod.3.dylib' (no such file), '/opt/miniconda3/envs/pg/lib/python3.11/site-packages/pgcore/../../../libcholmod.3.dylib' (no such file), '/opt/miniconda3/envs/pg/lib/python3.11/site-packages/pgcore/../../../../lib64/libcholmod.3.dylib' (no such file), '/opt/miniconda3/envs/pg/bin/../lib/libcholmod.3.dylib' (no such file), '/opt/miniconda3/envs/pg/bin/../lib/libcholmod.3.dylib' (no such file)
+Station: AP3N - Observation Data Size: (6, 852)
+differential_evolution step 1: f(x)= 0.374294
+differential_evolution step 2: f(x)= 0.361744
+differential_evolution step 3: f(x)= 0.35123
+differential_evolution step 4: f(x)= 0.346178
+differential_evolution step 5: f(x)= 0.346178
+differential_evolution step 6: f(x)= 0.34167
+differential_evolution step 7: f(x)= 0.336767
+differential_evolution step 8: f(x)= 0.336767
+differential_evolution step 9: f(x)= 0.336767
+differential_evolution step 10: f(x)= 0.336767
+Polishing solution with 'L-BFGS-B'
+Station: AP3N - Observation Data Size: (6, 852)
+differential_evolution step 1: f(x)= 0.355361
+differential_evolution step 2: f(x)= 0.355361
+differential_evolution step 3: f(x)= 0.355361
+differential_evolution step 4: f(x)= 0.351982
+differential_evolution step 5: f(x)= 0.351982
+differential_evolution step 6: f(x)= 0.351917
+differential_evolution step 7: f(x)= 0.351917
+differential_evolution step 8: f(x)= 0.341595
+differential_evolution step 9: f(x)= 0.341595
+differential_evolution step 10: f(x)= 0.341595
+Polishing solution with 'L-BFGS-B'
+Station: AP3N - Observation Data Size: (6, 852)
+differential_evolution step 1: f(x)= 0.342072
+differential_evolution step 2: f(x)= 0.342072
+differential_evolution step 3: f(x)= 0.342072
+differential_evolution step 4: f(x)= 0.342072
+differential_evolution step 5: f(x)= 0.341878
+differential_evolution step 6: f(x)= 0.341878
+differential_evolution step 7: f(x)= 0.340603
+differential_evolution step 8: f(x)= 0.336941
+differential_evolution step 9: f(x)= 0.336847
+differential_evolution step 10: f(x)= 0.326748
+Polishing solution with 'L-BFGS-B'
+Station: AP3N - Observation Data Size: (6, 852)
+differential_evolution step 1: f(x)= 0.355885
+differential_evolution step 2: f(x)= 0.355885
+differential_evolution step 3: f(x)= 0.355885
+differential_evolution step 4: f(x)= 0.355885
+differential_evolution step 5: f(x)= 0.34494
+differential_evolution step 6: f(x)= 0.34494
+differential_evolution step 7: f(x)= 0.34494
+differential_evolution step 8: f(x)= 0.34494
+differential_evolution step 9: f(x)= 0.34494
+differential_evolution step 10: f(x)= 0.34494
+Polishing solution with 'L-BFGS-B'
+Station: ARVN - Observation Data Size: (1, 852)
+differential_evolution step 1: f(x)= 0.365494
+differential_evolution step 2: f(x)= 0.365494
+differential_evolution step 3: f(x)= 0.36158
+differential_evolution step 4: f(x)= 0.357342
+differential_evolution step 5: f(x)= 0.357342
+differential_evolution step 6: f(x)= 0.352866
+differential_evolution step 7: f(x)= 0.352866
+differential_evolution step 8: f(x)= 0.352866
+differential_evolution step 9: f(x)= 0.351712
+differential_evolution step 10: f(x)= 0.351712
+Polishing solution with 'L-BFGS-B'
+Station: ARVN - Observation Data Size: (1, 852)
+differential_evolution step 1: f(x)= 0.353802
+differential_evolution step 2: f(x)= 0.353802
+differential_evolution step 3: f(x)= 0.339608
+differential_evolution step 4: f(x)= 0.339459
+differential_evolution step 5: f(x)= 0.339459
+differential_evolution step 6: f(x)= 0.339459
+differential_evolution step 7: f(x)= 0.332256
+differential_evolution step 8: f(x)= 0.319007
+differential_evolution step 9: f(x)= 0.319007
+differential_evolution step 10: f(x)= 0.319007
+Polishing solution with 'L-BFGS-B'
+Station: ARVN - Observation Data Size: (1, 852)
+differential_evolution step 1: f(x)= 0.363523
+differential_evolution step 2: f(x)= 0.357664
+differential_evolution step 3: f(x)= 0.342815
+differential_evolution step 4: f(x)= 0.341333
+differential_evolution step 5: f(x)= 0.326957
+differential_evolution step 6: f(x)= 0.326957
+differential_evolution step 7: f(x)= 0.326957
+differential_evolution step 8: f(x)= 0.320399
+differential_evolution step 9: f(x)= 0.320399
+differential_evolution step 10: f(x)= 0.320399
+Polishing solution with 'L-BFGS-B'
+Station: ARVN - Observation Data Size: (1, 852)
+differential_evolution step 1: f(x)= 0.370703
+differential_evolution step 2: f(x)= 0.304271
+differential_evolution step 3: f(x)= 0.304271
+differential_evolution step 4: f(x)= 0.304271
+differential_evolution step 5: f(x)= 0.304271
+differential_evolution step 6: f(x)= 0.304271
+differential_evolution step 7: f(x)= 0.301324
+differential_evolution step 8: f(x)= 0.301324
+differential_evolution step 9: f(x)= 0.287658
+differential_evolution step 10: f(x)= 0.287658
+Polishing solution with 'L-BFGS-B'
+Station: AXF - Observation Data Size: (3, 852)
+differential_evolution step 1: f(x)= 0.384532
+differential_evolution step 2: f(x)= 0.363545
+differential_evolution step 3: f(x)= 0.363545
+differential_evolution step 4: f(x)= 0.363545
+differential_evolution step 5: f(x)= 0.363545
+differential_evolution step 6: f(x)= 0.363545
+differential_evolution step 7: f(x)= 0.357012
+differential_evolution step 8: f(x)= 0.355864
+differential_evolution step 9: f(x)= 0.355864
+differential_evolution step 10: f(x)= 0.347932
+Polishing solution with 'L-BFGS-B'
+Station: AXF - Observation Data Size: (3, 852)
+differential_evolution step 1: f(x)= 0.362816
+differential_evolution step 2: f(x)= 0.335093
+differential_evolution step 3: f(x)= 0.335093
+differential_evolution step 4: f(x)= 0.335093
+differential_evolution step 5: f(x)= 0.335093
+differential_evolution step 6: f(x)= 0.335093
+differential_evolution step 7: f(x)= 0.335093
+differential_evolution step 8: f(x)= 0.335093
+differential_evolution step 9: f(x)= 0.335093
+differential_evolution step 10: f(x)= 0.335093
+Polishing solution with 'L-BFGS-B'
+Station: AXF - Observation Data Size: (3, 852)
+differential_evolution step 1: f(x)= 0.308332
+differential_evolution step 2: f(x)= 0.308332
+differential_evolution step 3: f(x)= 0.285906
+differential_evolution step 4: f(x)= 0.285906
+differential_evolution step 5: f(x)= 0.285906
+differential_evolution step 6: f(x)= 0.285906
+differential_evolution step 7: f(x)= 0.279163
+differential_evolution step 8: f(x)= 0.279163
+differential_evolution step 9: f(x)= 0.279163
+differential_evolution step 10: f(x)= 0.279163
+Polishing solution with 'L-BFGS-B'
+Station: AXF - Observation Data Size: (3, 852)
+differential_evolution step 1: f(x)= 0.32949
+differential_evolution step 2: f(x)= 0.324666
+differential_evolution step 3: f(x)= 0.321227
+differential_evolution step 4: f(x)= 0.321227
+differential_evolution step 5: f(x)= 0.321227
+differential_evolution step 6: f(x)= 0.321227
+differential_evolution step 7: f(x)= 0.321227
+differential_evolution step 8: f(x)= 0.312828
+differential_evolution step 9: f(x)= 0.312828
+differential_evolution step 10: f(x)= 0.306414
+Polishing solution with 'L-BFGS-B'
+Station: BLKN - Observation Data Size: (32, 852)
+differential_evolution step 1: f(x)= 0.406311
+differential_evolution step 2: f(x)= 0.401485
+differential_evolution step 3: f(x)= 0.397762
+differential_evolution step 4: f(x)= 0.397762
+differential_evolution step 5: f(x)= 0.397762
+differential_evolution step 6: f(x)= 0.397762
+differential_evolution step 7: f(x)= 0.397762
+differential_evolution step 8: f(x)= 0.397762
+differential_evolution step 9: f(x)= 0.397762
+differential_evolution step 10: f(x)= 0.397762
+Polishing solution with 'L-BFGS-B'
+Station: BLKN - Observation Data Size: (32, 852)
+differential_evolution step 1: f(x)= 0.415931
+differential_evolution step 2: f(x)= 0.400598
+differential_evolution step 3: f(x)= 0.400598
+differential_evolution step 4: f(x)= 0.394376
+differential_evolution step 5: f(x)= 0.385586
+differential_evolution step 6: f(x)= 0.385586
+differential_evolution step 7: f(x)= 0.385586
+differential_evolution step 8: f(x)= 0.385586
+differential_evolution step 9: f(x)= 0.385586
+differential_evolution step 10: f(x)= 0.385586
+Polishing solution with 'L-BFGS-B'
+Station: BLKN - Observation Data Size: (32, 852)
+differential_evolution step 1: f(x)= 0.383777
+differential_evolution step 2: f(x)= 0.383777
+differential_evolution step 3: f(x)= 0.383777
+differential_evolution step 4: f(x)= 0.383777
+differential_evolution step 5: f(x)= 0.37315
+differential_evolution step 6: f(x)= 0.370298
+differential_evolution step 7: f(x)= 0.359314
+differential_evolution step 8: f(x)= 0.359314
+differential_evolution step 9: f(x)= 0.359314
+differential_evolution step 10: f(x)= 0.358428
+Polishing solution with 'L-BFGS-B'
+Station: BLKN - Observation Data Size: (32, 852)
+differential_evolution step 1: f(x)= 0.372281
+differential_evolution step 2: f(x)= 0.372281
+differential_evolution step 3: f(x)= 0.372281
+differential_evolution step 4: f(x)= 0.372281
+differential_evolution step 5: f(x)= 0.372281
+differential_evolution step 6: f(x)= 0.372281
+differential_evolution step 7: f(x)= 0.372172
+differential_evolution step 8: f(x)= 0.372172
+differential_evolution step 9: f(x)= 0.372172
+differential_evolution step 10: f(x)= 0.36813
+Polishing solution with 'L-BFGS-B'
+Station: BULN - Observation Data Size: (7, 852)
+differential_evolution step 1: f(x)= 0.338499
+differential_evolution step 2: f(x)= 0.32239
+differential_evolution step 3: f(x)= 0.32239
+differential_evolution step 4: f(x)= 0.316898
+differential_evolution step 5: f(x)= 0.306627
+differential_evolution step 6: f(x)= 0.303901
+differential_evolution step 7: f(x)= 0.303901
+differential_evolution step 8: f(x)= 0.303901
+differential_evolution step 9: f(x)= 0.303901
+differential_evolution step 10: f(x)= 0.303901
+Polishing solution with 'L-BFGS-B'
+Station: BULN - Observation Data Size: (7, 852)
+differential_evolution step 1: f(x)= 0.368937
+differential_evolution step 2: f(x)= 0.358962
+differential_evolution step 3: f(x)= 0.354559
+differential_evolution step 4: f(x)= 0.34649
+differential_evolution step 5: f(x)= 0.34649
+differential_evolution step 6: f(x)= 0.34649
+differential_evolution step 7: f(x)= 0.332322
+differential_evolution step 8: f(x)= 0.332322
+differential_evolution step 9: f(x)= 0.328474
+differential_evolution step 10: f(x)= 0.323522
+Polishing solution with 'L-BFGS-B'
+Station: BULN - Observation Data Size: (7, 852)
+differential_evolution step 1: f(x)= 0.356881
+differential_evolution step 2: f(x)= 0.348184
+differential_evolution step 3: f(x)= 0.34485
+differential_evolution step 4: f(x)= 0.34485
+differential_evolution step 5: f(x)= 0.338032
+differential_evolution step 6: f(x)= 0.338032
+differential_evolution step 7: f(x)= 0.338032
+differential_evolution step 8: f(x)= 0.338032
+differential_evolution step 9: f(x)= 0.326023
+differential_evolution step 10: f(x)= 0.318947
+Polishing solution with 'L-BFGS-B'
+Station: BULN - Observation Data Size: (7, 852)
+differential_evolution step 1: f(x)= 0.322288
+differential_evolution step 2: f(x)= 0.322288
+differential_evolution step 3: f(x)= 0.322288
+differential_evolution step 4: f(x)= 0.322288
+differential_evolution step 5: f(x)= 0.321675
+differential_evolution step 6: f(x)= 0.31577
+differential_evolution step 7: f(x)= 0.312895
+differential_evolution step 8: f(x)= 0.312895
+differential_evolution step 9: f(x)= 0.312895
+differential_evolution step 10: f(x)= 0.311182
+Polishing solution with 'L-BFGS-B'
+Station: CNF - Observation Data Size: (9, 852)
+differential_evolution step 1: f(x)= 0.513759
+differential_evolution step 2: f(x)= 0.513759
+differential_evolution step 3: f(x)= 0.513759
+differential_evolution step 4: f(x)= 0.511706
+differential_evolution step 5: f(x)= 0.511706
+differential_evolution step 6: f(x)= 0.511706
+differential_evolution step 7: f(x)= 0.508358
+differential_evolution step 8: f(x)= 0.508358
+differential_evolution step 9: f(x)= 0.503782
+differential_evolution step 10: f(x)= 0.502076
+Polishing solution with 'L-BFGS-B'
+Station: CNF - Observation Data Size: (9, 852)
+differential_evolution step 1: f(x)= 0.511683
+differential_evolution step 2: f(x)= 0.486163
+differential_evolution step 3: f(x)= 0.486163
+differential_evolution step 4: f(x)= 0.486163
+differential_evolution step 5: f(x)= 0.486163
+differential_evolution step 6: f(x)= 0.486163
+differential_evolution step 7: f(x)= 0.486163
+differential_evolution step 8: f(x)= 0.486163
+differential_evolution step 9: f(x)= 0.486163
+differential_evolution step 10: f(x)= 0.486163
+Polishing solution with 'L-BFGS-B'
+Station: CNF - Observation Data Size: (9, 852)
+differential_evolution step 1: f(x)= 0.458399
+differential_evolution step 2: f(x)= 0.458399
+differential_evolution step 3: f(x)= 0.458399
+differential_evolution step 4: f(x)= 0.4388
+differential_evolution step 5: f(x)= 0.4388
+differential_evolution step 6: f(x)= 0.4388
+differential_evolution step 7: f(x)= 0.428108
+differential_evolution step 8: f(x)= 0.428108
+differential_evolution step 9: f(x)= 0.428108
+differential_evolution step 10: f(x)= 0.428108
+Polishing solution with 'L-BFGS-B'
+Station: CNF - Observation Data Size: (9, 852)
+differential_evolution step 1: f(x)= 0.499604
+differential_evolution step 2: f(x)= 0.482191
+differential_evolution step 3: f(x)= 0.482191
+differential_evolution step 4: f(x)= 0.482191
+differential_evolution step 5: f(x)= 0.463752
+differential_evolution step 6: f(x)= 0.463752
+differential_evolution step 7: f(x)= 0.463752
+differential_evolution step 8: f(x)= 0.462405
+differential_evolution step 9: f(x)= 0.450386
+differential_evolution step 10: f(x)= 0.450386
+Polishing solution with 'L-BFGS-B'
+Station: CRLN - Observation Data Size: (16, 852)
+differential_evolution step 1: f(x)= 0.349413
+differential_evolution step 2: f(x)= 0.335269
+differential_evolution step 3: f(x)= 0.335269
+differential_evolution step 4: f(x)= 0.322283
+differential_evolution step 5: f(x)= 0.322283
+differential_evolution step 6: f(x)= 0.322283
+differential_evolution step 7: f(x)= 0.322283
+differential_evolution step 8: f(x)= 0.322283
+differential_evolution step 9: f(x)= 0.322283
+differential_evolution step 10: f(x)= 0.322283
+Polishing solution with 'L-BFGS-B'
+Station: CRLN - Observation Data Size: (16, 852)
+differential_evolution step 1: f(x)= 0.372363
+differential_evolution step 2: f(x)= 0.369656
+differential_evolution step 3: f(x)= 0.369656
+differential_evolution step 4: f(x)= 0.350788
+differential_evolution step 5: f(x)= 0.337358
+differential_evolution step 6: f(x)= 0.322888
+differential_evolution step 7: f(x)= 0.322888
+differential_evolution step 8: f(x)= 0.322888
+differential_evolution step 9: f(x)= 0.322888
+differential_evolution step 10: f(x)= 0.322888
+Polishing solution with 'L-BFGS-B'
+Station: CRLN - Observation Data Size: (16, 852)
+differential_evolution step 1: f(x)= 0.343168
+differential_evolution step 2: f(x)= 0.341728
+differential_evolution step 3: f(x)= 0.312574
+differential_evolution step 4: f(x)= 0.312574
+differential_evolution step 5: f(x)= 0.312574
+differential_evolution step 6: f(x)= 0.312574
+differential_evolution step 7: f(x)= 0.312574
+differential_evolution step 8: f(x)= 0.312574
+differential_evolution step 9: f(x)= 0.312574
+differential_evolution step 10: f(x)= 0.312574
+Polishing solution with 'L-BFGS-B'
+Station: CRLN - Observation Data Size: (16, 852)
+differential_evolution step 1: f(x)= 0.318516
+differential_evolution step 2: f(x)= 0.318516
+differential_evolution step 3: f(x)= 0.318516
+differential_evolution step 4: f(x)= 0.318516
+differential_evolution step 5: f(x)= 0.318516
+differential_evolution step 6: f(x)= 0.318516
+differential_evolution step 7: f(x)= 0.318516
+differential_evolution step 8: f(x)= 0.318516
+differential_evolution step 9: f(x)= 0.318516
+differential_evolution step 10: f(x)= 0.316366
+Polishing solution with 'L-BFGS-B'
+Station: CTSN - Observation Data Size: (25, 852)
+differential_evolution step 1: f(x)= 0.441202
+differential_evolution step 2: f(x)= 0.440478
+differential_evolution step 3: f(x)= 0.440478
+differential_evolution step 4: f(x)= 0.439154
+differential_evolution step 5: f(x)= 0.436968
+differential_evolution step 6: f(x)= 0.436968
+differential_evolution step 7: f(x)= 0.436968
+differential_evolution step 8: f(x)= 0.436968
+differential_evolution step 9: f(x)= 0.434265
+differential_evolution step 10: f(x)= 0.434265
+Polishing solution with 'L-BFGS-B'
+Station: CTSN - Observation Data Size: (25, 852)
+differential_evolution step 1: f(x)= 0.426179
+differential_evolution step 2: f(x)= 0.426179
+differential_evolution step 3: f(x)= 0.426179
+differential_evolution step 4: f(x)= 0.426179
+differential_evolution step 5: f(x)= 0.418748
+differential_evolution step 6: f(x)= 0.400121
+differential_evolution step 7: f(x)= 0.386695
+differential_evolution step 8: f(x)= 0.386695
+differential_evolution step 9: f(x)= 0.386695
+differential_evolution step 10: f(x)= 0.386695
+Polishing solution with 'L-BFGS-B'
+Station: CTSN - Observation Data Size: (25, 852)
+differential_evolution step 1: f(x)= 0.412545
+differential_evolution step 2: f(x)= 0.412545
+differential_evolution step 3: f(x)= 0.412366
+differential_evolution step 4: f(x)= 0.412366
+differential_evolution step 5: f(x)= 0.403517
+differential_evolution step 6: f(x)= 0.403517
+differential_evolution step 7: f(x)= 0.402039
+differential_evolution step 8: f(x)= 0.393389
+differential_evolution step 9: f(x)= 0.393389
+differential_evolution step 10: f(x)= 0.393389
+Polishing solution with 'L-BFGS-B'
+Station: CTSN - Observation Data Size: (25, 852)
+differential_evolution step 1: f(x)= 0.438647
+differential_evolution step 2: f(x)= 0.407457
+differential_evolution step 3: f(x)= 0.407457
+differential_evolution step 4: f(x)= 0.407457
+differential_evolution step 5: f(x)= 0.407457
+differential_evolution step 6: f(x)= 0.407457
+differential_evolution step 7: f(x)= 0.397911
+differential_evolution step 8: f(x)= 0.397911
+differential_evolution step 9: f(x)= 0.397911
+differential_evolution step 10: f(x)= 0.397911
+Polishing solution with 'L-BFGS-B'
+Station: DORN - Observation Data Size: (49, 852)
+differential_evolution step 1: f(x)= 0.372125
+differential_evolution step 2: f(x)= 0.370138
+differential_evolution step 3: f(x)= 0.370138
+differential_evolution step 4: f(x)= 0.370138
+differential_evolution step 5: f(x)= 0.370138
+differential_evolution step 6: f(x)= 0.370138
+differential_evolution step 7: f(x)= 0.370138
+differential_evolution step 8: f(x)= 0.369968
+differential_evolution step 9: f(x)= 0.369968
+differential_evolution step 10: f(x)= 0.369968
+Polishing solution with 'L-BFGS-B'
+Station: DORN - Observation Data Size: (49, 852)
+differential_evolution step 1: f(x)= 0.378654
+differential_evolution step 2: f(x)= 0.378654
+differential_evolution step 3: f(x)= 0.378654
+differential_evolution step 4: f(x)= 0.378654
+differential_evolution step 5: f(x)= 0.378654
+differential_evolution step 6: f(x)= 0.376308
+differential_evolution step 7: f(x)= 0.362852
+differential_evolution step 8: f(x)= 0.346464
+differential_evolution step 9: f(x)= 0.339501
+differential_evolution step 10: f(x)= 0.339501
+Polishing solution with 'L-BFGS-B'
+Station: DORN - Observation Data Size: (49, 852)
+differential_evolution step 1: f(x)= 0.380717
+differential_evolution step 2: f(x)= 0.371804
+differential_evolution step 3: f(x)= 0.357949
+differential_evolution step 4: f(x)= 0.341873
+differential_evolution step 5: f(x)= 0.341873
+differential_evolution step 6: f(x)= 0.323173
+differential_evolution step 7: f(x)= 0.323173
+differential_evolution step 8: f(x)= 0.31896
+differential_evolution step 9: f(x)= 0.31896
+differential_evolution step 10: f(x)= 0.31896
+Polishing solution with 'L-BFGS-B'
+Station: DORN - Observation Data Size: (49, 852)
+differential_evolution step 1: f(x)= 0.378676
+differential_evolution step 2: f(x)= 0.352239
+differential_evolution step 3: f(x)= 0.352239
+differential_evolution step 4: f(x)= 0.34779
+differential_evolution step 5: f(x)= 0.332739
+differential_evolution step 6: f(x)= 0.325644
+differential_evolution step 7: f(x)= 0.325644
+differential_evolution step 8: f(x)= 0.325644
+differential_evolution step 9: f(x)= 0.325644
+differential_evolution step 10: f(x)= 0.325644
+Polishing solution with 'L-BFGS-B'
+Station: EUNU - Observation Data Size: (16, 852)
+differential_evolution step 1: f(x)= 0.48585
+differential_evolution step 2: f(x)= 0.48585
+differential_evolution step 3: f(x)= 0.48585
+differential_evolution step 4: f(x)= 0.48585
+differential_evolution step 5: f(x)= 0.48585
+differential_evolution step 6: f(x)= 0.48585
+differential_evolution step 7: f(x)= 0.48585
+differential_evolution step 8: f(x)= 0.483391
+differential_evolution step 9: f(x)= 0.483391
+differential_evolution step 10: f(x)= 0.482961
+Polishing solution with 'L-BFGS-B'
+Station: EUNU - Observation Data Size: (16, 852)
+differential_evolution step 1: f(x)= 0.462771
+differential_evolution step 2: f(x)= 0.462771
+differential_evolution step 3: f(x)= 0.462771
+differential_evolution step 4: f(x)= 0.426127
+differential_evolution step 5: f(x)= 0.426127
+differential_evolution step 6: f(x)= 0.426127
+differential_evolution step 7: f(x)= 0.426127
+differential_evolution step 8: f(x)= 0.426127
+differential_evolution step 9: f(x)= 0.426127
+differential_evolution step 10: f(x)= 0.402803
+Polishing solution with 'L-BFGS-B'
+Station: EUNU - Observation Data Size: (16, 852)
+differential_evolution step 1: f(x)= 0.410828
+differential_evolution step 2: f(x)= 0.395053
+differential_evolution step 3: f(x)= 0.36795
+differential_evolution step 4: f(x)= 0.36795
+differential_evolution step 5: f(x)= 0.36795
+differential_evolution step 6: f(x)= 0.36795
+differential_evolution step 7: f(x)= 0.36795
+differential_evolution step 8: f(x)= 0.36795
+differential_evolution step 9: f(x)= 0.36795
+differential_evolution step 10: f(x)= 0.36795
+Polishing solution with 'L-BFGS-B'
+Station: EUNU - Observation Data Size: (16, 852)
+differential_evolution step 1: f(x)= 0.430452
+differential_evolution step 2: f(x)= 0.416683
+differential_evolution step 3: f(x)= 0.402296
+differential_evolution step 4: f(x)= 0.402296
+differential_evolution step 5: f(x)= 0.402296
+differential_evolution step 6: f(x)= 0.399629
+differential_evolution step 7: f(x)= 0.399629
+differential_evolution step 8: f(x)= 0.383377
+differential_evolution step 9: f(x)= 0.383377
+differential_evolution step 10: f(x)= 0.383377
+Polishing solution with 'L-BFGS-B'
+Station: FCC - Observation Data Size: (19, 852)
+differential_evolution step 1: f(x)= 0.365626
+differential_evolution step 2: f(x)= 0.316984
+differential_evolution step 3: f(x)= 0.316984
+differential_evolution step 4: f(x)= 0.316984
+differential_evolution step 5: f(x)= 0.316984
+differential_evolution step 6: f(x)= 0.316984
+differential_evolution step 7: f(x)= 0.316984
+differential_evolution step 8: f(x)= 0.316984
+differential_evolution step 9: f(x)= 0.314989
+differential_evolution step 10: f(x)= 0.314989
+Polishing solution with 'L-BFGS-B'
+Station: FCC - Observation Data Size: (19, 852)
+differential_evolution step 1: f(x)= 0.378886
+differential_evolution step 2: f(x)= 0.378886
+differential_evolution step 3: f(x)= 0.378886
+differential_evolution step 4: f(x)= 0.378886
+differential_evolution step 5: f(x)= 0.378886
+differential_evolution step 6: f(x)= 0.366501
+differential_evolution step 7: f(x)= 0.358388
+differential_evolution step 8: f(x)= 0.342052
+differential_evolution step 9: f(x)= 0.342052
+differential_evolution step 10: f(x)= 0.342052
+Polishing solution with 'L-BFGS-B'
+Station: FCC - Observation Data Size: (19, 852)
+differential_evolution step 1: f(x)= 0.383964
+differential_evolution step 2: f(x)= 0.363873
+differential_evolution step 3: f(x)= 0.352837
+differential_evolution step 4: f(x)= 0.352837
+differential_evolution step 5: f(x)= 0.352837
+differential_evolution step 6: f(x)= 0.352837
+differential_evolution step 7: f(x)= 0.346977
+differential_evolution step 8: f(x)= 0.346977
+differential_evolution step 9: f(x)= 0.346977
+differential_evolution step 10: f(x)= 0.331498
+Polishing solution with 'L-BFGS-B'
+Station: FCC - Observation Data Size: (19, 852)
+differential_evolution step 1: f(x)= 0.371468
+differential_evolution step 2: f(x)= 0.371468
+differential_evolution step 3: f(x)= 0.347041
+differential_evolution step 4: f(x)= 0.341694
+differential_evolution step 5: f(x)= 0.334451
+differential_evolution step 6: f(x)= 0.334451
+differential_evolution step 7: f(x)= 0.334451
+differential_evolution step 8: f(x)= 0.334451
+differential_evolution step 9: f(x)= 0.334451
+differential_evolution step 10: f(x)= 0.32835
+Polishing solution with 'L-BFGS-B'
+Station: GIFN - Observation Data Size: (6, 852)
+differential_evolution step 1: f(x)= 0.386753
+differential_evolution step 2: f(x)= 0.386753
+differential_evolution step 3: f(x)= 0.384922
+differential_evolution step 4: f(x)= 0.380169
+differential_evolution step 5: f(x)= 0.377196
+differential_evolution step 6: f(x)= 0.377196
+differential_evolution step 7: f(x)= 0.373189
+differential_evolution step 8: f(x)= 0.37118
+differential_evolution step 9: f(x)= 0.37118
+differential_evolution step 10: f(x)= 0.37118
+Polishing solution with 'L-BFGS-B'
+Station: GIFN - Observation Data Size: (6, 852)
+differential_evolution step 1: f(x)= 0.393513
+differential_evolution step 2: f(x)= 0.370698
+differential_evolution step 3: f(x)= 0.370698
+differential_evolution step 4: f(x)= 0.370698
+differential_evolution step 5: f(x)= 0.365764
+differential_evolution step 6: f(x)= 0.365764
+differential_evolution step 7: f(x)= 0.365764
+differential_evolution step 8: f(x)= 0.333098
+differential_evolution step 9: f(x)= 0.333098
+differential_evolution step 10: f(x)= 0.333098
+Polishing solution with 'L-BFGS-B'
+Station: GIFN - Observation Data Size: (6, 852)
+differential_evolution step 1: f(x)= 0.349215
+differential_evolution step 2: f(x)= 0.338649
+differential_evolution step 3: f(x)= 0.338649
+differential_evolution step 4: f(x)= 0.336286
+differential_evolution step 5: f(x)= 0.336286
+differential_evolution step 6: f(x)= 0.33128
+differential_evolution step 7: f(x)= 0.33128
+differential_evolution step 8: f(x)= 0.324431
+differential_evolution step 9: f(x)= 0.324431
+differential_evolution step 10: f(x)= 0.309797
+Polishing solution with 'L-BFGS-B'
+Station: GIFN - Observation Data Size: (6, 852)
+differential_evolution step 1: f(x)= 0.35089
+differential_evolution step 2: f(x)= 0.35089
+differential_evolution step 3: f(x)= 0.337339
+differential_evolution step 4: f(x)= 0.337339
+differential_evolution step 5: f(x)= 0.337339
+differential_evolution step 6: f(x)= 0.337339
+differential_evolution step 7: f(x)= 0.332732
+differential_evolution step 8: f(x)= 0.332732
+differential_evolution step 9: f(x)= 0.319567
+differential_evolution step 10: f(x)= 0.319567
+Polishing solution with 'L-BFGS-B'
+Station: IBFB - Observation Data Size: (7, 852)
+differential_evolution step 1: f(x)= 0.446279
+differential_evolution step 2: f(x)= 0.438354
+differential_evolution step 3: f(x)= 0.420607
+differential_evolution step 4: f(x)= 0.418111
+differential_evolution step 5: f(x)= 0.418111
+differential_evolution step 6: f(x)= 0.418111
+differential_evolution step 7: f(x)= 0.418111
+differential_evolution step 8: f(x)= 0.418111
+differential_evolution step 9: f(x)= 0.418111
+differential_evolution step 10: f(x)= 0.418111
+Polishing solution with 'L-BFGS-B'
+Station: IBFB - Observation Data Size: (7, 852)
+differential_evolution step 1: f(x)= 0.430299
+differential_evolution step 2: f(x)= 0.422979
+differential_evolution step 3: f(x)= 0.408026
+differential_evolution step 4: f(x)= 0.408026
+differential_evolution step 5: f(x)= 0.408026
+differential_evolution step 6: f(x)= 0.408026
+differential_evolution step 7: f(x)= 0.408026
+differential_evolution step 8: f(x)= 0.400173
+differential_evolution step 9: f(x)= 0.400173
+differential_evolution step 10: f(x)= 0.400173
+Polishing solution with 'L-BFGS-B'
+Station: IBFB - Observation Data Size: (7, 852)
+differential_evolution step 1: f(x)= 0.371733
+differential_evolution step 2: f(x)= 0.371733
+differential_evolution step 3: f(x)= 0.371733
+differential_evolution step 4: f(x)= 0.371733
+differential_evolution step 5: f(x)= 0.358726
+differential_evolution step 6: f(x)= 0.345667
+differential_evolution step 7: f(x)= 0.345667
+differential_evolution step 8: f(x)= 0.345667
+differential_evolution step 9: f(x)= 0.345667
+differential_evolution step 10: f(x)= 0.345667
+Polishing solution with 'L-BFGS-B'
+Station: IBFB - Observation Data Size: (7, 852)
+differential_evolution step 1: f(x)= 0.373149
+differential_evolution step 2: f(x)= 0.373149
+differential_evolution step 3: f(x)= 0.373149
+differential_evolution step 4: f(x)= 0.373149
+differential_evolution step 5: f(x)= 0.373149
+differential_evolution step 6: f(x)= 0.373149
+differential_evolution step 7: f(x)= 0.373149
+differential_evolution step 8: f(x)= 0.344139
+differential_evolution step 9: f(x)= 0.344139
+differential_evolution step 10: f(x)= 0.344139
+Polishing solution with 'L-BFGS-B'
+Station: IGLN - Observation Data Size: (1, 852)
+differential_evolution step 1: f(x)= 0.304665
+differential_evolution step 2: f(x)= 0.304665
+differential_evolution step 3: f(x)= 0.304665
+differential_evolution step 4: f(x)= 0.295306
+differential_evolution step 5: f(x)= 0.295306
+differential_evolution step 6: f(x)= 0.291495
+differential_evolution step 7: f(x)= 0.291495
+differential_evolution step 8: f(x)= 0.291495
+differential_evolution step 9: f(x)= 0.291495
+differential_evolution step 10: f(x)= 0.290112
+Polishing solution with 'L-BFGS-B'
+Station: IGLN - Observation Data Size: (1, 852)
+differential_evolution step 1: f(x)= 0.252148
+differential_evolution step 2: f(x)= 0.252148
+differential_evolution step 3: f(x)= 0.252148
+differential_evolution step 4: f(x)= 0.24164
+differential_evolution step 5: f(x)= 0.24164
+differential_evolution step 6: f(x)= 0.24164
+differential_evolution step 7: f(x)= 0.24164
+differential_evolution step 8: f(x)= 0.207858
+differential_evolution step 9: f(x)= 0.207858
+differential_evolution step 10: f(x)= 0.207858
+Polishing solution with 'L-BFGS-B'
+Station: IGLN - Observation Data Size: (1, 852)
+differential_evolution step 1: f(x)= 0.256419
+differential_evolution step 2: f(x)= 0.237657
+differential_evolution step 3: f(x)= 0.236063
+differential_evolution step 4: f(x)= 0.205317
+differential_evolution step 5: f(x)= 0.205317
+differential_evolution step 6: f(x)= 0.205317
+differential_evolution step 7: f(x)= 0.203004
+differential_evolution step 8: f(x)= 0.203004
+differential_evolution step 9: f(x)= 0.203004
+differential_evolution step 10: f(x)= 0.203004
+Polishing solution with 'L-BFGS-B'
+Station: IGLN - Observation Data Size: (1, 852)
+differential_evolution step 1: f(x)= 0.169489
+differential_evolution step 2: f(x)= 0.169489
+differential_evolution step 3: f(x)= 0.169489
+differential_evolution step 4: f(x)= 0.169489
+differential_evolution step 5: f(x)= 0.169489
+differential_evolution step 6: f(x)= 0.169489
+differential_evolution step 7: f(x)= 0.169489
+differential_evolution step 8: f(x)= 0.169489
+differential_evolution step 9: f(x)= 0.169489
+differential_evolution step 10: f(x)= 0.169489
+Polishing solution with 'L-BFGS-B'
+Station: ILON - Observation Data Size: (45, 852)
+differential_evolution step 1: f(x)= 0.376163
+differential_evolution step 2: f(x)= 0.376163
+differential_evolution step 3: f(x)= 0.376163
+differential_evolution step 4: f(x)= 0.376163
+differential_evolution step 5: f(x)= 0.375845
+differential_evolution step 6: f(x)= 0.375845
+differential_evolution step 7: f(x)= 0.374961
+differential_evolution step 8: f(x)= 0.374961
+differential_evolution step 9: f(x)= 0.367678
+differential_evolution step 10: f(x)= 0.365476
+Polishing solution with 'L-BFGS-B'
+Station: ILON - Observation Data Size: (45, 852)
+differential_evolution step 1: f(x)= 0.396794
+differential_evolution step 2: f(x)= 0.396794
+differential_evolution step 3: f(x)= 0.396794
+differential_evolution step 4: f(x)= 0.361512
+differential_evolution step 5: f(x)= 0.361512
+differential_evolution step 6: f(x)= 0.361512
+differential_evolution step 7: f(x)= 0.361512
+differential_evolution step 8: f(x)= 0.361512
+differential_evolution step 9: f(x)= 0.361512
+differential_evolution step 10: f(x)= 0.361512
+Polishing solution with 'L-BFGS-B'
+Station: ILON - Observation Data Size: (45, 852)
+differential_evolution step 1: f(x)= 0.358363
+differential_evolution step 2: f(x)= 0.358363
+differential_evolution step 3: f(x)= 0.352188
+differential_evolution step 4: f(x)= 0.352188
+differential_evolution step 5: f(x)= 0.351395
+differential_evolution step 6: f(x)= 0.351395
+differential_evolution step 7: f(x)= 0.3508
+differential_evolution step 8: f(x)= 0.340903
+differential_evolution step 9: f(x)= 0.340903
+differential_evolution step 10: f(x)= 0.337896
+Polishing solution with 'L-BFGS-B'
+Station: ILON - Observation Data Size: (45, 852)
+differential_evolution step 1: f(x)= 0.344602
+differential_evolution step 2: f(x)= 0.344602
+differential_evolution step 3: f(x)= 0.344602
+differential_evolution step 4: f(x)= 0.344569
+differential_evolution step 5: f(x)= 0.340011
+differential_evolution step 6: f(x)= 0.340011
+differential_evolution step 7: f(x)= 0.340011
+differential_evolution step 8: f(x)= 0.331437
+differential_evolution step 9: f(x)= 0.331437
+differential_evolution step 10: f(x)= 0.331437
+Polishing solution with 'L-BFGS-B'
+Station: INUQ - Observation Data Size: (1, 852)
+differential_evolution step 1: f(x)= 0.274098
+differential_evolution step 2: f(x)= 0.274098
+differential_evolution step 3: f(x)= 0.274098
+differential_evolution step 4: f(x)= 0.274098
+differential_evolution step 5: f(x)= 0.274098
+differential_evolution step 6: f(x)= 0.274098
+differential_evolution step 7: f(x)= 0.274098
+differential_evolution step 8: f(x)= 0.271294
+differential_evolution step 9: f(x)= 0.271294
+differential_evolution step 10: f(x)= 0.271294
+Polishing solution with 'L-BFGS-B'
+Station: INUQ - Observation Data Size: (1, 852)
+differential_evolution step 1: f(x)= 0.281189
+differential_evolution step 2: f(x)= 0.281189
+differential_evolution step 3: f(x)= 0.245064
+differential_evolution step 4: f(x)= 0.245064
+differential_evolution step 5: f(x)= 0.245064
+differential_evolution step 6: f(x)= 0.245064
+differential_evolution step 7: f(x)= 0.245064
+differential_evolution step 8: f(x)= 0.245064
+differential_evolution step 9: f(x)= 0.245064
+differential_evolution step 10: f(x)= 0.245064
+Polishing solution with 'L-BFGS-B'
+Station: INUQ - Observation Data Size: (1, 852)
+differential_evolution step 1: f(x)= 0.269488
+differential_evolution step 2: f(x)= 0.263842
+differential_evolution step 3: f(x)= 0.260185
+differential_evolution step 4: f(x)= 0.246758
+differential_evolution step 5: f(x)= 0.246758
+differential_evolution step 6: f(x)= 0.232693
+differential_evolution step 7: f(x)= 0.232693
+differential_evolution step 8: f(x)= 0.232693
+differential_evolution step 9: f(x)= 0.232693
+differential_evolution step 10: f(x)= 0.213792
+Polishing solution with 'L-BFGS-B'
+Station: INUQ - Observation Data Size: (1, 852)
+differential_evolution step 1: f(x)= 0.269848
+differential_evolution step 2: f(x)= 0.269848
+differential_evolution step 3: f(x)= 0.234463
+differential_evolution step 4: f(x)= 0.234463
+differential_evolution step 5: f(x)= 0.234463
+differential_evolution step 6: f(x)= 0.234463
+differential_evolution step 7: f(x)= 0.234463
+differential_evolution step 8: f(x)= 0.234463
+differential_evolution step 9: f(x)= 0.234463
+differential_evolution step 10: f(x)= 0.234463
+Polishing solution with 'L-BFGS-B'
+Station: JOSN - Observation Data Size: (4, 852)
+differential_evolution step 1: f(x)= 0.478585
+differential_evolution step 2: f(x)= 0.473743
+differential_evolution step 3: f(x)= 0.424081
+differential_evolution step 4: f(x)= 0.424081
+differential_evolution step 5: f(x)= 0.424081
+differential_evolution step 6: f(x)= 0.424081
+differential_evolution step 7: f(x)= 0.424081
+differential_evolution step 8: f(x)= 0.424081
+differential_evolution step 9: f(x)= 0.416483
+differential_evolution step 10: f(x)= 0.416483
+Polishing solution with 'L-BFGS-B'
+Station: JOSN - Observation Data Size: (4, 852)
+differential_evolution step 1: f(x)= 0.456321
+differential_evolution step 2: f(x)= 0.426938
+differential_evolution step 3: f(x)= 0.421131
+differential_evolution step 4: f(x)= 0.421131
+differential_evolution step 5: f(x)= 0.421131
+differential_evolution step 6: f(x)= 0.421131
+differential_evolution step 7: f(x)= 0.421131
+differential_evolution step 8: f(x)= 0.417904
+differential_evolution step 9: f(x)= 0.417904
+differential_evolution step 10: f(x)= 0.417904
+Polishing solution with 'L-BFGS-B'
+Station: JOSN - Observation Data Size: (4, 852)
+differential_evolution step 1: f(x)= 0.391561
+differential_evolution step 2: f(x)= 0.391561
+differential_evolution step 3: f(x)= 0.384524
+differential_evolution step 4: f(x)= 0.384524
+differential_evolution step 5: f(x)= 0.373854
+differential_evolution step 6: f(x)= 0.370917
+differential_evolution step 7: f(x)= 0.370917
+differential_evolution step 8: f(x)= 0.370917
+differential_evolution step 9: f(x)= 0.370917
+differential_evolution step 10: f(x)= 0.370917
+Polishing solution with 'L-BFGS-B'
+Station: JOSN - Observation Data Size: (4, 852)
+differential_evolution step 1: f(x)= 0.426753
+differential_evolution step 2: f(x)= 0.396792
+differential_evolution step 3: f(x)= 0.396792
+differential_evolution step 4: f(x)= 0.396792
+differential_evolution step 5: f(x)= 0.396792
+differential_evolution step 6: f(x)= 0.396792
+differential_evolution step 7: f(x)= 0.383327
+differential_evolution step 8: f(x)= 0.383327
+differential_evolution step 9: f(x)= 0.383327
+differential_evolution step 10: f(x)= 0.383327
+Polishing solution with 'L-BFGS-B'
+Station: KUGN - Observation Data Size: (13, 852)
+differential_evolution step 1: f(x)= 0.324176
+differential_evolution step 2: f(x)= 0.324176
+differential_evolution step 3: f(x)= 0.324176
+differential_evolution step 4: f(x)= 0.324176
+differential_evolution step 5: f(x)= 0.324176
+differential_evolution step 6: f(x)= 0.320327
+differential_evolution step 7: f(x)= 0.317888
+differential_evolution step 8: f(x)= 0.317888
+differential_evolution step 9: f(x)= 0.317888
+differential_evolution step 10: f(x)= 0.314341
+Polishing solution with 'L-BFGS-B'
+Station: KUGN - Observation Data Size: (13, 852)
+differential_evolution step 1: f(x)= 0.330026
+differential_evolution step 2: f(x)= 0.330026
+differential_evolution step 3: f(x)= 0.328585
+differential_evolution step 4: f(x)= 0.328585
+differential_evolution step 5: f(x)= 0.327424
+differential_evolution step 6: f(x)= 0.3205
+differential_evolution step 7: f(x)= 0.3205
+differential_evolution step 8: f(x)= 0.315646
+differential_evolution step 9: f(x)= 0.312065
+differential_evolution step 10: f(x)= 0.312065
+Polishing solution with 'L-BFGS-B'
+Station: KUGN - Observation Data Size: (13, 852)
+differential_evolution step 1: f(x)= 0.36213
+differential_evolution step 2: f(x)= 0.348052
+differential_evolution step 3: f(x)= 0.296403
+differential_evolution step 4: f(x)= 0.296403
+differential_evolution step 5: f(x)= 0.296403
+differential_evolution step 6: f(x)= 0.296403
+differential_evolution step 7: f(x)= 0.296403
+differential_evolution step 8: f(x)= 0.296403
+differential_evolution step 9: f(x)= 0.296403
+differential_evolution step 10: f(x)= 0.296136
+Polishing solution with 'L-BFGS-B'
+Station: KUGN - Observation Data Size: (13, 852)
+differential_evolution step 1: f(x)= 0.313152
+differential_evolution step 2: f(x)= 0.293407
+differential_evolution step 3: f(x)= 0.293407
+differential_evolution step 4: f(x)= 0.293407
+differential_evolution step 5: f(x)= 0.293407
+differential_evolution step 6: f(x)= 0.293407
+differential_evolution step 7: f(x)= 0.293407
+differential_evolution step 8: f(x)= 0.293407
+differential_evolution step 9: f(x)= 0.293407
+differential_evolution step 10: f(x)= 0.293407
+Polishing solution with 'L-BFGS-B'
+Station: LAIN - Observation Data Size: (7, 852)
+differential_evolution step 1: f(x)= 0.369404
+differential_evolution step 2: f(x)= 0.357037
+differential_evolution step 3: f(x)= 0.357037
+differential_evolution step 4: f(x)= 0.351982
+differential_evolution step 5: f(x)= 0.351982
+differential_evolution step 6: f(x)= 0.351982
+differential_evolution step 7: f(x)= 0.351878
+differential_evolution step 8: f(x)= 0.344504
+differential_evolution step 9: f(x)= 0.344504
+differential_evolution step 10: f(x)= 0.343064
+Polishing solution with 'L-BFGS-B'
+Station: LAIN - Observation Data Size: (7, 852)
+differential_evolution step 1: f(x)= 0.358515
+differential_evolution step 2: f(x)= 0.358515
+differential_evolution step 3: f(x)= 0.358515
+differential_evolution step 4: f(x)= 0.33487
+differential_evolution step 5: f(x)= 0.33487
+differential_evolution step 6: f(x)= 0.332346
+differential_evolution step 7: f(x)= 0.332346
+differential_evolution step 8: f(x)= 0.332346
+differential_evolution step 9: f(x)= 0.326234
+differential_evolution step 10: f(x)= 0.326234
+Polishing solution with 'L-BFGS-B'
+Station: LAIN - Observation Data Size: (7, 852)
+differential_evolution step 1: f(x)= 0.396353
+differential_evolution step 2: f(x)= 0.38948
+differential_evolution step 3: f(x)= 0.38675
+differential_evolution step 4: f(x)= 0.383154
+differential_evolution step 5: f(x)= 0.383154
+differential_evolution step 6: f(x)= 0.366431
+differential_evolution step 7: f(x)= 0.365968
+differential_evolution step 8: f(x)= 0.348525
+differential_evolution step 9: f(x)= 0.343147
+differential_evolution step 10: f(x)= 0.343147
+Polishing solution with 'L-BFGS-B'
+Station: LAIN - Observation Data Size: (7, 852)
+differential_evolution step 1: f(x)= 0.373187
+differential_evolution step 2: f(x)= 0.359996
+differential_evolution step 3: f(x)= 0.338461
+differential_evolution step 4: f(x)= 0.338461
+differential_evolution step 5: f(x)= 0.330307
+differential_evolution step 6: f(x)= 0.330307
+differential_evolution step 7: f(x)= 0.330307
+differential_evolution step 8: f(x)= 0.312637
+differential_evolution step 9: f(x)= 0.312637
+differential_evolution step 10: f(x)= 0.312637
+Polishing solution with 'L-BFGS-B'
+Station: MANN - Observation Data Size: (7, 852)
+differential_evolution step 1: f(x)= 0.394182
+differential_evolution step 2: f(x)= 0.388229
+differential_evolution step 3: f(x)= 0.385303
+differential_evolution step 4: f(x)= 0.385303
+differential_evolution step 5: f(x)= 0.373231
+differential_evolution step 6: f(x)= 0.358913
+differential_evolution step 7: f(x)= 0.358913
+differential_evolution step 8: f(x)= 0.358913
+differential_evolution step 9: f(x)= 0.358913
+differential_evolution step 10: f(x)= 0.358913
+Polishing solution with 'L-BFGS-B'
+Station: MANN - Observation Data Size: (7, 852)
+differential_evolution step 1: f(x)= 0.370702
+differential_evolution step 2: f(x)= 0.370702
+differential_evolution step 3: f(x)= 0.370702
+differential_evolution step 4: f(x)= 0.357088
+differential_evolution step 5: f(x)= 0.357088
+differential_evolution step 6: f(x)= 0.357088
+differential_evolution step 7: f(x)= 0.351487
+differential_evolution step 8: f(x)= 0.350681
+differential_evolution step 9: f(x)= 0.350681
+differential_evolution step 10: f(x)= 0.350681
+Polishing solution with 'L-BFGS-B'
+Station: MANN - Observation Data Size: (7, 852)
+differential_evolution step 1: f(x)= 0.389581
+differential_evolution step 2: f(x)= 0.372006
+differential_evolution step 3: f(x)= 0.371247
+differential_evolution step 4: f(x)= 0.344004
+differential_evolution step 5: f(x)= 0.344004
+differential_evolution step 6: f(x)= 0.339621
+differential_evolution step 7: f(x)= 0.339621
+differential_evolution step 8: f(x)= 0.328553
+differential_evolution step 9: f(x)= 0.328553
+differential_evolution step 10: f(x)= 0.328553
+Polishing solution with 'L-BFGS-B'
+Station: MANN - Observation Data Size: (7, 852)
+differential_evolution step 1: f(x)= 0.364075
+differential_evolution step 2: f(x)= 0.364075
+differential_evolution step 3: f(x)= 0.364075
+differential_evolution step 4: f(x)= 0.359525
+differential_evolution step 5: f(x)= 0.355275
+differential_evolution step 6: f(x)= 0.355275
+differential_evolution step 7: f(x)= 0.355275
+differential_evolution step 8: f(x)= 0.355275
+differential_evolution step 9: f(x)= 0.355275
+differential_evolution step 10: f(x)= 0.336603
+Polishing solution with 'L-BFGS-B'
+Station: MARN - Observation Data Size: (6, 852)
+differential_evolution step 1: f(x)= 0.392089
+differential_evolution step 2: f(x)= 0.345548
+differential_evolution step 3: f(x)= 0.345548
+differential_evolution step 4: f(x)= 0.345548
+differential_evolution step 5: f(x)= 0.344031
+differential_evolution step 6: f(x)= 0.34277
+differential_evolution step 7: f(x)= 0.34277
+differential_evolution step 8: f(x)= 0.34277
+differential_evolution step 9: f(x)= 0.34277
+differential_evolution step 10: f(x)= 0.342002
+Polishing solution with 'L-BFGS-B'
+Station: MARN - Observation Data Size: (6, 852)
+differential_evolution step 1: f(x)= 0.403035
+differential_evolution step 2: f(x)= 0.392418
+differential_evolution step 3: f(x)= 0.374005
+differential_evolution step 4: f(x)= 0.374005
+differential_evolution step 5: f(x)= 0.343514
+differential_evolution step 6: f(x)= 0.343514
+differential_evolution step 7: f(x)= 0.341203
+differential_evolution step 8: f(x)= 0.341203
+differential_evolution step 9: f(x)= 0.341203
+differential_evolution step 10: f(x)= 0.341203
+Polishing solution with 'L-BFGS-B'
+Station: MARN - Observation Data Size: (6, 852)
+differential_evolution step 1: f(x)= 0.35159
+differential_evolution step 2: f(x)= 0.35159
+differential_evolution step 3: f(x)= 0.330991
+differential_evolution step 4: f(x)= 0.310367
+differential_evolution step 5: f(x)= 0.310367
+differential_evolution step 6: f(x)= 0.310367
+differential_evolution step 7: f(x)= 0.310367
+differential_evolution step 8: f(x)= 0.310367
+differential_evolution step 9: f(x)= 0.310367
+differential_evolution step 10: f(x)= 0.310367
+Polishing solution with 'L-BFGS-B'
+Station: MARN - Observation Data Size: (6, 852)
+differential_evolution step 1: f(x)= 0.309434
+differential_evolution step 2: f(x)= 0.306637
+differential_evolution step 3: f(x)= 0.306637
+differential_evolution step 4: f(x)= 0.306637
+differential_evolution step 5: f(x)= 0.306637
+differential_evolution step 6: f(x)= 0.294383
+differential_evolution step 7: f(x)= 0.294383
+differential_evolution step 8: f(x)= 0.294383
+differential_evolution step 9: f(x)= 0.294383
+differential_evolution step 10: f(x)= 0.294383
+Polishing solution with 'L-BFGS-B'
+Station: MCMN - Observation Data Size: (5, 852)
+differential_evolution step 1: f(x)= 0.262774
+differential_evolution step 2: f(x)= 0.262774
+differential_evolution step 3: f(x)= 0.245161
+differential_evolution step 4: f(x)= 0.24254
+differential_evolution step 5: f(x)= 0.24254
+differential_evolution step 6: f(x)= 0.23827
+differential_evolution step 7: f(x)= 0.23827
+differential_evolution step 8: f(x)= 0.23827
+differential_evolution step 9: f(x)= 0.236438
+differential_evolution step 10: f(x)= 0.235495
+Polishing solution with 'L-BFGS-B'
+Station: MCMN - Observation Data Size: (5, 852)
+differential_evolution step 1: f(x)= 0.303631
+differential_evolution step 2: f(x)= 0.282458
+differential_evolution step 3: f(x)= 0.245265
+differential_evolution step 4: f(x)= 0.245265
+differential_evolution step 5: f(x)= 0.245265
+differential_evolution step 6: f(x)= 0.245265
+differential_evolution step 7: f(x)= 0.245265
+differential_evolution step 8: f(x)= 0.242657
+differential_evolution step 9: f(x)= 0.242657
+differential_evolution step 10: f(x)= 0.242657
+Polishing solution with 'L-BFGS-B'
+Station: MCMN - Observation Data Size: (5, 852)
+differential_evolution step 1: f(x)= 0.327676
+differential_evolution step 2: f(x)= 0.313485
+differential_evolution step 3: f(x)= 0.310457
+differential_evolution step 4: f(x)= 0.284921
+differential_evolution step 5: f(x)= 0.284921
+differential_evolution step 6: f(x)= 0.284921
+differential_evolution step 7: f(x)= 0.284921
+differential_evolution step 8: f(x)= 0.284921
+differential_evolution step 9: f(x)= 0.284921
+differential_evolution step 10: f(x)= 0.284921
+Polishing solution with 'L-BFGS-B'
+Station: MCMN - Observation Data Size: (5, 852)
+differential_evolution step 1: f(x)= 0.268903
+differential_evolution step 2: f(x)= 0.268903
+differential_evolution step 3: f(x)= 0.254714
+differential_evolution step 4: f(x)= 0.254145
+differential_evolution step 5: f(x)= 0.243853
+differential_evolution step 6: f(x)= 0.243853
+differential_evolution step 7: f(x)= 0.243853
+differential_evolution step 8: f(x)= 0.243853
+differential_evolution step 9: f(x)= 0.243853
+differential_evolution step 10: f(x)= 0.243853
+Polishing solution with 'L-BFGS-B'
+Station: NOTN - Observation Data Size: (3, 852)
+differential_evolution step 1: f(x)= 0.307321
+differential_evolution step 2: f(x)= 0.307321
+differential_evolution step 3: f(x)= 0.27358
+differential_evolution step 4: f(x)= 0.27358
+differential_evolution step 5: f(x)= 0.27358
+differential_evolution step 6: f(x)= 0.27358
+differential_evolution step 7: f(x)= 0.27358
+differential_evolution step 8: f(x)= 0.27358
+differential_evolution step 9: f(x)= 0.267102
+differential_evolution step 10: f(x)= 0.267102
+Polishing solution with 'L-BFGS-B'
+Station: NOTN - Observation Data Size: (3, 852)
+differential_evolution step 1: f(x)= 0.30978
+differential_evolution step 2: f(x)= 0.309142
+differential_evolution step 3: f(x)= 0.284806
+differential_evolution step 4: f(x)= 0.280841
+differential_evolution step 5: f(x)= 0.280841
+differential_evolution step 6: f(x)= 0.276434
+differential_evolution step 7: f(x)= 0.276434
+differential_evolution step 8: f(x)= 0.261492
+differential_evolution step 9: f(x)= 0.261492
+differential_evolution step 10: f(x)= 0.261492
+Polishing solution with 'L-BFGS-B'
+Station: NOTN - Observation Data Size: (3, 852)
+differential_evolution step 1: f(x)= 0.270597
+differential_evolution step 2: f(x)= 0.270597
+differential_evolution step 3: f(x)= 0.270597
+differential_evolution step 4: f(x)= 0.270597
+differential_evolution step 5: f(x)= 0.270597
+differential_evolution step 6: f(x)= 0.269155
+differential_evolution step 7: f(x)= 0.269155
+differential_evolution step 8: f(x)= 0.269155
+differential_evolution step 9: f(x)= 0.259477
+differential_evolution step 10: f(x)= 0.259477
+Polishing solution with 'L-BFGS-B'
+Station: NOTN - Observation Data Size: (3, 852)
+differential_evolution step 1: f(x)= 0.28219
+differential_evolution step 2: f(x)= 0.272072
+differential_evolution step 3: f(x)= 0.272072
+differential_evolution step 4: f(x)= 0.271344
+differential_evolution step 5: f(x)= 0.271344
+differential_evolution step 6: f(x)= 0.271344
+differential_evolution step 7: f(x)= 0.271344
+differential_evolution step 8: f(x)= 0.271241
+differential_evolution step 9: f(x)= 0.271241
+differential_evolution step 10: f(x)= 0.266875
+Polishing solution with 'L-BFGS-B'
+Station: NUNN - Observation Data Size: (3, 852)
+differential_evolution step 1: f(x)= 0.446567
+differential_evolution step 2: f(x)= 0.446567
+differential_evolution step 3: f(x)= 0.437425
+differential_evolution step 4: f(x)= 0.436775
+differential_evolution step 5: f(x)= 0.431137
+differential_evolution step 6: f(x)= 0.431137
+differential_evolution step 7: f(x)= 0.431137
+differential_evolution step 8: f(x)= 0.431137
+differential_evolution step 9: f(x)= 0.4307
+differential_evolution step 10: f(x)= 0.4307
+Polishing solution with 'L-BFGS-B'
+Station: NUNN - Observation Data Size: (3, 852)
+differential_evolution step 1: f(x)= 0.441747
+differential_evolution step 2: f(x)= 0.397827
+differential_evolution step 3: f(x)= 0.388474
+differential_evolution step 4: f(x)= 0.388474
+differential_evolution step 5: f(x)= 0.37803
+differential_evolution step 6: f(x)= 0.37803
+differential_evolution step 7: f(x)= 0.37803
+differential_evolution step 8: f(x)= 0.37803
+differential_evolution step 9: f(x)= 0.37803
+differential_evolution step 10: f(x)= 0.37803
+Polishing solution with 'L-BFGS-B'
+Station: NUNN - Observation Data Size: (3, 852)
+differential_evolution step 1: f(x)= 0.381541
+differential_evolution step 2: f(x)= 0.356384
+differential_evolution step 3: f(x)= 0.356384
+differential_evolution step 4: f(x)= 0.356384
+differential_evolution step 5: f(x)= 0.356384
+differential_evolution step 6: f(x)= 0.356384
+differential_evolution step 7: f(x)= 0.356384
+differential_evolution step 8: f(x)= 0.356384
+differential_evolution step 9: f(x)= 0.353123
+differential_evolution step 10: f(x)= 0.345288
+Polishing solution with 'L-BFGS-B'
+Station: NUNN - Observation Data Size: (3, 852)
+differential_evolution step 1: f(x)= 0.410964
+differential_evolution step 2: f(x)= 0.410964
+differential_evolution step 3: f(x)= 0.399191
+differential_evolution step 4: f(x)= 0.39824
+differential_evolution step 5: f(x)= 0.372662
+differential_evolution step 6: f(x)= 0.372662
+differential_evolution step 7: f(x)= 0.36771
+differential_evolution step 8: f(x)= 0.36771
+differential_evolution step 9: f(x)= 0.36771
+differential_evolution step 10: f(x)= 0.36771
+Polishing solution with 'L-BFGS-B'
+Station: POIN - Observation Data Size: (7, 852)
+differential_evolution step 1: f(x)= 0.323626
+differential_evolution step 2: f(x)= 0.323626
+differential_evolution step 3: f(x)= 0.323626
+differential_evolution step 4: f(x)= 0.312288
+differential_evolution step 5: f(x)= 0.302802
+differential_evolution step 6: f(x)= 0.294386
+differential_evolution step 7: f(x)= 0.294386
+differential_evolution step 8: f(x)= 0.294386
+differential_evolution step 9: f(x)= 0.294386
+differential_evolution step 10: f(x)= 0.293097
+Polishing solution with 'L-BFGS-B'
+Station: POIN - Observation Data Size: (7, 852)
+differential_evolution step 1: f(x)= 0.328761
+differential_evolution step 2: f(x)= 0.323653
+differential_evolution step 3: f(x)= 0.318709
+differential_evolution step 4: f(x)= 0.31115
+differential_evolution step 5: f(x)= 0.31115
+differential_evolution step 6: f(x)= 0.31115
+differential_evolution step 7: f(x)= 0.302947
+differential_evolution step 8: f(x)= 0.291002
+differential_evolution step 9: f(x)= 0.291002
+differential_evolution step 10: f(x)= 0.291002
+Polishing solution with 'L-BFGS-B'
+Station: POIN - Observation Data Size: (7, 852)
+differential_evolution step 1: f(x)= 0.359451
+differential_evolution step 2: f(x)= 0.347269
+differential_evolution step 3: f(x)= 0.333331
+differential_evolution step 4: f(x)= 0.333331
+differential_evolution step 5: f(x)= 0.333331
+differential_evolution step 6: f(x)= 0.325404
+differential_evolution step 7: f(x)= 0.295196
+differential_evolution step 8: f(x)= 0.295196
+differential_evolution step 9: f(x)= 0.295196
+differential_evolution step 10: f(x)= 0.295196
+Polishing solution with 'L-BFGS-B'
+Station: POIN - Observation Data Size: (7, 852)
+differential_evolution step 1: f(x)= 0.330475
+differential_evolution step 2: f(x)= 0.305084
+differential_evolution step 3: f(x)= 0.305084
+differential_evolution step 4: f(x)= 0.305084
+differential_evolution step 5: f(x)= 0.305084
+differential_evolution step 6: f(x)= 0.305084
+differential_evolution step 7: f(x)= 0.305084
+differential_evolution step 8: f(x)= 0.305084
+differential_evolution step 9: f(x)= 0.305084
+differential_evolution step 10: f(x)= 0.305084
+Polishing solution with 'L-BFGS-B'
+Station: QILN - Observation Data Size: (9, 852)
+differential_evolution step 1: f(x)= 0.388981
+differential_evolution step 2: f(x)= 0.377573
+differential_evolution step 3: f(x)= 0.377573
+differential_evolution step 4: f(x)= 0.377573
+differential_evolution step 5: f(x)= 0.370624
+differential_evolution step 6: f(x)= 0.370624
+differential_evolution step 7: f(x)= 0.367409
+differential_evolution step 8: f(x)= 0.36064
+differential_evolution step 9: f(x)= 0.359375
+differential_evolution step 10: f(x)= 0.358472
+Polishing solution with 'L-BFGS-B'
+Station: QILN - Observation Data Size: (9, 852)
+differential_evolution step 1: f(x)= 0.395984
+differential_evolution step 2: f(x)= 0.389968
+differential_evolution step 3: f(x)= 0.389968
+differential_evolution step 4: f(x)= 0.389323
+differential_evolution step 5: f(x)= 0.387661
+differential_evolution step 6: f(x)= 0.375068
+differential_evolution step 7: f(x)= 0.372041
+differential_evolution step 8: f(x)= 0.372041
+differential_evolution step 9: f(x)= 0.372041
+differential_evolution step 10: f(x)= 0.372041
+Polishing solution with 'L-BFGS-B'
+Station: QILN - Observation Data Size: (9, 852)
+differential_evolution step 1: f(x)= 0.403156
+differential_evolution step 2: f(x)= 0.379016
+differential_evolution step 3: f(x)= 0.37038
+differential_evolution step 4: f(x)= 0.37038
+differential_evolution step 5: f(x)= 0.37038
+differential_evolution step 6: f(x)= 0.37038
+differential_evolution step 7: f(x)= 0.347934
+differential_evolution step 8: f(x)= 0.345163
+differential_evolution step 9: f(x)= 0.337871
+differential_evolution step 10: f(x)= 0.337871
+Polishing solution with 'L-BFGS-B'
+Station: QILN - Observation Data Size: (9, 852)
+differential_evolution step 1: f(x)= 0.35996
+differential_evolution step 2: f(x)= 0.35996
+differential_evolution step 3: f(x)= 0.35996
+differential_evolution step 4: f(x)= 0.35996
+differential_evolution step 5: f(x)= 0.35996
+differential_evolution step 6: f(x)= 0.35996
+differential_evolution step 7: f(x)= 0.35996
+differential_evolution step 8: f(x)= 0.35996
+differential_evolution step 9: f(x)= 0.35996
+differential_evolution step 10: f(x)= 0.35996
+Polishing solution with 'L-BFGS-B'
+Station: RES - Observation Data Size: (9, 852)
+differential_evolution step 1: f(x)= 0.484445
+differential_evolution step 2: f(x)= 0.470964
+differential_evolution step 3: f(x)= 0.470964
+differential_evolution step 4: f(x)= 0.465829
+differential_evolution step 5: f(x)= 0.456212
+differential_evolution step 6: f(x)= 0.456212
+differential_evolution step 7: f(x)= 0.456212
+differential_evolution step 8: f(x)= 0.456212
+differential_evolution step 9: f(x)= 0.456212
+differential_evolution step 10: f(x)= 0.456212
+Polishing solution with 'L-BFGS-B'
+Station: RES - Observation Data Size: (9, 852)
+differential_evolution step 1: f(x)= 0.463653
+differential_evolution step 2: f(x)= 0.456859
+differential_evolution step 3: f(x)= 0.423708
+differential_evolution step 4: f(x)= 0.423708
+differential_evolution step 5: f(x)= 0.423708
+differential_evolution step 6: f(x)= 0.423708
+differential_evolution step 7: f(x)= 0.423708
+differential_evolution step 8: f(x)= 0.423708
+differential_evolution step 9: f(x)= 0.423708
+differential_evolution step 10: f(x)= 0.423708
+Polishing solution with 'L-BFGS-B'
+Station: RES - Observation Data Size: (9, 852)
+differential_evolution step 1: f(x)= 0.424994
+differential_evolution step 2: f(x)= 0.41458
+differential_evolution step 3: f(x)= 0.41458
+differential_evolution step 4: f(x)= 0.41458
+differential_evolution step 5: f(x)= 0.41458
+differential_evolution step 6: f(x)= 0.41458
+differential_evolution step 7: f(x)= 0.401225
+differential_evolution step 8: f(x)= 0.397818
+differential_evolution step 9: f(x)= 0.388099
+differential_evolution step 10: f(x)= 0.364059
+Polishing solution with 'L-BFGS-B'
+Station: RES - Observation Data Size: (9, 852)
+differential_evolution step 1: f(x)= 0.402011
+differential_evolution step 2: f(x)= 0.402011
+differential_evolution step 3: f(x)= 0.402011
+differential_evolution step 4: f(x)= 0.400561
+differential_evolution step 5: f(x)= 0.400561
+differential_evolution step 6: f(x)= 0.400561
+differential_evolution step 7: f(x)= 0.400561
+differential_evolution step 8: f(x)= 0.400561
+differential_evolution step 9: f(x)= 0.396235
+differential_evolution step 10: f(x)= 0.396235
+Polishing solution with 'L-BFGS-B'
+Station: SAKN - Observation Data Size: (13, 852)
+differential_evolution step 1: f(x)= 0.423957
+differential_evolution step 2: f(x)= 0.416568
+differential_evolution step 3: f(x)= 0.416568
+differential_evolution step 4: f(x)= 0.416568
+differential_evolution step 5: f(x)= 0.416568
+differential_evolution step 6: f(x)= 0.411938
+differential_evolution step 7: f(x)= 0.411325
+differential_evolution step 8: f(x)= 0.405483
+differential_evolution step 9: f(x)= 0.405483
+differential_evolution step 10: f(x)= 0.401791
+Polishing solution with 'L-BFGS-B'
+Station: SAKN - Observation Data Size: (13, 852)
+differential_evolution step 1: f(x)= 0.40887
+differential_evolution step 2: f(x)= 0.40887
+differential_evolution step 3: f(x)= 0.403536
+differential_evolution step 4: f(x)= 0.403536
+differential_evolution step 5: f(x)= 0.403536
+differential_evolution step 6: f(x)= 0.398548
+differential_evolution step 7: f(x)= 0.398548
+differential_evolution step 8: f(x)= 0.393359
+differential_evolution step 9: f(x)= 0.393359
+differential_evolution step 10: f(x)= 0.393359
+Polishing solution with 'L-BFGS-B'
+Station: SAKN - Observation Data Size: (13, 852)
+differential_evolution step 1: f(x)= 0.347476
+differential_evolution step 2: f(x)= 0.347476
+differential_evolution step 3: f(x)= 0.347476
+differential_evolution step 4: f(x)= 0.32494
+differential_evolution step 5: f(x)= 0.32494
+differential_evolution step 6: f(x)= 0.32494
+differential_evolution step 7: f(x)= 0.32494
+differential_evolution step 8: f(x)= 0.32494
+differential_evolution step 9: f(x)= 0.32494
+differential_evolution step 10: f(x)= 0.32494
+Polishing solution with 'L-BFGS-B'
+Station: SAKN - Observation Data Size: (13, 852)
+differential_evolution step 1: f(x)= 0.376375
+differential_evolution step 2: f(x)= 0.353612
+differential_evolution step 3: f(x)= 0.353612
+differential_evolution step 4: f(x)= 0.346392
+differential_evolution step 5: f(x)= 0.337008
+differential_evolution step 6: f(x)= 0.337008
+differential_evolution step 7: f(x)= 0.323827
+differential_evolution step 8: f(x)= 0.323827
+differential_evolution step 9: f(x)= 0.317985
+differential_evolution step 10: f(x)= 0.317985
+Polishing solution with 'L-BFGS-B'
+Station: SEDN - Observation Data Size: (2, 852)
+differential_evolution step 1: f(x)= 0.374611
+differential_evolution step 2: f(x)= 0.374156
+differential_evolution step 3: f(x)= 0.374156
+differential_evolution step 4: f(x)= 0.374156
+differential_evolution step 5: f(x)= 0.374156
+differential_evolution step 6: f(x)= 0.372494
+differential_evolution step 7: f(x)= 0.37101
+differential_evolution step 8: f(x)= 0.37101
+differential_evolution step 9: f(x)= 0.367009
+differential_evolution step 10: f(x)= 0.366692
+Polishing solution with 'L-BFGS-B'
+Station: SEDN - Observation Data Size: (2, 852)
+differential_evolution step 1: f(x)= 0.375777
+differential_evolution step 2: f(x)= 0.338488
+differential_evolution step 3: f(x)= 0.338488
+differential_evolution step 4: f(x)= 0.338488
+differential_evolution step 5: f(x)= 0.338488
+differential_evolution step 6: f(x)= 0.338488
+differential_evolution step 7: f(x)= 0.329507
+differential_evolution step 8: f(x)= 0.329507
+differential_evolution step 9: f(x)= 0.329507
+differential_evolution step 10: f(x)= 0.321296
+Polishing solution with 'L-BFGS-B'
+Station: SEDN - Observation Data Size: (2, 852)
+differential_evolution step 1: f(x)= 0.338002
+differential_evolution step 2: f(x)= 0.338002
+differential_evolution step 3: f(x)= 0.333239
+differential_evolution step 4: f(x)= 0.320486
+differential_evolution step 5: f(x)= 0.307731
+differential_evolution step 6: f(x)= 0.307731
+differential_evolution step 7: f(x)= 0.307731
+differential_evolution step 8: f(x)= 0.303885
+differential_evolution step 9: f(x)= 0.291587
+differential_evolution step 10: f(x)= 0.291587
+Polishing solution with 'L-BFGS-B'
+Station: SEDN - Observation Data Size: (2, 852)
+differential_evolution step 1: f(x)= 0.346143
+differential_evolution step 2: f(x)= 0.310913
+differential_evolution step 3: f(x)= 0.310913
+differential_evolution step 4: f(x)= 0.310913
+differential_evolution step 5: f(x)= 0.285447
+differential_evolution step 6: f(x)= 0.285447
+differential_evolution step 7: f(x)= 0.285447
+differential_evolution step 8: f(x)= 0.274272
+differential_evolution step 9: f(x)= 0.274272
+differential_evolution step 10: f(x)= 0.274272
+Polishing solution with 'L-BFGS-B'
+Station: SHMN - Observation Data Size: (6, 852)
+differential_evolution step 1: f(x)= 0.322243
+differential_evolution step 2: f(x)= 0.322243
+differential_evolution step 3: f(x)= 0.322243
+differential_evolution step 4: f(x)= 0.312548
+differential_evolution step 5: f(x)= 0.312548
+differential_evolution step 6: f(x)= 0.305323
+differential_evolution step 7: f(x)= 0.305323
+differential_evolution step 8: f(x)= 0.305323
+differential_evolution step 9: f(x)= 0.302463
+differential_evolution step 10: f(x)= 0.302463
+Polishing solution with 'L-BFGS-B'
+Station: SHMN - Observation Data Size: (6, 852)
+differential_evolution step 1: f(x)= 0.270716
+differential_evolution step 2: f(x)= 0.270716
+differential_evolution step 3: f(x)= 0.239202
+differential_evolution step 4: f(x)= 0.239202
+differential_evolution step 5: f(x)= 0.239202
+differential_evolution step 6: f(x)= 0.239202
+differential_evolution step 7: f(x)= 0.239202
+differential_evolution step 8: f(x)= 0.239202
+differential_evolution step 9: f(x)= 0.239202
+differential_evolution step 10: f(x)= 0.239202
+Polishing solution with 'L-BFGS-B'
+Station: SHMN - Observation Data Size: (6, 852)
+differential_evolution step 1: f(x)= 0.234484
+differential_evolution step 2: f(x)= 0.234484
+differential_evolution step 3: f(x)= 0.234484
+differential_evolution step 4: f(x)= 0.234484
+differential_evolution step 5: f(x)= 0.234484
+differential_evolution step 6: f(x)= 0.234484
+differential_evolution step 7: f(x)= 0.234484
+differential_evolution step 8: f(x)= 0.234484
+differential_evolution step 9: f(x)= 0.222723
+differential_evolution step 10: f(x)= 0.212851
+Polishing solution with 'L-BFGS-B'
+Station: SHMN - Observation Data Size: (6, 852)
+differential_evolution step 1: f(x)= 0.24331
+differential_evolution step 2: f(x)= 0.24331
+differential_evolution step 3: f(x)= 0.24331
+differential_evolution step 4: f(x)= 0.24331
+differential_evolution step 5: f(x)= 0.232314
+differential_evolution step 6: f(x)= 0.232314
+differential_evolution step 7: f(x)= 0.232314
+differential_evolution step 8: f(x)= 0.232314
+differential_evolution step 9: f(x)= 0.232314
+differential_evolution step 10: f(x)= 0.232314
+Polishing solution with 'L-BFGS-B'
+Station: SHWN - Observation Data Size: (11, 852)
+differential_evolution step 1: f(x)= 0.342881
+differential_evolution step 2: f(x)= 0.311608
+differential_evolution step 3: f(x)= 0.307266
+differential_evolution step 4: f(x)= 0.307266
+differential_evolution step 5: f(x)= 0.302338
+differential_evolution step 6: f(x)= 0.302338
+differential_evolution step 7: f(x)= 0.302338
+differential_evolution step 8: f(x)= 0.302338
+differential_evolution step 9: f(x)= 0.302338
+differential_evolution step 10: f(x)= 0.302338
+Polishing solution with 'L-BFGS-B'
+Station: SHWN - Observation Data Size: (11, 852)
+differential_evolution step 1: f(x)= 0.335242
+differential_evolution step 2: f(x)= 0.335242
+differential_evolution step 3: f(x)= 0.333974
+differential_evolution step 4: f(x)= 0.320635
+differential_evolution step 5: f(x)= 0.320635
+differential_evolution step 6: f(x)= 0.320635
+differential_evolution step 7: f(x)= 0.320635
+differential_evolution step 8: f(x)= 0.320635
+differential_evolution step 9: f(x)= 0.320635
+differential_evolution step 10: f(x)= 0.320635
+Polishing solution with 'L-BFGS-B'
+Station: SHWN - Observation Data Size: (11, 852)
+differential_evolution step 1: f(x)= 0.347601
+differential_evolution step 2: f(x)= 0.33312
+differential_evolution step 3: f(x)= 0.33312
+differential_evolution step 4: f(x)= 0.329008
+differential_evolution step 5: f(x)= 0.329008
+differential_evolution step 6: f(x)= 0.316851
+differential_evolution step 7: f(x)= 0.316851
+differential_evolution step 8: f(x)= 0.316851
+differential_evolution step 9: f(x)= 0.316851
+differential_evolution step 10: f(x)= 0.315076
+Polishing solution with 'L-BFGS-B'
+Station: SHWN - Observation Data Size: (11, 852)
+differential_evolution step 1: f(x)= 0.330526
+differential_evolution step 2: f(x)= 0.330526
+differential_evolution step 3: f(x)= 0.301218
+differential_evolution step 4: f(x)= 0.301218
+differential_evolution step 5: f(x)= 0.301218
+differential_evolution step 6: f(x)= 0.301156
+differential_evolution step 7: f(x)= 0.301156
+differential_evolution step 8: f(x)= 0.301156
+differential_evolution step 9: f(x)= 0.298934
+differential_evolution step 10: f(x)= 0.298934
+Polishing solution with 'L-BFGS-B'
+Station: SMLN - Observation Data Size: (7, 852)
+differential_evolution step 1: f(x)= 0.32793
+differential_evolution step 2: f(x)= 0.32793
+differential_evolution step 3: f(x)= 0.32793
+differential_evolution step 4: f(x)= 0.32793
+differential_evolution step 5: f(x)= 0.32793
+differential_evolution step 6: f(x)= 0.32793
+differential_evolution step 7: f(x)= 0.32793
+differential_evolution step 8: f(x)= 0.32793
+differential_evolution step 9: f(x)= 0.32793
+differential_evolution step 10: f(x)= 0.32793
+Polishing solution with 'L-BFGS-B'
+Station: SMLN - Observation Data Size: (7, 852)
+differential_evolution step 1: f(x)= 0.363373
+differential_evolution step 2: f(x)= 0.363373
+differential_evolution step 3: f(x)= 0.358697
+differential_evolution step 4: f(x)= 0.358697
+differential_evolution step 5: f(x)= 0.352051
+differential_evolution step 6: f(x)= 0.350724
+differential_evolution step 7: f(x)= 0.344168
+differential_evolution step 8: f(x)= 0.317282
+differential_evolution step 9: f(x)= 0.317282
+differential_evolution step 10: f(x)= 0.317282
+Polishing solution with 'L-BFGS-B'
+Station: SMLN - Observation Data Size: (7, 852)
+differential_evolution step 1: f(x)= 0.376954
+differential_evolution step 2: f(x)= 0.37164
+differential_evolution step 3: f(x)= 0.37122
+differential_evolution step 4: f(x)= 0.361972
+differential_evolution step 5: f(x)= 0.317658
+differential_evolution step 6: f(x)= 0.317658
+differential_evolution step 7: f(x)= 0.317658
+differential_evolution step 8: f(x)= 0.317658
+differential_evolution step 9: f(x)= 0.317658
+differential_evolution step 10: f(x)= 0.317658
+Polishing solution with 'L-BFGS-B'
+Station: SMLN - Observation Data Size: (7, 852)
+differential_evolution step 1: f(x)= 0.370151
+differential_evolution step 2: f(x)= 0.350883
+differential_evolution step 3: f(x)= 0.350883
+differential_evolution step 4: f(x)= 0.345546
+differential_evolution step 5: f(x)= 0.334591
+differential_evolution step 6: f(x)= 0.320072
+differential_evolution step 7: f(x)= 0.320072
+differential_evolution step 8: f(x)= 0.320072
+differential_evolution step 9: f(x)= 0.3063
+differential_evolution step 10: f(x)= 0.3063
+Polishing solution with 'L-BFGS-B'
+Station: SRLN - Observation Data Size: (11, 852)
+differential_evolution step 1: f(x)= 0.368763
+differential_evolution step 2: f(x)= 0.363217
+differential_evolution step 3: f(x)= 0.361125
+differential_evolution step 4: f(x)= 0.358496
+differential_evolution step 5: f(x)= 0.358496
+differential_evolution step 6: f(x)= 0.356351
+differential_evolution step 7: f(x)= 0.354145
+differential_evolution step 8: f(x)= 0.354145
+differential_evolution step 9: f(x)= 0.352775
+differential_evolution step 10: f(x)= 0.348222
+Polishing solution with 'L-BFGS-B'
+Station: SRLN - Observation Data Size: (11, 852)
+differential_evolution step 1: f(x)= 0.34526
+differential_evolution step 2: f(x)= 0.34526
+differential_evolution step 3: f(x)= 0.34526
+differential_evolution step 4: f(x)= 0.34526
+differential_evolution step 5: f(x)= 0.34526
+differential_evolution step 6: f(x)= 0.34526
+differential_evolution step 7: f(x)= 0.34526
+differential_evolution step 8: f(x)= 0.34526
+differential_evolution step 9: f(x)= 0.319159
+differential_evolution step 10: f(x)= 0.319159
+Polishing solution with 'L-BFGS-B'
+Station: SRLN - Observation Data Size: (11, 852)
+differential_evolution step 1: f(x)= 0.379812
+differential_evolution step 2: f(x)= 0.366064
+differential_evolution step 3: f(x)= 0.362913
+differential_evolution step 4: f(x)= 0.362913
+differential_evolution step 5: f(x)= 0.3608
+differential_evolution step 6: f(x)= 0.3608
+differential_evolution step 7: f(x)= 0.360017
+differential_evolution step 8: f(x)= 0.359282
+differential_evolution step 9: f(x)= 0.339554
+differential_evolution step 10: f(x)= 0.339554
+Polishing solution with 'L-BFGS-B'
+Station: SRLN - Observation Data Size: (11, 852)
+differential_evolution step 1: f(x)= 0.365264
+differential_evolution step 2: f(x)= 0.340603
+differential_evolution step 3: f(x)= 0.340603
+differential_evolution step 4: f(x)= 0.340603
+differential_evolution step 5: f(x)= 0.340603
+differential_evolution step 6: f(x)= 0.325378
+differential_evolution step 7: f(x)= 0.325378
+differential_evolution step 8: f(x)= 0.325378
+differential_evolution step 9: f(x)= 0.325378
+differential_evolution step 10: f(x)= 0.325378
+Polishing solution with 'L-BFGS-B'
+Station: TQF - Observation Data Size: (2, 852)
+differential_evolution step 1: f(x)= 0.514301
+differential_evolution step 2: f(x)= 0.513971
+differential_evolution step 3: f(x)= 0.513971
+differential_evolution step 4: f(x)= 0.513971
+differential_evolution step 5: f(x)= 0.513971
+differential_evolution step 6: f(x)= 0.513971
+differential_evolution step 7: f(x)= 0.513971
+differential_evolution step 8: f(x)= 0.508747
+differential_evolution step 9: f(x)= 0.508747
+differential_evolution step 10: f(x)= 0.502123
+Polishing solution with 'L-BFGS-B'
+Station: TQF - Observation Data Size: (2, 852)
+differential_evolution step 1: f(x)= 0.424815
+differential_evolution step 2: f(x)= 0.407415
+differential_evolution step 3: f(x)= 0.379372
+differential_evolution step 4: f(x)= 0.379372
+differential_evolution step 5: f(x)= 0.379372
+differential_evolution step 6: f(x)= 0.37482
+differential_evolution step 7: f(x)= 0.37482
+differential_evolution step 8: f(x)= 0.37482
+differential_evolution step 9: f(x)= 0.37482
+differential_evolution step 10: f(x)= 0.371745
+Polishing solution with 'L-BFGS-B'
+Station: TQF - Observation Data Size: (2, 852)
+differential_evolution step 1: f(x)= 0.413053
+differential_evolution step 2: f(x)= 0.413053
+differential_evolution step 3: f(x)= 0.413053
+differential_evolution step 4: f(x)= 0.413053
+differential_evolution step 5: f(x)= 0.382858
+differential_evolution step 6: f(x)= 0.362613
+differential_evolution step 7: f(x)= 0.362613
+differential_evolution step 8: f(x)= 0.362613
+differential_evolution step 9: f(x)= 0.362613
+differential_evolution step 10: f(x)= 0.362613
+Polishing solution with 'L-BFGS-B'
+Station: TQF - Observation Data Size: (2, 852)
+differential_evolution step 1: f(x)= 0.442533
+differential_evolution step 2: f(x)= 0.442533
+differential_evolution step 3: f(x)= 0.411144
+differential_evolution step 4: f(x)= 0.410902
+differential_evolution step 5: f(x)= 0.410902
+differential_evolution step 6: f(x)= 0.410902
+differential_evolution step 7: f(x)= 0.394957
+differential_evolution step 8: f(x)= 0.394957
+differential_evolution step 9: f(x)= 0.394957
+differential_evolution step 10: f(x)= 0.359588
+Polishing solution with 'L-BFGS-B'
+Station: WAGN - Observation Data Size: (2, 852)
+differential_evolution step 1: f(x)= 0.369327
+differential_evolution step 2: f(x)= 0.367983
+differential_evolution step 3: f(x)= 0.362727
+differential_evolution step 4: f(x)= 0.362727
+differential_evolution step 5: f(x)= 0.362727
+differential_evolution step 6: f(x)= 0.36141
+differential_evolution step 7: f(x)= 0.36141
+differential_evolution step 8: f(x)= 0.36141
+differential_evolution step 9: f(x)= 0.36141
+differential_evolution step 10: f(x)= 0.354111
+Polishing solution with 'L-BFGS-B'
+Station: WAGN - Observation Data Size: (2, 852)
+differential_evolution step 1: f(x)= 0.365566
+differential_evolution step 2: f(x)= 0.365566
+differential_evolution step 3: f(x)= 0.33361
+differential_evolution step 4: f(x)= 0.33361
+differential_evolution step 5: f(x)= 0.33361
+differential_evolution step 6: f(x)= 0.323493
+differential_evolution step 7: f(x)= 0.323493
+differential_evolution step 8: f(x)= 0.323493
+differential_evolution step 9: f(x)= 0.322877
+differential_evolution step 10: f(x)= 0.322877
+Polishing solution with 'L-BFGS-B'
+Station: WAGN - Observation Data Size: (2, 852)
+differential_evolution step 1: f(x)= 0.360501
+differential_evolution step 2: f(x)= 0.345482
+differential_evolution step 3: f(x)= 0.345482
+differential_evolution step 4: f(x)= 0.337473
+differential_evolution step 5: f(x)= 0.337473
+differential_evolution step 6: f(x)= 0.306352
+differential_evolution step 7: f(x)= 0.306352
+differential_evolution step 8: f(x)= 0.306352
+differential_evolution step 9: f(x)= 0.297805
+differential_evolution step 10: f(x)= 0.297805
+Polishing solution with 'L-BFGS-B'
+Station: WAGN - Observation Data Size: (2, 852)
+differential_evolution step 1: f(x)= 0.332348
+differential_evolution step 2: f(x)= 0.329192
+differential_evolution step 3: f(x)= 0.329192
+differential_evolution step 4: f(x)= 0.303921
+differential_evolution step 5: f(x)= 0.303921
+differential_evolution step 6: f(x)= 0.303921
+differential_evolution step 7: f(x)= 0.281627
+differential_evolution step 8: f(x)= 0.281627
+differential_evolution step 9: f(x)= 0.281301
+differential_evolution step 10: f(x)= 0.281301
+Polishing solution with 'L-BFGS-B'
+Station: YRTN - Observation Data Size: (3, 852)
+differential_evolution step 1: f(x)= 0.443326
+differential_evolution step 2: f(x)= 0.442757
+differential_evolution step 3: f(x)= 0.437271
+differential_evolution step 4: f(x)= 0.432294
+differential_evolution step 5: f(x)= 0.432294
+differential_evolution step 6: f(x)= 0.432294
+differential_evolution step 7: f(x)= 0.432294
+differential_evolution step 8: f(x)= 0.432294
+differential_evolution step 9: f(x)= 0.432294
+differential_evolution step 10: f(x)= 0.430249
+Polishing solution with 'L-BFGS-B'
+Station: YRTN - Observation Data Size: (3, 852)
+differential_evolution step 1: f(x)= 0.450412
+differential_evolution step 2: f(x)= 0.450412
+differential_evolution step 3: f(x)= 0.450412
+differential_evolution step 4: f(x)= 0.434552
+differential_evolution step 5: f(x)= 0.434552
+differential_evolution step 6: f(x)= 0.434552
+differential_evolution step 7: f(x)= 0.415507
+differential_evolution step 8: f(x)= 0.415507
+differential_evolution step 9: f(x)= 0.414548
+differential_evolution step 10: f(x)= 0.414548
+Polishing solution with 'L-BFGS-B'
+Station: YRTN - Observation Data Size: (3, 852)
+differential_evolution step 1: f(x)= 0.406031
+differential_evolution step 2: f(x)= 0.406031
+differential_evolution step 3: f(x)= 0.406031
+differential_evolution step 4: f(x)= 0.406031
+differential_evolution step 5: f(x)= 0.406031
+differential_evolution step 6: f(x)= 0.406031
+differential_evolution step 7: f(x)= 0.384306
+differential_evolution step 8: f(x)= 0.384306
+differential_evolution step 9: f(x)= 0.384306
+differential_evolution step 10: f(x)= 0.384306
+Polishing solution with 'L-BFGS-B'
+Station: YRTN - Observation Data Size: (3, 852)
+differential_evolution step 1: f(x)= 0.410608
+differential_evolution step 2: f(x)= 0.410608
+differential_evolution step 3: f(x)= 0.382987
+differential_evolution step 4: f(x)= 0.382987
+differential_evolution step 5: f(x)= 0.382987
+differential_evolution step 6: f(x)= 0.374307
+differential_evolution step 7: f(x)= 0.374307
+differential_evolution step 8: f(x)= 0.374307
+differential_evolution step 9: f(x)= 0.374307
+differential_evolution step 10: f(x)= 0.374307
+Polishing solution with 'L-BFGS-B'
+]2;sina@arm64-apple-darwin20:~/Desktop/RFCAN/rfcan]1;..p/RFCAN/rfcan]7;file://arm64-apple-darwin20.0.0/Users/sina/Desktop/RFCAN/rfcan\]633;D;146]633;P;Cwd=/Users/sina/Desktop/RFCAN/rfcan[?1h=[?1l>]2;awk '{if (NR>3) {print $1}}' FS=, inv/all_stations.csv | while IFS= read -r ;]1;awk]633;E;awk '{if (NR>3) {print $1}}' FS=, inv/all_stations.csv | while IFS= read -r station\x3b do for i in {2..5}\x3b do python raysum_main.py $station $i\x3bdone\x3b done >> log.txt;b8e8c806-8e9b-4a42-9081-3df970db91f0]633;CStation: ARVN - Observation Data Size: (1, 852)
+differential_evolution step 1: f(x)= 0.365382
+differential_evolution step 2: f(x)= 0.365382
+differential_evolution step 3: f(x)= 0.365382
+differential_evolution step 4: f(x)= 0.365382
+differential_evolution step 5: f(x)= 0.361647
+differential_evolution step 6: f(x)= 0.3596
+differential_evolution step 7: f(x)= 0.3596
+differential_evolution step 8: f(x)= 0.359153
+differential_evolution step 9: f(x)= 0.357875
+differential_evolution step 10: f(x)= 0.355835
+Polishing solution with 'L-BFGS-B'
+Station: ARVN - Observation Data Size: (1, 852)
+differential_evolution step 1: f(x)= 0.382742
+differential_evolution step 2: f(x)= 0.323985
+differential_evolution step 3: f(x)= 0.323985
+differential_evolution step 4: f(x)= 0.323985
+differential_evolution step 5: f(x)= 0.281824
+differential_evolution step 6: f(x)= 0.281824
+differential_evolution step 7: f(x)= 0.281824
+differential_evolution step 8: f(x)= 0.281824
+differential_evolution step 9: f(x)= 0.281824
+differential_evolution step 10: f(x)= 0.281824
+Polishing solution with 'L-BFGS-B'
+Station: ARVN - Observation Data Size: (1, 852)
+differential_evolution step 1: f(x)= 0.34857
+differential_evolution step 2: f(x)= 0.34857
+differential_evolution step 3: f(x)= 0.34857
+differential_evolution step 4: f(x)= 0.34857
+differential_evolution step 5: f(x)= 0.345592
+differential_evolution step 6: f(x)= 0.342898
+differential_evolution step 7: f(x)= 0.339141
+differential_evolution step 8: f(x)= 0.322387
+differential_evolution step 9: f(x)= 0.322387
+differential_evolution step 10: f(x)= 0.322387
+Polishing solution with 'L-BFGS-B'
+Station: ARVN - Observation Data Size: (1, 852)
+differential_evolution step 1: f(x)= 0.353025
+differential_evolution step 2: f(x)= 0.332661
+differential_evolution step 3: f(x)= 0.320013
+differential_evolution step 4: f(x)= 0.320013
+differential_evolution step 5: f(x)= 0.301246
+differential_evolution step 6: f(x)= 0.301246
+differential_evolution step 7: f(x)= 0.301246
+differential_evolution step 8: f(x)= 0.30046
+differential_evolution step 9: f(x)= 0.300314
+differential_evolution step 10: f(x)= 0.281906
+Polishing solution with 'L-BFGS-B'
+Station: AXF - Observation Data Size: (3, 852)
+]2;sina@arm64-apple-darwin20:~/Desktop/RFCAN/rfcan]1;..p/RFCAN/rfcan]7;file://arm64-apple-darwin20.0.0/Users/sina/Desktop/RFCAN/rfcan\]633;D;130]633;P;Cwd=/Users/sina/Desktop/RFCAN/rfcan[?1h=

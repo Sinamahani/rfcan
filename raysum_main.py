@@ -23,7 +23,7 @@ if __name__ == "__main__":
         os.makedirs(f"inv/results/{station}", exist_ok=True)
         #reading RFs
         obser, baz, slow = reading_rfs(station, t_snr_treshold=t_snr_treshold, sort="baz", filters=filters, corners=corners)
-        print("Station:", station,"- Observation Data Size:", obser.shape)
+        # print("Station:", station,"- Observation Data Size:", obser.shape, "- Number of Layers:", layer )
         # reading the model bounds and fixed values
         bounds, fixed_values, mask = read_model(path_to_models, layer)
 

@@ -302,7 +302,7 @@ class RF():
 
         rfdata.rotate(align="ZRT")
         rfdata.calc_snr()
-        rfdata.deconvolve(method='water')
+        rfdata.deconvolve(method='multitaper')
         rfstream = rfdata.to_stream()  
         rfstream.normalize()
         return rfstream
