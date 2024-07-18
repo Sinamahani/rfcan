@@ -62,16 +62,16 @@ class viz():
         for sta in self.sta_list:
             sublist_df = self.list_df[self.list_df["sta_code"] == sta].copy()   
             print(f"Number of waveforms for {sta} is {len(sublist_df)}")
-            hist, bin_edges = np.histogram(sublist_df["baz"], bins=self.hist_bin, range=(0, 360)) #histogram of baz 
+            hist, bin_edges = np.histogram(2*np.pi*sublist_df["baz"]/360, bins=self.hist_bin, range=(0, 2*np.pi)) #histogram of baz 
             theta = np.linspace(0.0, 2 * np.pi, self.hist_bin, endpoint=False)
             colors = plt.cm.viridis(hist / 10.)
-            plt.figure(figsize=(10, 3))
+            plt.figure(figsize=(20, 7))
             ax = plt.subplot(131, projection='polar')
             ax.bar(theta, hist, color=colors, alpha=0.6)
             ax.set_xticks(theta)
             ax.set_title(f" Back-Azimuth Histogram for {sta}")
             ax = plt.subplot(1,5,(3,5))
-            plt.hist(sublist_df["slow"], bins=self.hist_bin, color='khaki', alpha=0.5)
+            plt.hist(sublist_df["slow"], bins=self.hist_bin, color='khaki', alpha=0.8)
             plt.title(f"Slowness Histogram for {sta}")
             plt.xlabel("Slowness (s/km)")
             plt.ylabel("Count")

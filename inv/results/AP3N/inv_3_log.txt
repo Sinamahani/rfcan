@@ -1,0 +1,21 @@
+differential_evolution step 1: f(x)= 0.131895
+differential_evolution step 2: f(x)= 0.131895
+differential_evolution step 3: f(x)= 0.114876
+differential_evolution step 4: f(x)= 0.114876
+differential_evolution step 5: f(x)= 0.114212
+differential_evolution step 6: f(x)= 0.108669
+differential_evolution step 7: f(x)= 0.105828
+differential_evolution step 8: f(x)= 0.105828
+differential_evolution step 9: f(x)= 0.0940144
+differential_evolution step 10: f(x)= 0.0940144
+differential_evolution step 11: f(x)= 0.0940144
+differential_evolution step 12: f(x)= 0.0940144
+differential_evolution step 13: f(x)= 0.0924202
+differential_evolution step 14: f(x)= 0.0923355
+differential_evolution step 15: f(x)= 0.0911941
+differential_evolution step 16: f(x)= 0.0893811
+differential_evolution step 17: f(x)= 0.0893811
+differential_evolution step 18: f(x)= 0.0893811
+differential_evolution step 19: f(x)= 0.0893811
+differential_evolution step 20: f(x)= 0.0884016
+Polishing solution with 'L-BFGS-B'
