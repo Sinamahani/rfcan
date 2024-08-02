@@ -94,10 +94,10 @@ def plot_har_dec(X, time, **kwargs):
     # set time axis
     ax[0].set_ylim([lower_bond_show, np.max(time)])    
     ax[0].set_ylabel("time (sec)")
-    
+
     # Corrected line to invert y-axis
     ax[0].invert_yaxis()
-    
+
     # Custom x-axis labels
     fontsize = 6
     ax[0].set_xlabel("Constant", color='black')

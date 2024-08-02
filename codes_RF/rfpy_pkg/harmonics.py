@@ -1,34 +1,7 @@
-# Copyright 2019 Pascal Audet
-#
-# This file is part of RfPy.
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in
-# all copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
-"""
-Harmonic decomposition module.
-
-"""
-
 # Import modules and functions
 import numpy as np
 from obspy.core import Stream, Trace
 import matplotlib.pyplot as plt
-
 
 class Harmonics(object):
     """
@@ -40,14 +13,6 @@ class Harmonics(object):
     can decompose the receiver functions along a fixed azimuth, or
     search for the optimal azimuth within a time range by minimizing
     one component.
-
-    Note
-    ----
-    The object is initialized with the ``rfV1`` field only, and
-    other attributes are added to the object as the analysis proceeds.
-    A second ``rfV2`` can be included, which is typically a copy of ``rfV1``
-    filtered at different corner frequencies and is used to stack along the
-    Pps and Pss moveout curves.
 
     Parameters
     ----------
@@ -77,19 +42,6 @@ class Harmonics(object):
     """
 
     def __init__(self, radialRF, transvRF=None, azim=0, xmin=0., xmax=10.):
-
-        # Load example data if initializing empty object
-        if radialRF == 'demo' or radialRF == 'Demo':
-            print("Uploading demo data - station NY.MMPY")
-            import os
-            import pickle
-            file = open(os.path.join(
-                    os.path.dirname(__file__),
-                    "examples/data", "demo_streams.pkl"), 'rb')
-            radialRF = pickle.load(file)
-            transvRF = pickle.load(file)
-            file.close()
-
         if not transvRF:
             raise TypeError("__init__() missing 1 required positional argument: 'transvRF'")
 
