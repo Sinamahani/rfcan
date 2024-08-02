@@ -26,7 +26,7 @@ if [ $param -eq 4 ]; then
     PROJECTION="-JB-85/50/48/52/6i" #Albers projection
     # Plot the data using GMT
     gmt begin $OUTPUT_FILE
-    gmt makecpt -Cjet -T25,30,35,40,45,50
+    gmt makecpt -Cjet -T24/40/2 -Z
     gmt coast $REGION $PROJECTION -B -Gchocolate -Sazure2
     gmt plot temp.txt -Wfaint -i0,1,2,3s0.01 -Scc -C          #-Sc0.5c
     gmt colorbar -C -Dx8c/2c+w12c/0.5c+jTC+h -Bxaf+l"Depth" -By+lkm
