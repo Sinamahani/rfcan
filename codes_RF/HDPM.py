@@ -94,14 +94,15 @@ def harmonic_decomp(wave, G):
     GtG_inv = np.linalg.inv(GtG)
     GtG_invGt = np.dot(GtG_inv, Gt)
     m = np.dot(GtG_invGt, wave)
-    return m
+    m_positive = m[:,213:]
+    return m_positive
 
 def particlemotion(m, type="2-lobed", xmin=0, xmax=10, save_folder=None, station=None):
     
-    if xmin < 0 or xmax > len(m[0]):
+    if xmin < 0 or xmax > len(m[0])*0.2:
         raise ValueError("xmin and xmax must be within the range of the waveforms")
     
-    time = np.linspace(0, 10, len(m[0]))
+    time = np.linspace(0, 213*0.2, len(m[0]))
     lower_bond_show = 0
     upper_color = "red"
     lower_color = "blue"
@@ -111,51 +112,55 @@ def particlemotion(m, type="2-lobed", xmin=0, xmax=10, save_folder=None, station
     #plot
     fig, ax = plt.subplots(nrows=1, ncols=5, sharey = True, figsize=(4,4))
     A, B, C, D, E = m[0], m[1], m[2], m[3], m[4]
-    golbal_max = np.max([np.max(A), np.max(B), np.max(C), np.max(D), np.max(E)])
-    A, B, C, D, E = A/golbal_max, B/golbal_max, C/golbal_max, D/golbal_max, E/golbal_max
+    globalMax = np.max([np.max(np.abs(A)), np.max(np.abs(B)), np.max(np.abs(C)), 
+                        np.max(np.abs(D)), np.max(np.abs(E))])
+    A, B, C, D, E = A/globalMax, B/globalMax, C/globalMax, D/globalMax, E/globalMax
 
-    def fill_bet_func(i, time, curve, upper_color, lower_color):
+    def fill_betw_func(i, time, curve, upper_color, lower_color):
         ax[i].fill_betweenx(time, curve, 0, where=curve>0, color=upper_color)
         ax[i].fill_betweenx(time, curve, 0, where=curve<0, color=lower_color)
-        
-     # fill_color
+
+    # fill_color
     # A
     ax[0].plot(A, time, "black", label="Isotropic", linewidth=linewidth)
     A_diff = np.abs((np.max(A) - np.min(A))*0.1)
-    fill_bet_func(0, time, A, upper_color, lower_color)
+    fill_betw_func(0, time, A, upper_color, lower_color)
     ax[0].set_xlim([np.min(A)-A_diff, np.max(A)+A_diff])
     ax[0].set_xticks([])
+    
 
     # B
     ax[1].plot(B, time, "black", label="Cos($\phi$)", linewidth=linewidth)
     B_diff = np.abs((np.max(B) - np.min(B))*0.1)
-    fill_bet_func(1, time, B, upper_color, lower_color)
+    fill_betw_func(1, time, B, upper_color, lower_color)
     ax[1].set_xlim([np.min(B)-B_diff, np.max(B)+B_diff])
     ax[1].set_xticks([])
 
     # C
     ax[2].plot(C, time, "black", label="Sin($\phi$)", linewidth=linewidth)
     C_diff = np.abs((np.max(C) - np.min(C))*0.1)
-    fill_bet_func(2, time, C, upper_color, lower_color)
+    fill_betw_func(2, time, C, upper_color, lower_color)
     ax[2].set_xlim([np.min(C)-C_diff, np.max(C)+C_diff])
     ax[2].set_xticks([])
 
     # D
     ax[3].plot(D, time, "black", label="Cos(2$\phi$)", linewidth=linewidth)
     D_diff = np.abs((np.max(D) - np.min(D))*0.1)
-    fill_bet_func(3, time, D, upper_color, lower_color)
+    fill_betw_func(3, time, D, upper_color, lower_color)
     ax[3].set_xlim([np.min(D)-D_diff, np.max(D)+D_diff])
     ax[3].set_xticks([])
 
     # E
     ax[4].plot(E, time, "black", label="Sin(2$\phi$)", linewidth=linewidth)
     E_diff = np.abs((np.max(E) - np.min(E))*0.1)
-    fill_bet_func(4, time, E, upper_color, lower_color)
+    fill_betw_func(4, time, E, upper_color, lower_color)
     ax[4].set_xlim([np.min(E)-E_diff, np.max(E)+E_diff])
     ax[4].set_xticks([])
 
     # set time axis
-    ax[0].set_ylim([lower_bond_show, np.max(time)])    
+    timeUpperBond = 30 #sec
+    timeLowerBond = 0 #sec   
+    ax[0].set_ylim([timeLowerBond, timeUpperBond])    
     ax[0].set_ylabel("time (sec)")
 
     # Corrected line to invert y-axis
@@ -192,7 +197,7 @@ def particlemotion(m, type="2-lobed", xmin=0, xmax=10, save_folder=None, station
             comp2 = 4
             ax[1].set_xlabel("Cos(2$\phi$)")
             ax[1].set_ylabel("Sin(2$\phi$)")
-        half = 213  # starting sample of the second half of the waveform equal to P arrival time
+        half = 0  # starting sample of the second half of the waveform equal to P arrival time
         wave_x = m[comp1][half+xmin*5:half+xmax*5]
         wave_y = m[comp2][half+xmin*5:half+xmax*5]  
         ax[counter].plot(wave_x, wave_y, ":k")
