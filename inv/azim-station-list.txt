@@ -1,0 +1,7 @@
+# list of stations for azimuthal analysis
+# t-SNR threshold: 5.0 
+sta, quality
+BLKN, 1
+BULN, 0
+
+... To be continued ...

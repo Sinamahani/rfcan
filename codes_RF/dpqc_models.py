@@ -218,17 +218,18 @@ class DeepQC():
         
     
     def stats(self):
+        plt.figure(figsize=(4,5))
         """
         plotting a histogram of the labels to see the data distribution.
         """
         bins = [-0.5, 0.5, 1.5]
-        plt.hist(self.train_label, color="blue", bins= bins, label="train_label", alpha=0.5, rwidth=0.5)
-        plt.xlabel("label")
-        plt.ylabel("count")
+        plt.hist(self.train_label, color="black", bins= bins, label="Training Data", alpha=0.5, rwidth=0.5)
+        plt.xlabel("Culling of Ps RF")
+        plt.ylabel("Number of Ps RFs")
         # plt.subplot(1,2,2)
-        plt.hist(self.test_label, color="red", bins= bins, label="test_label", alpha=0.5, rwidth=0.5)
+        plt.hist(self.test_label, color="red", bins= bins, label="Test Data", alpha=0.5, rwidth=0.5)
         plt.legend(loc="upper right")
-        plt.xticks([0, 1])
+        plt.xticks([0, 1], ["Unacceptable", "Acceptable"])
         # plt.title("test_label")
         # plt.xlabel("label")
         plt.show()
@@ -242,7 +243,7 @@ class DeepQC():
         """
         # add noise to the data
         train_input = self.train_data_np
-        train_input_good = np.array([i[0] for i in train_input if i[0].shape[0] == 426])[:,1:-1] # good data
+        train_input_good = np.array([i[0] for i in train_input if i[1] == 1 and i[0].shape[0] == 426])[:,1:-1] # good data
         train_input_good = np.expand_dims(train_input_good, axis=2)                                     # add a dimension to the data
         train_label_good = np.array([i[1] for i in train_input]).reshape(-1,1) # good data
 

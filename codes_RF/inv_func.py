@@ -11,7 +11,7 @@ import ast
 import time
 
 # reading the data
-def reading_rfs(keyword: str, filters=(0.04, 0.4), corners = 4, sort=None, t_snr_treshold=-10,
+def reading_rfs(keyword: str, filters=(0.04, 0.4), corners = 4, sort=None, t_snr_treshold=-10, 
                 path_to_data="DATA/waveforms_list.csv") -> tuple:
     """
     Reading RF data by the name of keyword as station code
@@ -72,6 +72,7 @@ def reading_rfs(keyword: str, filters=(0.04, 0.4), corners = 4, sort=None, t_snr
             zipped.sort(key=lambda x: x[2])
         obser, baz, slow = zip(*zipped)
     obser = np.array(obser)
+
     return obser, baz, slow
 
 

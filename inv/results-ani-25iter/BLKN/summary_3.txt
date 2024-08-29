@@ -1,0 +1,5 @@
+data size: 95.00
+error: 0.22
+number of iterations: 21.00
+number of function evaluation: 9916.00
+processing time: 2785.76

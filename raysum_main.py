@@ -7,20 +7,26 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import time
 import sys
+plt.switch_backend('Agg')  # Use the Agg backend to prevent figures from being displayed
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 3:
         print("Usage: python raysum_main.py <station> <layer>")
         sys.exit(1)
     else:
+        if sys.argv[1].endswith("^M"):
+            sys.argv[1] = sys.argv[1][:-2]
         # CONTROL PARAMETERS
         layer, station = int(sys.argv[2]), sys.argv[1].upper()
-        t_snr_treshold = 4.0 #signal to noise ratio treshold for transverse component
+        t_snr_treshold = 5.0 #signal to noise ratio treshold for transverse component
         path_to_data = "DATA/RF"
         path_to_models = "inv/initial"
         os.makedirs(f"inv/results/{station}", exist_ok=True)
         #reading RFs
         obser, baz, slow = reading_rfs(station, t_snr_treshold=t_snr_treshold, sort="baz")
+    
+    
         print("Station:", station,"- Observation Data Size:", obser.shape, "- Number of Layers:", layer )
         # reading the model bounds and fixed values
         bounds, fixed_values, mask = read_model(path_to_models, layer)
@@ -40,7 +46,7 @@ if __name__ == "__main__":
 
         # Inversion
         start_time = time.time()
-        results = optimize_model(bounds, fixed_values, mask, obser, baz, slow, layer, maxiter=5)
+        results = optimize_model(bounds, fixed_values, mask, obser, baz, slow, layer, maxiter=25)
         end_time = time.time()
         save_inv_summary(results, station, layer, obser.shape[0], end_time-start_time)
 
@@ -95,11 +101,13 @@ if __name__ == "__main__":
         # plt.show()
 
         # Plotting the model 
-        model = Model(flatten_x["thickn"], flatten_x["rho"], flatten_x["vp"], vs=flatten_x["vs"], strike=flatten_x["strike"], dip=flatten_x["dip"], plunge=flatten_x["plunge"], trend=flatten_x["trend"], ani=flatten_x["ani"])
+        model = Model(flatten_x["thickn"], flatten_x["rho"], flatten_x["vp"], vs=flatten_x["vs"],
+                      strike=flatten_x["strike"], dip=flatten_x["dip"], plunge=flatten_x["plunge"],
+                      trend=flatten_x["trend"], ani=flatten_x["ani"])
         fig_model = model.plot(show=False, zmax=70)
         fig_model.savefig(f"inv/results/{station}/model_{station}_{layer}_layer.png")
-        plt.close("all")
-        fig_model.clf()
+        # plt.close("all")
+        # fig_model.clf()
 
         # Plotting the model
         data_length = pred_data.shape[0]
@@ -110,6 +118,7 @@ if __name__ == "__main__":
         fig_model = model.plot()
         # plt.show()
         fig_model.savefig(f"inv/results/{station}/model_{station}_{layer}_layer.png")
+        plt.close("all")
 
         # Plotting the waveforms
         data_length = pred_data.shape[0]
