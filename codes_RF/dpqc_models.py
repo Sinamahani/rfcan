@@ -218,16 +218,16 @@ class DeepQC():
         
     
     def stats(self):
-        plt.figure(figsize=(4,5))
+        plt.figure(figsize=(3,5), dpi=200)
         """
         plotting a histogram of the labels to see the data distribution.
         """
         bins = [-0.5, 0.5, 1.5]
-        plt.hist(self.train_label, color="black", bins= bins, label="Training Data", alpha=0.5, rwidth=0.5)
+        plt.hist(self.train_label, color="black", bins= bins, label="Training Data", alpha=1, rwidth=0.25)
         plt.xlabel("Culling of Ps RF")
         plt.ylabel("Number of Ps RFs")
         # plt.subplot(1,2,2)
-        plt.hist(self.test_label, color="red", bins= bins, label="Test Data", alpha=0.5, rwidth=0.5)
+        plt.hist(self.test_label, color="red", bins= bins, label="Test Data", alpha=1, rwidth=0.25)
         plt.legend(loc="upper right")
         plt.xticks([0, 1], ["Unacceptable", "Acceptable"])
         # plt.title("test_label")

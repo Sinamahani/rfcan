@@ -121,10 +121,10 @@ class HkStack(object):
         self.strike = strike
         self.dip = dip
         self.vp = vp
-        self.kbound = [1.56, 2.1]
-        self.dk = 0.02
-        self.hbound = [20., 50.]
-        self.dh = 0.5
+        self.kbound = [1.6, 1.9]
+        self.dk = 0.01
+        self.hbound = [27.5, 42.5]
+        self.dh = 0.1
         self.weights = [0.5, 2., -1.]
         self.phases = ['ps', 'pps', 'pss']
 
@@ -376,7 +376,7 @@ class HkStack(object):
             self.err_k0 = 0.
             self.err_h0 = 0.
 
-    def error(self, q=0.02, err_method='amp'):
+    def error(self, q=0.05, err_method='amp'):
         """
         Method to determine the error on H and k estimates.
 
@@ -479,7 +479,8 @@ class HkStack(object):
         # Set up figure
         fig, ((ax1, ax2), (ax3, ax4)) = plt.subplots(
             2, 2, sharex=True, sharey=True)
-
+        #increase dpi
+        fig.set_dpi(200)
         # cmap = 'RdBu_r'
         cmap = "cividis"
 
