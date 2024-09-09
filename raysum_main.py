@@ -46,7 +46,7 @@ if __name__ == "__main__":
 
         # Inversion
         start_time = time.time()
-        results = optimize_model(bounds, fixed_values, mask, obser, baz, slow, layer, maxiter=25)
+        results = optimize_model(bounds, fixed_values, mask, obser, baz, slow, layer, maxiter=20)
         end_time = time.time()
         save_inv_summary(results, station, layer, obser.shape[0], end_time-start_time)
 
