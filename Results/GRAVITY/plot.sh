@@ -1,6 +1,7 @@
 #!/bin/bash
 # Inputs
 GRD_FILE="DGRAV_fixed.nc"
+GRD_FILE="dt/GRAV/grav.nc"
 DATA="Brief.csv"
 # setting the projection and region
 PROJECTION="-JL-85.5219/69.5921/50/79/6i"
@@ -87,12 +88,12 @@ OUTPUT_FILE="plots/PLOT_$TITLE"   # Output file name (PostScript format)
 gmt begin $OUTPUT_FILE
 background="gray50"
 gmt coast $PROJECTION $REGION -G$background -S$background
-gmt makecpt -Cpolar -T-350/200/10 -Z
+gmt makecpt -Cpolar -T-150/300/10 -Z
 # gmt grd2cpt $GRD_FILE -Cglobe
 gmt grdimage $GRD_FILE $PROJECTION $REGION -B
 gmt colorbar -C -Dx15c/13c+w5c/0.5c+jTC+h -Bxaf+l"Bouguer Anomaly" -By+lmGal
-gmt plot WK_bounds/WK_merged.txt -W2p,black
-gmt text WK_bounds/WK_labels.txt -F+a0+jML+f13,Helvetica-Bold,black -Dj0.1i/0.1i
+gmt plot dt/WK_merged.txt -W2p,black
+gmt text dt/WK_labels.txt -F+a0+jML+f13,Helvetica-Bold,black -Dj0.1i/0.1i
 
 #plotiing the data
 gmt makecpt -Ccool -T$min/$max/$step -Z -Iz
