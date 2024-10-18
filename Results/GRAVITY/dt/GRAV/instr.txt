@@ -1,0 +1,6 @@
+1. downloaded the files from NRCan
+2. convert the ERS file to netCDF (*.nc) by GDAL
+    ``` brew install gdal``` (in mac)
+    ``` gdal gdal_translate -a_ullr xmin ymin xmax ymax *.ERS output.nc ```
+    ** values of xmin and so on can be found in the xml companion files
+3. using the netCDF file in GMT.

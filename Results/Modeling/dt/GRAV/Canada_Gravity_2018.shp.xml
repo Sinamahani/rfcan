@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="gsc - iso 19139 (1).xslt"?>
+<gmd:MD_Metadata xsi:schemaLocation="http://www.isotc211.org/2005/gmd ../schemas/iso19139fra/gmd/gmd.xsd" xmlns:gco="http://www.isotc211.org/2005/gco" xmlns:geo="http://www.geosoft.com/schema/geo" xmlns:gmd="http://www.isotc211.org/2005/gmd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<geo:geosoft>
+		<geo:dataset version="1">
+			<geo:georeference>
+				<geo:projection type="GEOGRAPHIC" name="NAD83" ellipsoid="GRS 1980" datum="NAD83" wellknown_epsg="4269" datumtrf="NAD83 to WGS 84 (1)" datumtrf_epsg="1188" datumtrf_description="[NAD83] (4m) North America - all Canada and USA subunits" radius="6378137" eccentricity="0.0818191910428158">
+					<geo:shift x="0" y="0" z="0"/>
+					<geo:units name="dega" unit_scale="1"/>
+				</geo:projection>
+			</geo:georeference>
+			<geo:title>Gravity - CSV Point Data - CSV Données ponctuelles</geo:title>
+			<geo:purpose/>
+			<geo:subject>geophysics</geo:subject>
+			<geo:category/>
+			<geo:type/>
+			<geo:file_format>Geosoft Database</geo:file_format>
+			<geo:weblink/>
+			<geo:description>Gravity</geo:description>
+			<geo:continent>North America</geo:continent>
+			<geo:country>Canada</geo:country>
+			<geo:province_state>AB,BC,MB,NB,NL,NS,NT,NU,ON,PE,QC,SK,YT</geo:province_state>
+			<geo:region/>
+			<geo:project_name/>
+			<geo:data_source/>
+			<geo:project_type/>
+			<geo:resolution/>
+			<geo:unitofmeasurement/>
+			<geo:data_created_by/>
+			<geo:data_creation_date/>
+			<geo:metadata_created_by>Ouellet, Mathieu</geo:metadata_created_by>
+			<geo:metadata_creation_date>2018-12-04</geo:metadata_creation_date>
+			<geo:confidentiality/>
+			<geo:primary_theme>Geophysics - Compilations</geo:primary_theme>
+			<geo:project_number>10013</geo:project_number>
+			<geo:secondary_theme>Gravity</geo:secondary_theme>
+			<geo:support_documents>Open File 8076;https://geoscan.nrcan.gc.ca/starweb/geoscan/servlet.starweb?path=geoscan/fulle.web&amp;search1=R=299556;Open File 8077;https://geoscan.nrcan.gc.ca/starweb/geoscan/servlet.starweb?path=geoscan/fulle.web&amp;search1=R=299557;Open File 8078;https://geoscan.nrcan.gc.ca/starweb/geoscan/servlet.starweb?path=geoscan/fulle.web&amp;search1=R=299558;Open File 8079;https://geoscan.nrcan.gc.ca/starweb/geoscan/servlet.starweb?path=geoscan/fulle.web&amp;search1=R=299559;Open File 8080;https://geoscan.nrcan.gc.ca/starweb/geoscan/servlet.starweb?path=geoscan/fulle.web&amp;search1=R=299560;Open File 8081;https://geoscan.nrcan.gc.ca/starweb/geoscan/servlet.starweb?path=geoscan/fulle.web&amp;search1=R=299561;</geo:support_documents>
+			<geo:metadata_update_date>2021-12-14</geo:metadata_update_date>
+		</geo:dataset>
+		<geo:pages>
+			<geo:page id="pSingleDatasetGeneral"/>
+			<geo:page id="pSingleDatasetLocation"/>
+			<geo:page id="pSingleDatasetData"/>
+		</geo:pages>
+	</geo:geosoft>
+	<gmd:identificationInfo>
+		<gmd:MD_DataIdentification>
+			<gmd:citation>
+				<gmd:CI_Citation>
+					<gmd:title>
+						<gco:CharacterString>Gravity - CSV Point Data - CSV Données ponctuelles</gco:CharacterString>
+					</gmd:title>
+					<gmd:compilationName>
+						<gco:CharacterString>Compilation - Canada - Grav -- 2000 m</gco:CharacterString>
+					</gmd:compilationName>
+				</gmd:CI_Citation>
+			</gmd:citation>
+			<gmd:resourceFormat>
+				<gmd:MD_Format>
+					<gmd:name>
+						<gco:CharacterString>Geosoft Database</gco:CharacterString>
+					</gmd:name>
+				</gmd:MD_Format>
+			</gmd:resourceFormat>
+			<gmd:descriptiveKeywords>
+				<gmd:MD_Keywords>
+					<gmd:keyword>
+						<gco:CharacterString>Geophysics - Compilations</gco:CharacterString>
+					</gmd:keyword>
+				</gmd:MD_Keywords>
+			</gmd:descriptiveKeywords>
+			<gmd:ProcessingContractor>
+				<gco:CharacterString/>
+			</gmd:ProcessingContractor>
+			<gmd:AdministrationContractor>
+				<gco:CharacterString/>
+			</gmd:AdministrationContractor>
+			<gmd:supplementalInformation>
+				<gco:CharacterString>Open File 8076;https://geoscan.nrcan.gc.ca/starweb/geoscan/servlet.starweb?path=geoscan/fulle.web&amp;search1=R=299556;Open File 8077;https://geoscan.nrcan.gc.ca/starweb/geoscan/servlet.starweb?path=geoscan/fulle.web&amp;search1=R=299557;Open File 8078;https://geoscan.nrcan.gc.ca/starweb/geoscan/servlet.starweb?path=geoscan/fulle.web&amp;search1=R=299558;Open File 8079;https://geoscan.nrcan.gc.ca/starweb/geoscan/servlet.starweb?path=geoscan/fulle.web&amp;search1=R=299559;Open File 8080;https://geoscan.nrcan.gc.ca/starweb/geoscan/servlet.starweb?path=geoscan/fulle.web&amp;search1=R=299560;Open File 8081;https://geoscan.nrcan.gc.ca/starweb/geoscan/servlet.starweb?path=geoscan/fulle.web&amp;search1=R=299561;</gco:CharacterString>
+			</gmd:supplementalInformation>
+			<gmd:abstract>
+				<gco:CharacterString>This compilation contains data from Gravity parameters. The data were acquired between 1945-01-01 and 2016-05-31.</gco:CharacterString>
+				<gmd:PT_FreeText>
+					<gmd:TextGroup>
+						<gmd:LocalisedCharacterString>Cette compilation comporte des mesures de paramètres gravimétriques. Les données ont été acquises du 1945-01-01 au 2016-05-31.</gmd:LocalisedCharacterString>
+					</gmd:TextGroup>
+				</gmd:PT_FreeText>
+			</gmd:abstract>
+		</gmd:MD_DataIdentification>
+	</gmd:identificationInfo>
+	<gmd:contact>
+		<gmd:CI_ResponsibleParty>
+			<gmd:individualName>
+				<gco:CharacterString>zoltan</gco:CharacterString>
+			</gmd:individualName>
+		</gmd:CI_ResponsibleParty>
+		<gmd:C_ResponsibleParty>
+			<gmd:individualName>
+				<gco:CharacterString>zoltan</gco:CharacterString>
+			</gmd:individualName>
+		</gmd:C_ResponsibleParty>
+	</gmd:contact>
+	<gmd:referenceSystemInfo>
+		<gmd:MD_ReferenceSystem>
+			<gmd:referenceSystemIdentifier>
+				<gmd:RS_Identifier>
+					<gmd:codeSpace>
+						<gco:CharacterString>ESRI</gco:CharacterString>
+					</gmd:codeSpace>
+					<gmd:code>
+						<gco:CharacterString>GEOGCS["GCS_North_American_1983",DATUM["D_North_American_1983",SPHEROID["GRS_1980",6378137,298.257222101]],PRIMEM["Greenwich",0],UNIT["Degree",0.017453292519943295]]</gco:CharacterString>
+					</gmd:code>
+					<gmd:version>
+						<gco:CharacterString>1</gco:CharacterString>
+					</gmd:version>
+				</gmd:RS_Identifier>
+			</gmd:referenceSystemIdentifier>
+		</gmd:MD_ReferenceSystem>
+	</gmd:referenceSystemInfo>
+	<gmd:dateStamp>
+		<gco:Date>2018-12-04</gco:Date>
+	</gmd:dateStamp>
+</gmd:MD_Metadata>

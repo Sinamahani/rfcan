@@ -1,10 +1,10 @@
 #!/bin/bash
 # Inputs
-GRD_FILE="DGRAV_fixed.nc"
-GRD_FILE="dt/GRAV/grav.nc"
+GRD_FILE="/Users/sina/Desktop/RFCAN/rfcan/Results/GRAVITY/dt/GRAV/output.nc"
 DATA="Brief.csv"
 # setting the projection and region
 PROJECTION="-JL-85.5219/69.5921/50/79/6i"
+# PROJECTION="-JM6i"
 REGION="-R-106/-66/55/84"
 
 echo "Enter the number of plot you want to make:
@@ -88,17 +88,16 @@ OUTPUT_FILE="plots/PLOT_$TITLE"   # Output file name (PostScript format)
 gmt begin $OUTPUT_FILE
 background="gray50"
 gmt coast $PROJECTION $REGION -G$background -S$background
-gmt makecpt -Cpolar -T-150/300/10 -Z
-# gmt grd2cpt $GRD_FILE -Cglobe
-gmt grdimage $GRD_FILE $PROJECTION $REGION -B
-gmt colorbar -C -Dx15c/13c+w5c/0.5c+jTC+h -Bxaf+l"Bouguer Anomaly" -By+lmGal
+gmt makecpt -Cturbo -T-150/300/5 -Z
+gmt grdimage "$GRD_FILE" $PROJECTION $REGION -B -I+d
+gmt colorbar -C -Dx13c/17.5c+w5c/0.5c+jTC+h -Bxaf+l"Bouguer Anomaly" -By+lmGal
 gmt plot dt/WK_merged.txt -W2p,black
 gmt text dt/WK_labels.txt -F+a0+jML+f13,Helvetica-Bold,black -Dj0.1i/0.1i
 
 #plotiing the data
 gmt makecpt -Ccool -T$min/$max/$step -Z -Iz
 gmt plot $DATA_FILE $PROJECTION $REGION -Wfaint -B -C -Sc -i0,1,2,3s0.01 
-gmt colorbar -C -Dx15c/16c+w5c/0.5c+jTC+h -Bxaf+l$TITLE -By+l$colorbar_title
+gmt colorbar -C -Dx13c/19c+w5c/0.5c+jTC+h -Bxaf+l$TITLE -By+l$colorbar_title
 gmt text text_temp.txt -F+f6p,Helvetica-Bold+jLM -Dj0.4c/0c
 
 
