@@ -12,7 +12,8 @@ data = pd.read_csv(file_path)
 scaler = MinMaxScaler()
 data[['gravity_norm', 'moho_norm']] = scaler.fit_transform(data[['gravity', 'moho']])
 #filter data based on n=1
-# data = data[data['n'] == 1]
+data = data[data['moho']<40000]
+# data = data[data['misfit'] <=0.14]
 
 # Set plot style for publication
 sns.set(style="whitegrid", context="talk", palette="muted")

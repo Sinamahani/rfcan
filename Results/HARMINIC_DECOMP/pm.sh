@@ -3,6 +3,7 @@
 len=1.25
 awk -F"," -v len=$len '{$8=(450-$8)%360} NR> 1 {print $3, $2, $8, len, len}' hk-hd.csv > hdpm-2lobed.temp
 awk -F"," -v len=$len '{$9=(450-$9)%360} NR> 1 {print $3, $2, $9, len, len}' hk-hd.csv > hdpm-4lobed.temp
+awk -F"," -v len=$len '{$10=(450-$10)%360} NR> 1 {print $3, $2, $9, len, len}' hk-hd.csv > hdpm-rfpy.temp
 # # Range to plot
 lonExtend=10
 latExtend=1.5
@@ -32,5 +33,12 @@ gmt begin HarmoDec
   gmt plot hdpm-2lobed.temp -Sc0.05i -W0.01p -Baf -Gblack 
 gmt end show
 
+gmt begin HarmoDec-RfPy
+  gmt coast -Di $proj -Bafg -BWSne -Ggrey -Sazure2
+  gmt plot hdpm-rfpy.temp -SV0.1i+jc+ea -W1.5p,darkblue
+  gmt plot hdpm-rfpy.temp -Sc0.05i -W0.01p -Baf -Gblack
+gmt end show
+
 rm hdpm-2lobed.temp
 rm hdpm-4lobed.temp
+rm hdpm-rfpy.temp

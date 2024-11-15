@@ -23,15 +23,16 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.patches import Circle
 
-def baz_func(baz, type="radial"):
+def baz_func(baz, type="radial", modelled=True):
     """
     Calculate the azimuthal angle for each row of the matrix G.
     """
-    if type == "transverse":
-        phi = np.pi/2
-    else:
-        phi = 0
-    return [1, np.cos(baz*np.pi/180+phi), np.sin(baz*np.pi/180+phi),
+    first_element = 1 if type == "radial" else 0
+    phi = 0 if type == "radial" else np.pi/2
+    phi = phi if modelled else -phi
+    print("alan")
+
+    return [first_element, np.cos(baz*np.pi/180+phi), np.sin(baz*np.pi/180+phi),
             np.cos(2*baz*np.pi/180+phi/2), np.sin(2*baz*np.pi/180+phi/2)]
 
 def signal_to_noise_ratio(st):

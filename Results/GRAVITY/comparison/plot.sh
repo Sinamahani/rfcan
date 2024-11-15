@@ -10,13 +10,13 @@ REGION="-R-106/-66/55/84"
 # # Using awk to process the CSV file and extract the columns we need
 awk 'BEGIN {FS=","} NR>1 {print $4, $3, $5}' $DATA > temp.txt
 # Using awk to process the CSV file and extract the columns we need and filter the data based on n=1
-awk 'BEGIN {FS=","} NR>1 {gsub(/"/, "", $9); if ($9 == 1) print $4, $3, $5}' $DATA > temp-selected.txt
-awk 'BEGIN {FS=","} NR>1 {gsub(/"/, "", $9); if ($9 == 1) print $4, $3, $1}' $DATA > text-selected.txt
+awk 'BEGIN {FS=","} NR>1 {if ($5 <= 40000) print $4, $3, $5}' $DATA > temp-selected.txt
+awk 'BEGIN {FS=","} NR>1 {if ($5 <= 40000) print $4, $3, $1}' $DATA > text-selected.txt
 
 
 #plot using gmt
 DATA_FILE="temp.txt"   # Path to your data file
-OUTPUT_FILE="plots/PLOT_sina"   # Output file name (PostScript format)
+OUTPUT_FILE="plots/Map"   # Output file name (PostScript format)
 
 # Plot the background
 gmt begin $OUTPUT_FILE
