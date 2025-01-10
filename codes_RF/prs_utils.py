@@ -41,6 +41,7 @@ def plot_har_dec(X, time, **kwargs):
     lower_bond_show = kwargs.get("lower_bond_show", -.5)
     upper_bond_show = kwargs.get("upper_bond_show", 25)
     figsize = kwargs.get("figsize", (5, 5)) 
+    max_time = kwargs.get("max_time", 25)
 
     # Create a figure and a set of subplots (3 columns, 1 row)
     fig, ax = plt.subplots(nrows=1, ncols=5, sharey = True, figsize=figsize)
@@ -62,6 +63,7 @@ def plot_har_dec(X, time, **kwargs):
     fill_bet_func(0, time, A, upper_color, lower_color)
     ax[0].set_xlim([np.min(A)-A_diff, np.max(A)+A_diff])
     ax[0].set_xticks([])
+    ax[0].set_ylim([0, max_time])
 
     # B
     ax[1].plot(B, time, "black", label="Cos($\phi$)", linewidth=linewidth)
@@ -76,6 +78,7 @@ def plot_har_dec(X, time, **kwargs):
     fill_bet_func(2, time, C, upper_color, lower_color)
     ax[2].set_xlim([np.min(C)-C_diff, np.max(C)+C_diff])
     ax[2].set_xticks([])
+    ax[0].set_ylim([0, max_time])
 
     # D
     ax[3].plot(D, time, "black", label="Cos(2$\phi$)", linewidth=linewidth)
@@ -83,6 +86,7 @@ def plot_har_dec(X, time, **kwargs):
     fill_bet_func(3, time, D, upper_color, lower_color)
     ax[3].set_xlim([np.min(D)-D_diff, np.max(D)+D_diff])
     ax[3].set_xticks([])
+    ax[0].set_ylim([0, max_time])
 
     # E
     ax[4].plot(E, time, "black", label="Sin(2$\phi$)", linewidth=linewidth)
@@ -90,9 +94,10 @@ def plot_har_dec(X, time, **kwargs):
     fill_bet_func(4, time, E, upper_color, lower_color)
     ax[4].set_xlim([np.min(E)-E_diff, np.max(E)+E_diff])
     ax[4].set_xticks([])
+    ax[0].set_ylim([0, max_time])
 
     # set time axis
-    ax[0].set_ylim([lower_bond_show, np.max(time)])    
+    # ax[0].set_ylim([lower_bond_show, np.max(time)])    
     ax[0].set_ylabel("time (sec)")
 
     # Corrected line to invert y-axis

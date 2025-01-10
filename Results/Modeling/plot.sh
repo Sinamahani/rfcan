@@ -21,7 +21,7 @@ OUTPUT_FILE="Depth"   # Output file name (PostScript format)
 gmt begin $OUTPUT_FILE
     gmt makecpt -Cjet -T30/42/2 -Z
     gmt coast $PROJECTION $REGION -B -Ggrey -Sazure2
-    gmt plot dt/WK_merged.txt -W2p,black
+    gmt plot dt/WK_merged.shp -W2p,black
     gmt text dt/WK_labels.txt -F+a0+jML+f13,Helvetica-Bold,black -Dj0.1i/0.1i
     gmt plot $DATA_FILE -Wfaint  -Scc -C -i0,1,2,3s0.01
     gmt colorbar -C -Dx8c/2c+w12c/0.5c+jTC+h -Bxaf+l$OUTPUT_FILE -By+lkm
@@ -36,7 +36,7 @@ TITLE="Vp/Vs"
 gmt begin $OUTPUT_FILE
     gmt makecpt -Cjet -T1.6,1.7,1.8,1.9,2.0,2.1
     gmt coast $PROJECTION $REGION -B -Ggrey -Sazure2
-    gmt plot dt/WK_merged.txt -W2p,black
+    gmt plot dt/WK_merged.shp -W2p,black
     gmt text dt/WK_labels.txt -F+a0+jML+f13,Helvetica-Bold,black -Dj0.1i/0.1i
     gmt plot $DATA_FILE -Wfaint -i0,1,2,3s0.2 -Scc -C     
     gmt colorbar -C -Dx8c/2c+w12c/0.5c+jTC+h -Bxaf+l$TITLE -By
@@ -51,7 +51,7 @@ TITLE="Anisotropy"
 gmt begin $OUTPUT_FILE
     gmt makecpt -Cjet -T0,1.5,3,4.5,6,7.5
     gmt coast $PROJECTION $REGION -B -Ggrey -Sazure2
-    gmt plot dt/WK_merged.txt -W2p,black
+    gmt plot dt/WK_merged.shp -W2p,black
     gmt text dt/WK_labels.txt -F+a0+jML+f13,Helvetica-Bold,black -Dj0.1i/0.1i
     gmt plot $DATA_FILE -Wfaint -i0,1,2,3s0.08 -Scc -C     
     gmt colorbar -C -Dx8c/2c+w12c/0.5c+jTC+h -Bxaf+l$TITLE -By+l%
@@ -66,7 +66,7 @@ TITLE="Dip"
 gmt begin $OUTPUT_FILE
     gmt makecpt -Cjet -T0,1,2,3,4,5,6
     gmt coast $PROJECTION $REGION -B -Ggrey -Sazure2
-    gmt plot dt/WK_merged.txt -W2p,black
+    gmt plot dt/WK_merged.shp -W2p,black
     gmt text dt/WK_labels.txt -F+a0+jML+f13,Helvetica-Bold,black -Dj0.1i/0.1i
     gmt plot $DATA_FILE -Wfaint -i0,1,2,3s0.1 -Scc -C     
     gmt colorbar -C -Dx8c/2c+w12c/0.5c+jTC+h -Bxaf+l$TITLE -By+lDegree

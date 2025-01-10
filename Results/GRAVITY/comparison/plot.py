@@ -10,9 +10,9 @@ data = pd.read_csv(file_path)
 
 # Normalize both gravity and moho using Min-Max normalization (scaling between 0 and 1)
 scaler = MinMaxScaler()
-data[['gravity_norm', 'moho_norm']] = scaler.fit_transform(data[['gravity', 'moho']])
+data[['gravity_norm', 'moho_norm']] = scaler.fit_transform(data[['gravity', 'kappa']])
 #filter data based on n=1
-data = data[data['moho']<40000]
+# data = data[data['moho']<40000]
 # data = data[data['misfit'] <=0.14]
 
 # Set plot style for publication

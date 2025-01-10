@@ -1,9 +1,9 @@
 # #!/bin/sh
 #reading the csv file
-len=1.25
-awk -F"," -v len=$len '{$8=(450-$8)%360} NR> 1 {print $3, $2, $8, len, len}' hk-hd.csv > hdpm-2lobed.temp
-awk -F"," -v len=$len '{$9=(450-$9)%360} NR> 1 {print $3, $2, $9, len, len}' hk-hd.csv > hdpm-4lobed.temp
-awk -F"," -v len=$len '{$10=(450-$10)%360} NR> 1 {print $3, $2, $9, len, len}' hk-hd.csv > hdpm-rfpy.temp
+len=1.5
+awk -F"," '{$8=(450-$8)%360} NR> 1 {print $3, $2, $11, $9*3, $9*3}' hk-hd.csv > hdpm-2lobed.temp
+awk -F"," '{$9=(450-$9)%360} NR> 1 {print $3, $2, $12, $10*3, $10*3}' hk-hd.csv > hdpm-4lobed.temp
+awk -F"," -v len=$len '{$10=(450-$10)%360} NR> 1 {print $3, $2, $6, len, len}' hk-hd.csv > hdpm-rfpy.temp
 # # Range to plot
 lonExtend=10
 latExtend=1.5
@@ -21,24 +21,26 @@ latstd1=50
 latstd2=79
 # # Projection: Lambert conic
 proj="-JL$lonmid/$latmid/$latstd1/$latstd2/6i -R$lonmin/$lonmax/$latmin/$latmax"
-echo $proj
 
-gmt begin HarmoDec
+
+gmt begin HarmoDec-PM
 #   # Download SRTM data for Canada (adjust URL accordingly)
   # gmt grdcut @earth_relief_02m.grd -R$lonmin/$lonmax/$latmin/$latmax -Gcanada_topo.grd
-  # gmt grdimage canada_topo.grd -Cgeo -I+d $proj -Bafg -BWSne
-  gmt coast -Di $proj -Bafg -BWSne -Ggrey -Sazure2 
-  gmt plot hdpm-2lobed.temp -SV0.1i+jc+ea -W1.5p,darkblue
-  gmt plot hdpm-4lobed.temp -SV0.1i+jc+ea -W1.5p,darkred
-  gmt plot hdpm-2lobed.temp -Sc0.05i -W0.01p -Baf -Gblack 
+  gmt grdimage canada_topo.grd -Cnuuk -I+d $proj -Bafg -BWSne
+  gmt coast $proj -Dh -A1000 -W1p,black -BWenS -B5
+  gmt plot hdpm-2lobed.temp -SV3.5i+jc+ea -W3.5p,darkblue
+  gmt plot hdpm-4lobed.temp -SV3.5i+jc+ea -W3.5p,darkred
+  gmt plot hdpm-2lobed.temp -Sc0.075i -W0.01p -Baf -Gblack 
 gmt end show
 
 gmt begin HarmoDec-RfPy
-  gmt coast -Di $proj -Bafg -BWSne -Ggrey -Sazure2
-  gmt plot hdpm-rfpy.temp -SV0.1i+jc+ea -W1.5p,darkblue
+  gmt grdimage canada_topo.grd -Cnuuk -I+d $proj -Bafg -BWSne
+  gmt coast $proj -Dh -A1000 -W1p,black -BWenS -B5
+  gmt coast $proj -Dh -A1000 -W1p,black -BWenS -B5
+  gmt plot hdpm-rfpy.temp -SV2.5i+jc+ea -W2.5p,darkblue
   gmt plot hdpm-rfpy.temp -Sc0.05i -W0.01p -Baf -Gblack
 gmt end show
 
-rm hdpm-2lobed.temp
-rm hdpm-4lobed.temp
-rm hdpm-rfpy.temp
+# rm hdpm-2lobed.temp
+# rm hdpm-4lobed.temp
+# rm hdpm-rfpy.temp

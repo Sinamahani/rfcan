@@ -94,12 +94,12 @@ def read_model(path_to_models, layer):
     bounds = bounds[bounds["layer_code"] == layer].drop(columns=["layer_code"])
     fixed_vales = fixed_vales[fixed_vales["layer_code"] == layer].drop(columns=["layer_code"])
     
-   
     bounds = bounds.values.flatten()
     # create a mask for the non-fixed values
     mask = pd.notna(bounds)
     bounds = [ast.literal_eval(i) for i in bounds if str(i) != 'nan']
     return bounds, fixed_vales, mask
+
 
 def pyraysum_func(baz, slow, thickn, rho, vp, vs, dip, strike,
                   plunge, trend, ani, npts, dt) -> tuple:

@@ -1,4 +1,4 @@
-# awk '{FS=","; NR>1} {print $1}' inv/all_stations.csv | xargs -I {} python raysum_main.py {} 1
+# awk '{FS=","; NR>1} {print $1}' inv/all_stations.csv | xargs -I {} python raysum_main.py {} 2
 from pyraysum import Model
 from codes_RF.inv_func import *
 import numpy as np
@@ -68,7 +68,7 @@ if __name__ == "__main__":
         ###################
         plt.subplot(row, col, 1)
         plt.imshow(pred_data[:,0:426], aspect="auto")
-        plt.xticks(np.array([113, 163, 213, 263, 313]), [-10, -5, 0, 5, 10])
+        plt.xticks(np.array([163, 188, 213, 238, 263, 288, 313]), np.array([-10, -5, 0, 5, 10, 15, 20]))
         plt.yticks(y_val, [int(baz[y_val[0]]), int(baz[y_val[1]]), 
                         int(baz[y_val[2]]), int(baz[y_val[3]])])
         plt.ylabel("RFR (Pred)")
@@ -77,21 +77,21 @@ if __name__ == "__main__":
         plt.imshow(obser[:,0:426], aspect="auto")
         plt.ylabel("RFR (Obser)")
         plt.xlabel("Time (s)")
-        plt.xticks(np.array([113, 163, 213, 263, 313]), [-10, -5, 0, 5, 10])
+        plt.xticks(np.array([163, 188, 213, 238, 263, 288, 313]), np.array([-10, -5, 0, 5, 10, 15, 20]))
         plt.yticks(y_val, [int(baz[y_val[0]]), int(baz[y_val[1]]), 
                         int(baz[y_val[2]]), int(baz[y_val[3]])])
         ###################
         plt.subplot(row, col, 2)
         plt.imshow(pred_data[:,426:], aspect="auto")
         plt.ylabel("RFT (Pred)")
-        plt.xticks(np.array([113, 163, 213, 263, 313]), [-10, -5, 0, 5, 10])
+        plt.xticks(np.array([163, 188, 213, 238, 263, 288, 313]), np.array([-10, -5, 0, 5, 10, 15, 20]))
         plt.yticks(y_val, [int(baz[y_val[0]]), int(baz[y_val[1]]), 
                         int(baz[y_val[2]]), int(baz[y_val[3]])])
         ###################
         plt.subplot(row, col, 4)
         plt.imshow(obser[:,426:], aspect="auto")
         plt.ylabel("RFT (Obser)")
-        plt.xticks(np.array([113, 163, 213, 263, 313]), [-10, -5, 0, 5, 10])
+        plt.xticks(np.array([163, 188, 213, 238, 263, 288, 313]), np.array([-10, -5, 0, 5, 10, 15, 20]))
         plt.yticks(y_val, [int(baz[y_val[0]]), int(baz[y_val[1]]), 
                         int(baz[y_val[2]]), int(baz[y_val[3]])])
         plt.xlabel("Time (s)")
@@ -128,14 +128,14 @@ if __name__ == "__main__":
             fig, ax = plt.subplots(1, 2, figsize=(16, 2))
             ax[0].plot(i[0:426], label="RFR Pred")
             ax[0].plot(j[0:426], label="RFR Obser")
-            ax[0].set_xticks([163, 213, 263, 313, 363, 413], [-5, 0, 5, 10, 15, 20])
+            ax[0].set_xticks([188, 213, 238, 263, 288, 313], [-5, 0, 5, 10, 15, 20])
             ax[0].legend()
-            ax[0].set_xlim(100, 426)
+            ax[0].set_xlim(188, 333)
 
             ax[1].plot(i[426:], label="RFT Pred")
             ax[1].plot(j[426:], label="RFT Obser")
-            ax[1].set_xticks([163, 213, 263, 313, 363, 413], [-5, 0, 5, 10, 15, 20])
+            ax[0].set_xticks([188, 213, 238, 263, 288, 313], [-5, 0, 5, 10, 15, 20])
             ax[1].legend()
-            ax[1].set_xlim(100, 426)
+            ax[1].set_xlim(188, 333) # from -5 to 24 Seconds
             fig.suptitle(f"Station: {station} - Back Azimuth: {z:.0f} ")
             fig.savefig(f"inv/results/{station}/waveforms/layer_{layer}_baz{z:.0f}.png")

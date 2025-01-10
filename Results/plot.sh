@@ -2,10 +2,10 @@
 
 # Prompt the user for input
 while true; do
-    echo "Enter the parameter to be passed to the script (4 for depth; 5 for vpvs; 6 for ani):"
+    echo "Enter the parameter to be passed to the script (1 for depth; 2 for vpvs; 3 for ani):"
     read param
-    if [ $param -ne 4 ] && [ $param -ne 5 ] && [ $param -ne 6 ]; then
-        echo "Invalid parameter. Please enter 4, 5, or 6."
+    if [ $param -ne 1 ] && [ $param -ne 2 ] && [ $param -ne 3 ]; then
+        echo "Invalid parameter. Please enter 1, 2, or 3."
     else
         break
     fi
@@ -18,38 +18,43 @@ REGION="-R-106.002/-65.0417/55.0359/84.1483"
 
 
 # Using awk to process the CSV file
-awk -v param="$param" 'BEGIN {FS=","} NR>1 {print $3, $2, $param, $param, $1} {OFS=","}' hk-hd.csv > temp.txt
+colm=$((param+3))
+awk -v colm=$colm 'BEGIN {FS=","; OFS=","} NR>1 {print $3, $2, $colm, $colm, $1}' hk-hd_org.csv > temp.txt
 
 
 #plot using gmt
-if [ $param -eq 4 ]; then
+if [ $param -eq 1 ]; then   
     title="Depth"
     # Set variables
     DATA_FILE="temp.txt"   # Path to your data file
-    OUTPUT_FILE="MAPS/plot_depth_$title.ps"   # Output file name (PostScript format)
+    OUTPUT_FILE="MAPS/plot_depth_depth.ps"   # Output file name
     # Plot the data using GMT
     gmt begin $OUTPUT_FILE
-    gmt makecpt -Cjet -T24/40/2 -Z
+    gmt makecpt -Cjet -T24/46/2 -Z
     gmt coast $PROJECTION $REGION -B -Ggrey -Sazure2
     gmt plot temp.txt -Wfaint -i0,1,2,3s0.01 -Scc -C          #-Sc0.5c
-    gmt colorbar -C -Dx8c/2c+w12c/0.5c+jTC+h -Bxaf+l"Depth" -By+lkm
-    awk 'BEGIN {FS=","} NR>1 {print $3, $2, $1}' hk-hd.csv > new_temp.txt
+    gmt colorbar -C -Dx8c/2c+w12c/0.5c+jTC+h -Bxaf+l"$title" -By+lkm
+    awk 'BEGIN {FS=","} NR>1 {print $3, $2, $1}' hk-hd_org.csv > new_temp.txt
     gmt text new_temp.txt -F+f6p,Helvetica-Bold+jLM -Dj0.1c/0.2c
     gmt end
-elif [ $param -eq 5 ]; then
-    title="Vp_Vs"
+    rm temp.txt new_temp.txt
+
+elif [ $param -eq 2 ]; then
+    title="Vp/Vs"
     # Set variables
     DATA_FILE="temp.txt"   # Path to your data file
-    OUTPUT_FILE="MAPS/plot_depth_$title.ps"   # Output file name (PostScript format)
+    OUTPUT_FILE="MAPS/plot_depth_vpvs.ps"   # Output file name
     # Plot the data using GMT
     gmt begin $OUTPUT_FILE
-    gmt makecpt -Cjet -T1.6,1.7,1.8,1.9,2.0,2.1
+    gmt makecpt -Cjet -T1.6/2.1/0.01 -Z
     gmt coast $PROJECTION $REGION -B -Ggrey -Sazure2
     gmt plot temp.txt -Wfaint -i0,1,2,3s0.2 -Scc -C     
-    gmt colorbar -C -Dx8c/2c+w12c/0.5c+jTC+h -Bxaf+l$title -By+lkm
-    awk 'BEGIN {FS=","} NR>1 {print $3, $2, $1}' hk-hd.csv > new_temp.txt
+    gmt colorbar -C -Dx8c/2c+w12c/0.5c+jTC+h -Bxaf+l"$title" -By+lkm
+    awk 'BEGIN {FS=","} NR>1 {print $3, $2, $1}' hk-hd_org.csv > new_temp.txt
     gmt text new_temp.txt -F+f6p,Helvetica-Bold+jLM -Dj0.3c/0.1c
     gmt end
+    rm temp.txt new_temp.txt
+
 else
     title="Anisotropy"
     # Set variables
@@ -65,5 +70,7 @@ else
     awk 'BEGIN {FS=","} NR>1 {print $3, $2, $1}' hk-hd.csv > new_temp.txt
     gmt text new_temp.txt -F+f6p,Helvetica+jLM -Dj0.1c/0.2c -Gwhite
     gmt end
+    rm temp.txt new_temp.txt
+
 fi
 
