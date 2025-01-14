@@ -1,9 +1,10 @@
 # #!/bin/sh
 #reading the csv file
 len=1.5
-awk -F"," '{$8=(450-$8)%360} NR> 1 {print $3, $2, $11, $9*3, $9*3}' hk-hd.csv > hdpm-2lobed.temp
-awk -F"," '{$9=(450-$9)%360} NR> 1 {print $3, $2, $12, $10*3, $10*3}' hk-hd.csv > hdpm-4lobed.temp
-awk -F"," -v len=$len '{$10=(450-$10)%360} NR> 1 {print $3, $2, $6, len, len}' hk-hd.csv > hdpm-rfpy.temp
+awk -F"," '{$8=(450-$8)%360} NR> 1 {print $3, $2, $7, $6*5}' hk-hd.csv > hdpm-2lobed.temp
+awk -F"," '{$9=(450-$9)%360} NR> 1 {print $3, $2, $11, $10*5}' hk-hd.csv > hdpm-4lobed.temp
+# awk -F"," -v len=$len '{$10=(450-$10)%360} NR> 1 {print $3, $2, $6, len, len}' hk-hd.csv > hdpm-rfpy.temp
+awk -F"," 'NR> 1 {print $3, $2, $1}' hk-hd.csv > hdtext.temp
 # # Range to plot
 lonExtend=10
 latExtend=1.5
@@ -29,17 +30,18 @@ gmt begin HarmoDec-PM
   gmt grdimage canada_topo.grd -Cnuuk -I+d $proj -Bafg -BWSne
   gmt coast $proj -Dh -A1000 -W1p,black -BWenS -B5
   gmt plot hdpm-2lobed.temp -SV3.5i+jc+ea -W3.5p,darkblue
-  gmt plot hdpm-4lobed.temp -SV3.5i+jc+ea -W3.5p,darkred
+  gmt plot hdpm-4lobed.temp -SV2.5i+jc+ea -W2.5p,darkred
   gmt plot hdpm-2lobed.temp -Sc0.075i -W0.01p -Baf -Gblack 
+  gmt text hdtext.temp -F+f10p,Helvetica -D0.9c/0.2c -Gwhite@50
 gmt end show
 
-gmt begin HarmoDec-RfPy
-  gmt grdimage canada_topo.grd -Cnuuk -I+d $proj -Bafg -BWSne
-  gmt coast $proj -Dh -A1000 -W1p,black -BWenS -B5
-  gmt coast $proj -Dh -A1000 -W1p,black -BWenS -B5
-  gmt plot hdpm-rfpy.temp -SV2.5i+jc+ea -W2.5p,darkblue
-  gmt plot hdpm-rfpy.temp -Sc0.05i -W0.01p -Baf -Gblack
-gmt end show
+# gmt begin HarmoDec-RfPy
+#   gmt grdimage canada_topo.grd -Cnuuk -I+d $proj -Bafg -BWSne
+#   gmt coast $proj -Dh -A1000 -W1p,black -BWenS -B5
+#   gmt coast $proj -Dh -A1000 -W1p,black -BWenS -B5
+#   gmt plot hdpm-rfpy.temp -SV2.5i+jc+ea -W2.5p,darkblue
+#   gmt plot hdpm-rfpy.temp -Sc0.05i -W0.01p -Baf -Gblack
+# gmt end show
 
 # rm hdpm-2lobed.temp
 # rm hdpm-4lobed.temp
